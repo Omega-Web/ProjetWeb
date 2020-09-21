@@ -3,7 +3,6 @@
 namespace Code\Model;
 
 Use DateTime;
-USe Exception;
 
 class Movie
 {
@@ -16,23 +15,13 @@ class Movie
 
     public function __construct($data)
     {
-        $this->id = $data['id'];
-        $this->title = $data['title'];
-        $this->plot = $data['plot'];
-        try{
-            $date =new DateTime($data['date']);
-            $this->setDate($date);
-        }catch(Exception $e)
-        {
-            die($e->getMessage());
-        }
-        $this->setAge_restriction_id($data['age_restriction_id'] ?? 0);
+        
     }
 
     public function setId($id)
     {
         $this->id = $id;
-        return $this;
+       
     }
 
     public function getId()
@@ -43,7 +32,6 @@ class Movie
     public function setTitle($plot)
     {
         $this->plot = $plot;
-        return $this;
     }
 
     public function getTitle()
