@@ -14,8 +14,6 @@ class Database {
 
     public static function get(){
         // Variables logi
-        
-        echo "DESSERE";
 
         //echo 'scc';
         if (!self::$con){

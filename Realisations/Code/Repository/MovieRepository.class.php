@@ -42,17 +42,19 @@ class MovieRepository implements IMovieProvider
         return new Movie($data);
 
     }
-    public function findByTitle(string $title): array
+    public function findAllByTitle(string $title): array
     {
         $stt = $this->con->prepare('SELECT * FROM movie where title like ?');
         $stt->execute(array("$title%"));
-        $data = $stt->fetch(PDO::FETCH_ASSOC);
         $Movies = [];
         while($data = $stt->fetch(PDO::FETCH_ASSOC))
         {
             $Movies[]= new Movie($data);
-        }   
+        }  
+         
         return $Movies;
 
     }
+
+    
 }

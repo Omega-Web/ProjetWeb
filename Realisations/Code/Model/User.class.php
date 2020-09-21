@@ -2,6 +2,9 @@
 
 namespace Code\Model;
 
+use DateTime;
+use Exception;
+
 class User {
     private $id;
     private $firstname;
@@ -13,11 +16,18 @@ class User {
 
     public function __construct(array $data)
     {
-        $this->id_user = setId($data['id_user']);
-        $this->firstname = setFirstname($data['firstname']);
-        $this->lastname = setLastname($data['lastname']);
-        $this->email = setEmail($data['email']);
-
+        $this->setId($data['id_user']);
+        $this->setFirstname($data['firstname']);
+        $this->setLastname($data['lastname']);
+        $this->setEmail($data['email']);
+        $this->setPseudo($data['pseudo']);
+        $this->setPassword($data['password']);
+        try {
+            $date = new DateTime($data['birthday']);
+            $this->setBirthday($date);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
 
 

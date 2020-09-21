@@ -2,11 +2,70 @@
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   background-color: #010F21;
+  font-size: 1rem;
 }
 
-#username {
+* #div-logo, html #div-logo {
+  text-align: center;
+}
+
+* #div-logo #logo, html #div-logo #logo {
+  width: 250px;
+  height: auto;
+  margin: 3vh auto 5vh auto;
+}
+
+* form, html form {
+  text-align: center;
+}
+
+* form #username, html form #username {
   background-color: #FFFFFF;
   color: #000000;
   outline: none;
+  border: none;
+  border-radius: 2px;
+  height: 6.5vh;
+  width: 25vw;
+  padding: 0.5vh 1vw;
+  margin: 1vh 0vw;
+}
+
+* form #password, html form #password {
+  background-color: #FFFFFF;
+  color: #000000;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  height: 6.5vh;
+  width: 25vw;
+  padding: 0.5vh 1vw;
+  margin: 1vh 0vw;
+}
+
+* form button, html form button {
+  background-color: #2869D1;
+  color: #FFFFFF;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  height: 6.5vh;
+  width: 12vw;
+  padding: 1vh 0vw;
+  margin: 3vh 1vw 0 0;
+}
+
+* form button:hover, html form button:hover {
+  cursor: pointer;
+  background-color: #D9B68B;
+}
+
+* .connect-subscribe, html .connect-subscribe {
+  text-align: center;
+  font-size: 0.83333rem;
+}
+
+* .connect-subscribe a, html .connect-subscribe a {
+  font-size: 0.83333rem;
 }
 /*# sourceMappingURL=connection.css.map */

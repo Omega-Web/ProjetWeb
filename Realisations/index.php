@@ -14,16 +14,6 @@ Use PDO;
 
 
 
- //$con = new PDO('mysql:host=localhost:8889,dbname=videotheque', 'root', 'root');
-
-$MovieRepo = new MovieRepository(Database::get());
-$Movies[] = $MovieRepo->findByTitle("P");
-foreach($Movies as $Movie)
-{
-   print($Movie->getTitle());
-}
-
-
 
 
 

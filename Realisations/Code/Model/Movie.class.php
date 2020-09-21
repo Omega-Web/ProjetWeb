@@ -17,7 +17,7 @@ class Movie
     public function __construct($data)
     {
         $this->setId( $data['id']);
-        $this->setTitle($data['title'] ?? '');
+        $this->setTitle($data['title'] ?? 'pute');
         $this->setPlot($data['plot'] ?? '');
         $this->setDuration($data['duration']);
         try{
@@ -42,14 +42,14 @@ class Movie
         return $this->id;
     }
 
-    public function setTitle($plot)
+    public function setTitle($title)
     {
-        $this->plot = $plot;
+        $this->title = $title;
     }
 
     public function getTitle()
     {
-       return $this->plot;
+       return $this->title;
     }
     
 

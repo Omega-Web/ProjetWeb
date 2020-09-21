@@ -9,5 +9,5 @@ interface IMovieProvider {
 
     public function findOne(int $id): Movie;
 
-    public function findByTitle(string $title):array;
+    public function findAllByTitle(string $title):array;
 }
