@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AASA,AAAA,CAAC,EAAE,IAAI,CAAC;EACJ,KAAK,EANG,OAAO;EAOf,WAAW,EAAE,oBAAoB;EACjC,gBAAgB,EAZF,OAAO;CAaxB;;AAED,AAAA,SAAS,CAAA;EACL,gBAAgB,EAXJ,OAAO;EAYnB,KAAK,EAXO,OAAO;EAYnB,OAAO,EAAE,IAAI;CAEhB",
+    "sources": [
+        "connection.scss"
+    ],
+    "names": [],
+    "file": "connection.css"
+}

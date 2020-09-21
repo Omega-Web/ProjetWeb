@@ -1,8 +1,9 @@
 <?php 
 
+namespace Code\Model;
+
 class User {
-    private $db;
-    
+    private $id;
     private $firstname;
     private $lastname;
     private $email;
@@ -10,11 +11,29 @@ class User {
     private $password;
     private $birthday;
 
-    function __construct()
+    public function __construct(array $data)
     {
-        $this->db = $db;
+        $this->id_user = setId($data['id_user']);
+        $this->firstname = setFirstname($data['firstname']);
+        $this->lastname = setLastname($data['lastname']);
+        $this->email = setEmail($data['email']);
+
     }
 
+
+    /**
+     * @return int
+     */
+    public function getId(): int {
+        return $this->id_user;
+    }
+
+    /**
+     * @param int $id_user
+     */
+    public function setId(int $id_user): void {
+        $this->id_user = $id_user;
+    }
 
     /**
      * Get the value of firstname

@@ -3,6 +3,7 @@
 namespace Code\Model;
 
 Use DateTime;
+USe Exception;
 
 class Movie
 {
@@ -15,7 +16,19 @@ class Movie
 
     public function __construct($data)
     {
-        
+        $this->setId( $data['id']);
+        $this->setTitle($data['title'] ?? '');
+        $this->setPlot($data['plot'] ?? '');
+        $this->setDuration($data['duration']);
+        try{
+            $date =new DateTime($data['date']);
+            $this->setDate($date);
+        }catch(Exception $e)
+        {
+            die($e->getMessage());
+        }
+        $this->setAge_restriction_id($data['age_restriction_id'] ?? 0);
+
     }
 
     public function setId($id)

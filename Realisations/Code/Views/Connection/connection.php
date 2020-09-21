@@ -1,16 +1,17 @@
 <?php
-require_once 'bootstrap.php';
 
 use Code\Infrastructure\Database;
-use PDO;
+use PDOException;
+Use PDO;
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-$con = Database::get();
-  
+
+
 if(!empty($_POST['username']) && !empty($_POST['password'])) {
     try{
+        $con = Database::get();
         $sql = 'SELECT SQL_SMALL_RESULT id, username FROM user WHERE username=:name AND password=:pwd LIMIT 1';
         $stt = $con->prepare($sql);
         $stt->bindValue('name', $_POST['username'], PDO::PARAM_STR);
@@ -28,16 +29,25 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
 
 } else {
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection</title>
+    <link rel="stylesheet" href="connection.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+</head>
+<body>
 <form method="post">
-    <label for="username">Username</label>
-    <input id="username" name="username">
+    <input id="username" name="username" placeholder="Nom d'utilisateur">
     <br>
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password">
+    <input id="password" name="password" type="password" placeholder="Mot de passe">
     <br>
-    <button type="submit">Submit</button>
+    <button type="submit">Se connecter</button>
     </form>
-
+</body>
+</html>
     <?php
 }
  

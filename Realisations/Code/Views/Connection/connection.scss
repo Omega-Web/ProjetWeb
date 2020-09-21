@@ -1,0 +1,21 @@
+$background-color:#010F21;
+$button-color:#2869D1;
+$cookie-color:#158BBF;
+$selected-color:#D9B68B;
+$font-color:#FFFFFF;
+$input-bg-color:#FFFFFF;
+$input-ft-color:#000000;
+
+
+*, html {
+    color: $font-color;
+    font-family: 'Roboto', sans-serif;
+    background-color: $background-color;
+}
+
+#username{
+    background-color: $input-bg-color;
+    color: $input-ft-color;
+    outline: none;
+    
+}
