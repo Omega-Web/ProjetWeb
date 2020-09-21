@@ -14,8 +14,8 @@ echo"FERNANDES";
 try
 {
  global $con;
- //$con = new PDO('mysql:host=localhost:8889,dbname=videotheque', 'root', 'root');
- $con = Database::get();
+ $con = new PDO('mysql:host=localhost:8889,dbname=videotheque', 'root', 'root');
+ //$con = Database::get();
 }
 catch(PDOException $e)
 {
