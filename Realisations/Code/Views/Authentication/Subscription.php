@@ -36,7 +36,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connection</title>
-    <link rel="stylesheet" href="connection.css">
+    <link rel="stylesheet" href="Styles/Subscription.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
 </head>
 <body>
@@ -44,13 +44,21 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
         <img id="logo" src="../../../design/logoWEB2.png" alt="">
     </div>
     <form method="post">
+        <input id="firstname" name="firstname" placeholder="Prénom">
+        <br>
+        <input id="lastname" name="lastname" placeholder="Nom">
+        <br>
+        <input id="email" name="email" placeholder="Adresse e-mail">
+        <br>
+        <input id="dob" name="dob" placeholder="Date de naissance">
+        <br>
         <input id="username" name="username" placeholder="Nom d'utilisateur">
         <br>
         <input id="password" name="password" type="password" placeholder="Mot de passe">
         <br>
-        <button type="submit">Se connecter</button>
+        <button id="button" type="submit">Se connecter</button>
         </form>
-        <p class="connect-subscribe">Vous ne possédez pas encore de compte ? Inscrivez-vous <a href="#">ici</a></p>
+        <p class="connect-subscribe">Vous ne possédez pas encore de compte ? Inscrivez-vous <a href="Connection.php">ici</a></p>
     
     <footer>
         <ul class="wrapper">
