@@ -35,7 +35,7 @@ class UserRepository implements IUserProvider {
         return new User($data);
 
     }
-    public function saveUser($user)
+    public function saveUser($user): int
     {
         if($user->getId() === 0 ||$user->getId() === NULL) {
             $sql = 'INSERT INTO user (firstname,lastname,email,username,password,birthday) VALUES (:firstname, :lastname, :email, :username, :password, :birthday)';
