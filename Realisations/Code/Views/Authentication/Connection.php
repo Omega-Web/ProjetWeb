@@ -1,9 +1,13 @@
 <?php
 
-require_once '../../Infrastructure/Database.class.php';
+require_once '../../../bootstrap.php';
+
 use Code\Infrastructure\Database;
-use PDOException;
-Use PDO;
+use Code\Utils\Authentication;
+use Code\Repository\StaffRepository;
+use Code\Repository\UserRepository;
+use Code\Model\User;
+
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -12,6 +16,7 @@ ini_set("display_errors", 1);
 
 if(!empty($_POST['username']) && !empty($_POST['password'])) {
     try{
+<<<<<<< HEAD
         $con = Database::get();
         $sql = 'SELECT SQL_SMALL_RESULT id, username FROM user WHERE username=:name AND password=:pwd LIMIT 1';
         $stt = $con->prepare($sql);
@@ -21,10 +26,19 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
         $user = $stt->fetch(PDO::FETCH_ASSOC);
         if ($user){
             echo 'Bienvenue ' . $user['username'];
+=======
+        $authen = new Authentication(Database::get()); 
+        $id_user = $authen->Compare($_POST['username'],$_POST['password']);
+
+        if ($id_user > 0){
+            $UserRepo  = new UserRepository(Database::get()); 
+            $user = $UserRepo->findOne($id_user);
+            echo 'Bienvenue ' . $user->getUsername();
+>>>>>>> caa08bda0001a4f41e9d44b28ae52dd368c351fe
         } else {
             echo 'Le nom d\'utilisateur ou l\'identifiant est érroné';
         }
-    } catch (PDOException $e) {
+    } catch (Exception $e) {
         die($e->getMessage());
 }
 
