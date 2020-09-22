@@ -1,5 +1,7 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine Off
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ index.php [L,QSA]
-</IfModule>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RedirectPermanent /ProjetWeb/Realisations/index.php /ProjetWeb/Realisations/Code/Views/Connection/connection
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
