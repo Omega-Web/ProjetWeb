@@ -18,7 +18,7 @@ class Staff
         $this->setFirstname($data['firstname']);
         $this->setLastname($data['lastname']);
         try{
-            $date =new DateTime($data['date']);
+            $date =new DateTime($data['birthday']);
             $this->setBirthdate($date);
         }catch(Exception $e)
         {
