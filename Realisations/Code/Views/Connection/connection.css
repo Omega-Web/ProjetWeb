@@ -68,4 +68,25 @@
 * .connect-subscribe a, html .connect-subscribe a {
   font-size: 0.83333rem;
 }
+
+* footer .wrapper, html footer .wrapper {
+  margin: 15vh auto 0 auto;
+  width: 35vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+* footer .wrapper li, html footer .wrapper li {
+  list-style-type: none;
+  margin: 0 2vw;
+}
+
+* footer .wrapper li a, html footer .wrapper li a {
+  color: #787575;
+  font-size: 0.83333rem;
+  text-decoration: none;
+}
 /*# sourceMappingURL=connection.css.map */

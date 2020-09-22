@@ -52,10 +52,14 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
         </form>
         <p class="connect-subscribe">Vous ne possédez pas encore de compte ? Inscrivez-vous <a href="#">ici</a></p>
     
-    
-    
-    
-    
+    <footer>
+        <ul class="wrapper">
+            <li class="one"><a href="">CGU</a></li>
+            <li class="two"><a href="">Mentions légales</a></li>
+            <li class="three"><a href="">FAQ</a></li>
+        </ul>
+    </footer>
+
     </body>
 </html>
     <?php
