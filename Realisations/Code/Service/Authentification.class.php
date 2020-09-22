@@ -1,14 +1,12 @@
 <?php
-namespace Code\Infrastructure;
 
-use PDO;
-use PDOException;
+Use Code\Model\User;
 
-class Database {
+class Authentification {
 
-    private static $con;
+     $con;
 
-    private function __contruct() {
+    public function __contruct() {
 
     }
 
@@ -31,5 +29,4 @@ class Database {
         }
         return self::$con;
     }
-
 }
