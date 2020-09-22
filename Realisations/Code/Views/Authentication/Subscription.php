@@ -1,24 +1,27 @@
 <?php
 
+//namespace Code\Views\Authentication;
 require_once '../../Model/User.class.php';
 use Code\Model\User;
 use PDOException;
-Use PDO;
+use PDO;
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 
-if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['username']) &&!empty($_POST['dob']) && !empty($_POST['password'])) {
+if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['username']) &&!empty($_POST['dob']) && !empty($_POST['password']) && !empty($_POST['email'])) {
     $tabUser = array();
     $tabUser['firstname']   = $_POST['firstname'];
     $tabUser['lastname']    = $_POST['lastname'];
     $tabUser['username']    = $_POST['username'];
-    $tabUser['password']    = $_POST['password '];
+    $tabUser['password']    = $_POST['password'];
+    $tabUser['email']       = $_POST['email'];
     $tabUser['birthday']    = $_POST['dob'];
 
     $newUser = new User($tabUser);
     print_r($newUser);
+    
 } else {
 ?>
 <!DOCTYPE html>
