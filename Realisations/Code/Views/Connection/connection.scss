@@ -17,6 +17,8 @@ $button-height: 8vh;
 $button-width: 12vw;
 $form-margin: 1vh 0vw;
 $form-padding: 0.5vh 1vw;
+$footer-font: #787575;
+$footer-ul-width: 35vw;
 
 *, html {
     color: $font-color;
@@ -81,6 +83,25 @@ $form-padding: 0.5vh 1vw;
         font-size: $font-size/1.2;
         a{
             font-size: $font-size/1.2;
+        }
+    }
+
+    footer{
+        .wrapper {
+            margin: 15vh auto 0 auto;
+            width: $footer-ul-width;
+            display: flex;
+            justify-content: space-around;
+
+            li{
+                list-style-type: none;
+                margin: 0 2vw;
+                a{
+                    color: $footer-font;
+                    font-size: $font-size/1.2;
+                    text-decoration: none;
+                }
+            }
         }
     }
 
