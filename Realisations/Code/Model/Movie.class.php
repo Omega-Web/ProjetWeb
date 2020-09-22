@@ -4,6 +4,7 @@ namespace Code\Model;
 
 Use DateTime;
 USe Exception;
+use Genre;
 
 class Movie
 {
@@ -13,6 +14,7 @@ class Movie
     private $duration;
     private $date;
     private $age_restriction_id;
+    private Genre $genres;
 
     public function __construct($data)
     {
@@ -129,6 +131,26 @@ class Movie
     public function setAge_restriction_id($age_restriction_id)
     {
         $this->age_restriction_id = $age_restriction_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of genres
+     */ 
+    public function getGenres()
+    {
+        return $this->genres;
+    }
+
+    /**
+     * Set the value of genres
+     *
+     * @return  self
+     */ 
+    public function setGenres($genres)
+    {
+        $this->genres = $genres;
 
         return $this;
     }
