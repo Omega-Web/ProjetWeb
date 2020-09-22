@@ -37,14 +37,14 @@ class UserRepository implements IUserProvider {
     }
     public function saveUser($user)
     {
-        $stt = $this->con->prepare('INSERT INTO user VALUES firstname=:firstname,lastname=:lastname,username=:username,email=:email,birhday=:birthday');
+        $stt = $this->con->prepare('INSERT INTO user (firstname,lastname,email,username,password,birthday) VALUES (:firstname, :lastname, :email, :username, :password, :birthday)');
         $stt-> bindValue('firstname',$user->getFirstname(),PDO::PARAM_STR);
         $stt-> bindValue('lastname',$user->getLastname(),PDO::PARAM_STR);
         $stt-> bindValue('username',$user->getUsername(),PDO::PARAM_STR);
         $stt-> bindValue('email',$user->getEmail(),PDO::PARAM_STR);
-        $stt-> bindValue('password',$user->getPassword(),PDO::PARAM_STR);
-        $stt-> bindValue('birthday',$user->getBirthday()->format('Y-m-d H:i:s'));
-        //print_r($stt);
+        $stt-> bindValue('password',password_hash($user->getPassword(),PASSWORD_BCRYPT),PDO::PARAM_STR);
+        $stt-> bindValue('birthday',$user->getBirthday()->format('Y-m-d'));
+        print_r($stt);
         $stt->execute();
         $stt->closeCursor();
     }
