@@ -20,6 +20,7 @@ class Authentification {
         $stt-> bindValue('password',$password,PDO::PARAM_STR);
         $stt->execute();
         $data = $stt->fetch(PDO::FETCH_ASSOC);
+        $stt->closeCursor();
         return new User($data);
     }
 }
