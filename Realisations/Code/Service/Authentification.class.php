@@ -4,29 +4,22 @@ Use Code\Model\User;
 
 class Authentification {
 
-     $con;
+     
 
-    public function __contruct() {
+    private $con;
 
+    public function __construct(PDO $con)
+    {
+        $this->con = $con;
     }
 
-    public static function get(){
-        // Variables logi
-
-        //echo 'scc';
-        if (!self::$con){
-            try {
-                
-                // self::$con = new PDO('mysql:host=localhost:8889,dbname=videotheque', 'admin_videotheque', 'admin_videotheque');
-                self::$con = new PDO('mysql:host=localhost;port=3308;dbname=videotheque', 'root', '');
-                self::$con->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
-                self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                self::$con->exec('SET NAMES "utf8"');
-                
-            } catch (PDOException $e) {
-                die($e->getMessage());
-            }
-        }
-        return self::$con;
+    public function Compare(string $username ,string $password):User
+    {
+        $stt = $this->con->prepare('SELECT * FROM user where speudo=:username and password=:password');
+        $stt-> bindValue('username',$username,PDO::PARAM_STR);
+        $stt-> bindValue('password',$password,PDO::PARAM_STR);
+        $stt->execute();
+        $data = $stt->fetch(PDO::FETCH_ASSOC);
+        return new User($data);
     }
 }
