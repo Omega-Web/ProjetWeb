@@ -4,8 +4,8 @@ namespace Code\Repository;
 
 require_once 'bootstrap.php';
 
-require_once './Provider/IMovieProvider.class.php';
-require_once './Model/Movie.class.php';
+//require_once './Provider/IMovieProvider.class.php';
+//require_once './Model/Movie.class.php';
 use PDO;
 use Code\Model\Movie;
 use Code\Provider\IMovieProvider;

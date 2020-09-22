@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 require_once 'bootstrap.php';
-require_once './Infrastructure/Database.class.php';
-require_once './Repository/MovieRepository.class.php';
+//require_once 'Code/Infrastructure/Database.class.php';
+//require_once 'Code//Repository/MovieRepository.class.php';
 use Code\Infrastructure\Database;
 use Code\Repository\MovieRepository;
 use PDOException;
@@ -13,9 +13,10 @@ Use PDO;
 
 
 
-
-
-
+/*
+$repo = new MovieRepository(Database::get());
+$Movies = $repo->findAll();
+print_r($Movies);*/
 
 // $ctrl->render('Home/index');
 
