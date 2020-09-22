@@ -29,7 +29,8 @@ class MovieRepository implements IMovieProvider
         while($data = $rs->fetch(PDO::FETCH_ASSOC))
         {
             $Movies[]= new Movie($data);
-        }   
+        } 
+        $rs->closeCursor();
         return $Movies;
     }
     public function findOne(int $id):Movie
@@ -39,7 +40,9 @@ class MovieRepository implements IMovieProvider
         $stt-> bindValue('id',$id,PDO::PARAM_INT);
         $stt->execute();
         $data = $stt->fetch(PDO::FETCH_ASSOC);
+        $stt->closeCursor();
         return new Movie($data);
+        
 
     }
     public function findAllByTitle(string $title): array
@@ -51,7 +54,7 @@ class MovieRepository implements IMovieProvider
         {
             $Movies[]= new Movie($data);
         }  
-         
+        $stt->closeCursor();
         return $Movies;
 
     }
