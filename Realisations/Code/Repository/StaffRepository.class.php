@@ -27,6 +27,7 @@ class StaffRepository implements IStaffProvider
         {
             $Staffs[]= new Staff($data);
         }   
+        $rs->closeCursor();
         return $Staffs;
     }
 
@@ -37,6 +38,7 @@ class StaffRepository implements IStaffProvider
         $stt-> bindValue('id',$id,PDO::PARAM_INT);
         $stt->execute();
         $data = $stt->fetch(PDO::FETCH_ASSOC);
+        $stt->closeCursor();
         return new Staff($data);
 
     }
@@ -50,7 +52,7 @@ class StaffRepository implements IStaffProvider
         {
             $Staffs[]= new Movie($data);
         }  
-         
+        $stt->closeCursor();
         return $Staffs;
 
     }

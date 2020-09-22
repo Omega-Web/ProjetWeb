@@ -16,12 +16,11 @@ class User {
 
     public function __construct(array $data)
     {
-        $this->setId($data['id_user']);
+        $this->setId($data['id']);
         $this->setFirstname($data['firstname']);
         $this->setLastname($data['lastname']);
         $this->setEmail($data['email']);
         $this->setPseudo($data['pseudo']);
-        $this->setPassword($data['password']);
         try {
             $date = new DateTime($data['birthday']);
             $this->setBirthday($date);
