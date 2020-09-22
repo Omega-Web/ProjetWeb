@@ -1,24 +1,5 @@
-$background-color:#010F21;
-$button-color:#2869D1;
-$cookie-color:#158BBF;
-$selected-color:#D9B68B;
-$font-color:#FFFFFF;
-$input-bg-color:#FFFFFF;
-$input-ft-color:#000000;
-$input-height: 6.5vh;
-$input-width: 25vw;
-$border-radius: 2px;
-$input-padding: 0.5vh 1vw;
-$input-margin: 1vh 0vw;
-$font-size: 1rem;
-$button-padding: 1vh 0vw;
-$button-margin: 3vh 1vw 0 0;
-$button-height: 8vh;
-$button-width: 12vw;
-$form-margin: 1vh 0vw;
-$form-padding: 0.5vh 1vw;
-$footer-font: #787575;
-$footer-ul-width: 35vw;
+// Utilities
+@import "../../Styles/variables";
 
 *, html {
     color: $font-color;
@@ -26,14 +7,17 @@ $footer-ul-width: 35vw;
     background-color: $background-color;
     font-size: $font-size;
 
-    #div-logo{
-        text-align: center;
-    
-        #logo{
-            width: 250px;
-            height: auto;
-            margin: 3vh auto 5vh auto;
+    header{
+        #div-logo{
+            text-align: center;
+        
+            #logo{
+                width: $logo-width;
+                height: $logo-height;
+                margin: 3vh auto 5vh auto;
+            }
         }
+
     }
 
     form{

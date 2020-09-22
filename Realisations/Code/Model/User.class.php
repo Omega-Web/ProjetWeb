@@ -10,18 +10,17 @@ class User {
     private $firstname;
     private $lastname;
     private $email;
-    private $pseudo;
+    private $username;
     private $password;
     private $birthday;
 
     public function __construct(array $data)
     {
-        $this->setId($data['id_user']);
+        $this->setId($data['id']);
         $this->setFirstname($data['firstname']);
         $this->setLastname($data['lastname']);
         $this->setEmail($data['email']);
-        $this->setPseudo($data['pseudo']);
-        $this->setPassword($data['password']);
+        $this->setUsername($data['username']);
         try {
             $date = new DateTime($data['birthday']);
             $this->setBirthday($date);
@@ -108,7 +107,7 @@ class User {
     /**
      * Get the value of pseudo
      */ 
-    public function getPseudo()
+    public function getUsername()
     {
         return $this->pseudo;
     }
@@ -118,7 +117,7 @@ class User {
      *
      * @return  self
      */ 
-    public function setPseudo($pseudo)
+    public function setUsername($pseudo)
     {
         $this->pseudo = $pseudo;
 
