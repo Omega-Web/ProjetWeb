@@ -1,6 +1,6 @@
 <?php
 
-
+require_once '../../../bootstrap.php';
 
 use Code\Infrastructure\Database;
 use Code\Utils\Authentication;
@@ -22,7 +22,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
         if ($id_user > 0){
             $UserRepo  = new UserRepository(Database::get()); 
             $user = $UserRepo->findOne($id_user);
-            echo 'Bienvenue ' . $user->getPseudo();
+            echo 'Bienvenue ' . $user->getUsername();
         } else {
             echo 'Le nom d\'utilisateur ou l\'identifiant est érroné';
         }

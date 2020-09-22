@@ -18,7 +18,7 @@ class Authentication {
     public function Compare(string $username ,string $password):int
     {
         
-        $stt = $this->con->prepare('SELECT id FROM user where pseudo=:username and password=:password limit 1');
+        $stt = $this->con->prepare('SELECT id FROM user where username=:username and password=:password limit 1');
         $stt-> bindValue('username',$username,PDO::PARAM_STR);
         $stt-> bindValue('password',$password,PDO::PARAM_STR);
         $stt->execute();
