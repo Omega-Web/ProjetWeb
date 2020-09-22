@@ -13,7 +13,7 @@ class UserRepository implements IUserProvider {
 
     public function __construct(PDO $con)
     {
-        $this->con = $con
+        $this->con = $con;
     }
 
     public function findAll():array
