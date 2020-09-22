@@ -2,6 +2,10 @@
 
 require_once '../../Infrastructure/Database.class.php';
 use Code\Infrastructure\Database;
+use Code\Utils\Authentification;
+use Code\Repository\StaffRepository;
+use Code\Repository\UserRepository;
+
 use PDOException;
 Use PDO;
 
@@ -12,15 +16,12 @@ ini_set("display_errors", 1);
 
 if(!empty($_POST['username']) && !empty($_POST['password'])) {
     try{
-        $con = Database::get();
-        $sql = 'SELECT SQL_SMALL_RESULT id, pseudo FROM user WHERE pseudo=:name AND password=:pwd LIMIT 1';
-        $stt = $con->prepare($sql);
-        $stt->bindValue('name', $_POST['username'], PDO::PARAM_STR);
-        $stt->bindValue('pwd', $_POST['password'], PDO::PARAM_STR);
-        $stt->execute();
-        $user = $stt->fetch(PDO::FETCH_ASSOC);
-        if ($user){
-            echo 'Bienvenue ' . $user['pseudo'];
+        $id_user = $Authentification->Compare($_POST['username'],$_POST['password']);
+
+        if ($id_user > 0){
+            $UserRepo  = new UserRepository(Database::get()); 
+            $user = $UserRepo->findOne($id_user);
+            echo 'Bienvenue ' . $user->getPseudo();
         } else {
             echo 'Le nom d\'utilisateur ou l\'identifiant est érroné';
         }
