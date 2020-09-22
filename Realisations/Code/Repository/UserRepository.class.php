@@ -2,8 +2,6 @@
 
 namespace Code\Repository;
 
-require_once 'bootstrap.php';
-
 use PDO;
 use Code\Model\User;
 use Code\Provider\IUserProvider;
@@ -37,16 +35,18 @@ class UserRepository implements IUserProvider {
         return new User($data);
 
     }
-    public function newUser($array)
+    public function saveUser($user)
     {
         $stt = $this->con->prepare('INSERT INTO user VALUES firstname=:firstname,lastname=:lastname,username=:username,email=:email,birhday=:birthday');
-        $stt-> bindValue('firstname',$array['firstname'],PDO::PARAM_STR);
-        $stt-> bindValue('lastname',$array['lastname'],PDO::PARAM_STR);
-        $stt-> bindValue('username',$array['username'],PDO::PARAM_STR);
-        $stt-> bindValue('email',$array['email'],PDO::PARAM_STR);
-        $stt-> bindValue('password',$array['password'],PDO::PARAM_STR);
-        $stt-> bindValue('birthday',$array['birthday']);
-
+        $stt-> bindValue('firstname',$user->getFirstname(),PDO::PARAM_STR);
+        $stt-> bindValue('lastname',$user->getLastname(),PDO::PARAM_STR);
+        $stt-> bindValue('username',$user->getUsername(),PDO::PARAM_STR);
+        $stt-> bindValue('email',$user->getEmail(),PDO::PARAM_STR);
+        $stt-> bindValue('password',$user->getPassword(),PDO::PARAM_STR);
+        $stt-> bindValue('birthday',$user->getBirthday()->format('Y-m-d H:i:s'));
+        //print_r($stt);
+        $stt->execute();
+        $stt->closeCursor();
     }
   
 }

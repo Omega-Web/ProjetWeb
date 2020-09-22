@@ -1,8 +1,12 @@
 <?php
 
-//namespace Code\Views\Authentication;
-require_once '../../Model/User.class.php';
+namespace Code\Views\Authentication;
+require_once '../../../bootstrap.php';
+
 use Code\Model\User;
+use Code\Repository\UserRepository;
+use Code\Infrastructure\Database;
+
 use PDOException;
 use PDO;
 
@@ -18,9 +22,10 @@ if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['use
     $tabUser['password']    = $_POST['password'];
     $tabUser['email']       = $_POST['email'];
     $tabUser['birthday']    = $_POST['dob'];
-
+    
     $newUser = new User($tabUser);
-    print_r($newUser);
+    $UserRepo = new UserRepository(Database::get());
+    $UserRepo->saveUser($newUser);
     
 } else {
 ?>

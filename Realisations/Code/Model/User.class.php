@@ -20,7 +20,7 @@ class User {
         $this->setFirstname($data['firstname']);
         $this->setLastname($data['lastname']);
         $this->setEmail($data['email']);
-        $this->setPseudo($data['username']);
+        $this->setUsername($data['username']);
         try {
             $date = new DateTime($data['birthday']);
             $this->setBirthday($date);
@@ -107,9 +107,9 @@ class User {
     /**
      * Get the value of pseudo
      */ 
-    public function getPseudo()
+    public function getUsername()
     {
-        return $this->pseudo;
+        return $this->username;
     }
 
     /**
@@ -117,9 +117,9 @@ class User {
      *
      * @return  self
      */ 
-    public function setPseudo($pseudo)
+    public function setUsername($username)
     {
-        $this->pseudo = $pseudo;
+        $this->username = $username;
 
         return $this;
     }
