@@ -1,13 +1,13 @@
 <?php
 
-require_once '../../Infrastructure/Database.class.php';
+
+
 use Code\Infrastructure\Database;
-use Code\Utils\Authentification;
+use Code\Utils\Authentication;
 use Code\Repository\StaffRepository;
 use Code\Repository\UserRepository;
+use Code\Model\User;
 
-use PDOException;
-Use PDO;
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -16,7 +16,8 @@ ini_set("display_errors", 1);
 
 if(!empty($_POST['username']) && !empty($_POST['password'])) {
     try{
-        $id_user = $Authentification->Compare($_POST['username'],$_POST['password']);
+        $authen = new Authentication(Database::get()); 
+        $id_user = $authen->Compare($_POST['username'],$_POST['password']);
 
         if ($id_user > 0){
             $UserRepo  = new UserRepository(Database::get()); 
@@ -25,7 +26,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
         } else {
             echo 'Le nom d\'utilisateur ou l\'identifiant est érroné';
         }
-    } catch (PDOException $e) {
+    } catch (Exception $e) {
         die($e->getMessage());
 }
 
