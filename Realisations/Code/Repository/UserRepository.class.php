@@ -37,7 +37,14 @@ class UserRepository implements IUserProvider {
     }
     public function saveUser($user)
     {
-        $stt = $this->con->prepare('INSERT INTO user (firstname,lastname,email,username,password,birthday) VALUES (:firstname, :lastname, :email, :username, :password, :birthday)');
+        if($user->getId() === 0 ||$user->getId() === NULL) {
+            $sql = 'INSERT INTO user (firstname,lastname,email,username,password,birthday) VALUES (:firstname, :lastname, :email, :username, :password, :birthday)';
+        } else {
+            $sql = 'UPDATE user SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, birthday = :birthday';
+        }
+        
+
+        $stt = $this->con->prepare($sql);
         $stt-> bindValue('firstname',$user->getFirstname(),PDO::PARAM_STR);
         $stt-> bindValue('lastname',$user->getLastname(),PDO::PARAM_STR);
         $stt-> bindValue('username',$user->getUsername(),PDO::PARAM_STR);
@@ -47,6 +54,9 @@ class UserRepository implements IUserProvider {
         print_r($stt);
         $stt->execute();
         $stt->closeCursor();
+
+        return $user->getId() > 0 ? $user->getId() : $this->con->lastInsertId();
+
     }
   
 }
