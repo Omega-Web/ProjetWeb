@@ -1,0 +1,36 @@
+// Utilities
+@import "Styles/variables";
+
+*, html {
+    color: $font-color;
+    font-family: 'Roboto', sans-serif;
+    background-color: $background-color;
+    font-size: $font-size;
+
+    header{
+        #div-logo{
+            margin: 1vh 3vw;
+    
+        #logo{
+            width: $logo-width/3;
+            height: $logo-height;
+            margin: 3vh 0 5vh 0;
+            }
+        }
+
+        nav{
+
+        }
+
+        #div-logout{
+
+            #logout{
+                width: $logout-width;
+                margin: 0 5vw 0 0;
+            }
+        }
+
+    }
+
+}
+

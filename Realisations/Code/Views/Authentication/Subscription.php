@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../Infrastructure/Database.class.php';
+// require_once '../../Infrastructure/Database.class.php';
 use Code\Infrastructure\Database;
 use PDOException;
 Use PDO;
@@ -35,13 +35,13 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connection</title>
+    <title>Inscription</title>
     <link rel="stylesheet" href="Styles/Subscription.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <div id="div-logo">
-        <img id="logo" src="../../../design/logoWEB2.png" alt="">
+        <img id="logo" src="../../Assets/logo.png" alt="logo">
     </div>
     <form method="post">
         <input id="firstname" name="firstname" placeholder="Prénom">
