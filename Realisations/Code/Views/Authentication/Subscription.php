@@ -1,33 +1,31 @@
 <?php
 
-// require_once '../../Infrastructure/Database.class.php';
+namespace Code\Views\Authentication;
+require_once '../../../bootstrap.php';
+
+use Code\Model\User;
+use Code\Repository\UserRepository;
 use Code\Infrastructure\Database;
+
 use PDOException;
-Use PDO;
+use PDO;
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 
-
-if(!empty($_POST['username']) && !empty($_POST['password'])) {
-    try{
-        $con = Database::get();
-        $sql = 'SELECT SQL_SMALL_RESULT id, pseudo FROM user WHERE pseudo=:name AND password=:pwd LIMIT 1';
-        $stt = $con->prepare($sql);
-        $stt->bindValue('name', $_POST['username'], PDO::PARAM_STR);
-        $stt->bindValue('pwd', $_POST['password'], PDO::PARAM_STR);
-        $stt->execute();
-        $user = $stt->fetch(PDO::FETCH_ASSOC);
-        if ($user){
-            echo 'Bienvenue ' . $user['pseudo'];
-        } else {
-            echo 'Le nom d\'utilisateur ou l\'identifiant est érroné';
-        }
-    } catch (PDOException $e) {
-        die($e->getMessage());
-}
-
+if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['username']) &&!empty($_POST['dob']) && !empty($_POST['password']) && !empty($_POST['email'])) {
+    $tabUser = array();
+    $tabUser['firstname']   = $_POST['firstname'];
+    $tabUser['lastname']    = $_POST['lastname'];
+    $tabUser['username']    = $_POST['username'];
+    $tabUser['password']    = $_POST['password'];
+    $tabUser['email']       = $_POST['email'];
+    $tabUser['birthday']    = $_POST['dob'];
+    
+    $UserRepo = new UserRepository(Database::get());
+    $UserRepo->saveUser(new User($tabUser));
+    
 } else {
 ?>
 <!DOCTYPE html>
@@ -50,7 +48,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
         <br>
         <input id="email" name="email" placeholder="Adresse e-mail">
         <br>
-        <input id="dob" name="dob" placeholder="Date de naissance">
+        <input id="dob" name="dob" type="date" placeholder="Date de naissance">
         <br>
         <input id="username" name="username" placeholder="Nom d'utilisateur">
         <br>

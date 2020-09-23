@@ -5,11 +5,11 @@
   font-size: 1rem;
 }
 
-* #div-logo, html #div-logo {
+* header #div-logo, html header #div-logo {
   text-align: center;
 }
 
-* #div-logo #logo, html #div-logo #logo {
+* header #div-logo #logo, html header #div-logo #logo {
   width: 18vw;
   height: auto;
   margin: 3vh auto 5vh auto;
