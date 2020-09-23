@@ -14,7 +14,7 @@ class GenreRepository implements IGenreProvider{
 
         $this->con = $con;
     }
-
+    //retourne tout les genres
     public function findAll(): array
     {
         $sql = 'SELECT * FROM genre';
@@ -27,7 +27,7 @@ class GenreRepository implements IGenreProvider{
         $rs->closeCursor();
         return $Genres;
     }
-
+    //retourne un genre en fonction de l'id du genre
     public function findOne(int $id): Genre
     {
         $stt = $this->con->prepare('SELECT * FROM genre where id=:id');
@@ -38,7 +38,7 @@ class GenreRepository implements IGenreProvider{
         return new Genre($data);
         
     }
-
+    //retourne tout les genres qui commence par la string dans $genre
     public function findAllByGenre(string $Genre):array
     {
         $stt = $this->con->prepare('SELECT * FROM genre where name like ?');
@@ -52,6 +52,7 @@ class GenreRepository implements IGenreProvider{
         return $Genres;
     }
 
+    //retourne tout les genres d'un film en fonction de son id
     public function findAllByIdMovie(int $id):array
     {
         $stt = $this->con->prepare('SELECT genre.id,genre.name from Movie join movie_genre on movie.id = movie_genre.fk_movie join genre on movie_genre.fk_genre = genre.id where movie.id=:id');
