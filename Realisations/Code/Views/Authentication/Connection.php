@@ -16,17 +16,6 @@ ini_set("display_errors", 1);
 
 if(!empty($_POST['username']) && !empty($_POST['password'])) {
     try{
-<<<<<<< HEAD
-        $con = Database::get();
-        $sql = 'SELECT SQL_SMALL_RESULT id, username FROM user WHERE username=:name AND password=:pwd LIMIT 1';
-        $stt = $con->prepare($sql);
-        $stt->bindValue('name', $_POST['username'], PDO::PARAM_STR);
-        $stt->bindValue('pwd', $_POST['password'], PDO::PARAM_STR);
-        $stt->execute();
-        $user = $stt->fetch(PDO::FETCH_ASSOC);
-        if ($user){
-            echo 'Bienvenue ' . $user['username'];
-=======
         $authen = new Authentication(Database::get()); 
         $id_user = $authen->Compare($_POST['username'],$_POST['password']);
 
@@ -34,7 +23,6 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
             $UserRepo  = new UserRepository(Database::get()); 
             $user = $UserRepo->findOne($id_user);
             echo 'Bienvenue ' . $user->getUsername();
->>>>>>> caa08bda0001a4f41e9d44b28ae52dd368c351fe
         } else {
             echo 'Le nom d\'utilisateur ou l\'identifiant est érroné';
         }
