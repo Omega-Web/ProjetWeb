@@ -16,7 +16,7 @@ class User {
 
     public function __construct(array $data)
     {
-        $this->setId($data['id']);
+        $this->setId($data['id'] ?? 0);
         $this->setFirstname($data['firstname']);
         $this->setLastname($data['lastname']);
         $this->setEmail($data['email']);
@@ -109,7 +109,7 @@ class User {
      */ 
     public function getUsername()
     {
-        return $this->pseudo;
+        return $this->username;
     }
 
     /**
@@ -117,9 +117,9 @@ class User {
      *
      * @return  self
      */ 
-    public function setUsername($pseudo)
+    public function setUsername($username)
     {
-        $this->pseudo = $pseudo;
+        $this->username = $username;
 
         return $this;
     }

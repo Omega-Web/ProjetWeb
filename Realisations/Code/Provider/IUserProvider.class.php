@@ -8,4 +8,6 @@ interface IUserProvider {
     public function findAll(): array;
 
     public function findOne(int $id): User;
+
+    public function saveUser($array);
 }
