@@ -36,14 +36,11 @@ class UserRepository implements IUserProvider {
         return new User($data);
 
     }
-    //Crer un utilisateur ou mmet `a jour un utilisateur existant
-    public function saveUser($user): int
+    //Créer un utilisateur ou mmet à jour un utilisateur existant
+    public function createUser($user): int
     {
-        if($user->getId() === 0 ||$user->getId() === NULL) {
-            $sql = 'INSERT INTO user (firstname,lastname,email,username,password,birthday) VALUES (:firstname, :lastname, :email, :username, :password, :birthday)';
-        } else {
-            $sql = 'UPDATE user SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, birthday = :birthday';
-        }
+        $sql = 'INSERT INTO user (firstname,lastname,email,username,password,birthday) VALUES (:firstname, :lastname, :email, :username, :password, :birthday)';
+        
         
 
         $stt = $this->con->prepare($sql);
@@ -53,11 +50,32 @@ class UserRepository implements IUserProvider {
         $stt-> bindValue('email',$user->getEmail(),PDO::PARAM_STR);
         $stt-> bindValue('password',password_hash($user->getPassword(),PASSWORD_BCRYPT),PDO::PARAM_STR);
         $stt-> bindValue('birthday',$user->getBirthday()->format('Y-m-d'));
-        print_r($stt);
+
         $stt->execute();
         $stt->closeCursor();
 
         return $user->getId() > 0 ? $user->getId() : $this->con->lastInsertId();
+
+    }
+    
+    public function updateUser($user): int
+    {
+
+        $sql = 'UPDATE user SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, birthday = :birthday WHERE id=:id';
+
+        $stt = $this->con->prepare($sql);
+        $stt-> bindValue('if',$user->getId(),PDO::PARAM_INT);
+        $stt-> bindValue('firstname',$user->getFirstname(),PDO::PARAM_STR);
+        $stt-> bindValue('lastname',$user->getLastname(),PDO::PARAM_STR);
+        $stt-> bindValue('username',$user->getUsername(),PDO::PARAM_STR);
+        $stt-> bindValue('email',$user->getEmail(),PDO::PARAM_STR);
+        $stt-> bindValue('password',password_hash($user->getPassword(),PASSWORD_BCRYPT),PDO::PARAM_STR);
+        $stt-> bindValue('birthday',$user->getBirthday()->format('Y-m-d'));
+
+        $stt->execute();
+        $stt->closeCursor();
+
+        return $user->getId();
 
     }
   
