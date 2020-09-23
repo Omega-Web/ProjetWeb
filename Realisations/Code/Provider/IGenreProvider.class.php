@@ -10,4 +10,6 @@ interface IGenreProvider {
     public function findOne(int $id): Genre;
 
     public function findAllByGenre(string $Genre):array;
+
+    public function findAllByIdMovie(int $id):array;
 }
