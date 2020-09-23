@@ -11,19 +11,19 @@ use Code\Infrastructure\Database;
 use PDOException;
 use PDO;
 
-// $id = 2;
+$id = 2;
 
-// $repoUser = new UserRepository(Database::get());
-// $currentUser = $repoUser->findOne($id);
+$repoUser = new UserRepository(Database::get());
+$currentUser = $repoUser->findOne($id);
 
-// if($id > 0 ) {
-//     $firstname      = $currentUser->getFirstname();    
-//     $lastname       = $currentUser->getLastname();    
-//     $username       = $currentUser->getUsername();    
-//     $email          = $currentUser->getEmail();    
-//     $password       = $currentUser->getPassword();    
-//     $dob            = $currentUser->getBirthday();    
-//}
+if($id > 0 ) {
+    $firstname      = $currentUser->getFirstname();    
+    $lastname       = $currentUser->getLastname();    
+    $username       = $currentUser->getUsername();    
+    $email          = $currentUser->getEmail();    
+    $password       = $currentUser->getPassword();    
+    $dob            = $currentUser->getBirthday();    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,17 +52,17 @@ use PDO;
         <div>
             <h3>Informations de compte</h3>
             <form id="first-form" action="post">
-                <input id="firstname" name="firstname" placeholder="Prénom" value=".$firstname." disabled>
+                <input id="firstname" name="firstname" placeholder="Prénom" value="<?php echo htmlspecialchars($firstname); ?>" disabled>
                 <br>
-                <input id="lastname" name="lastname" placeholder="Nom" value=".$lastname." disabled>
+                <input id="lastname" name="lastname" placeholder="Nom" value="<?php echo htmlspecialchars($lastname); ?>" disabled>
                 <br>
-                <input id="email" name="email" placeholder="Adresse e-mail" value=".$email.">
+                <input id="email" name="email" placeholder="Adresse e-mail" value="<?php echo htmlspecialchars($email); ?>">
                 <br>
-                <input id="dob" name="dob" placeholder="Date de naissance" value=".$dob." disabled>
+                <input id="dob" name="dob" type="date" placeholder="Date de naissance" value="<?php echo htmlspecialchars($dob); ?>" disabled>
                 <br>
-                <input id="username" name="username" placeholder="Nom d'utilisateur" value=".$username." disabled>
+                <input id="username" name="username" placeholder="Nom d'utilisateur" value="<?php echo htmlspecialchars($username); ?>" disabled>
                 <br>
-                <input id="password" name="password" type="password" placeholder="Mot de passe" value=".$password.">
+                <input id="password" name="password" type="password" placeholder="Mot de passe" value="<?php echo htmlspecialchars($password); ?>">
                 <br>
             </form>
             
@@ -97,7 +97,9 @@ use PDO;
                         <span class="slider round"></span>
                     </label>
                 </div>
-
+            <!-- <?php
+                $repoUser->updateUser($currentUser)
+            ?> -->
             <button id="button" type="submit">Enregistrer les modifications</button>
             </form>
         </div>
