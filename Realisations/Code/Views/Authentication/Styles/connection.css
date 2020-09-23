@@ -24,7 +24,7 @@
   color: #000000;
   outline: none;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   height: 6.5vh;
   width: 25vw;
   padding: 0.5vh 1vw;
@@ -36,7 +36,7 @@
   color: #000000;
   outline: none;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   height: 6.5vh;
   width: 25vw;
   padding: 0.5vh 1vw;
@@ -48,11 +48,11 @@
   color: #FFFFFF;
   outline: none;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   height: 6.5vh;
   width: 12vw;
   padding: 1vh 0vw;
-  margin: 3vh 1vw 0 0;
+  margin: 3vh 1vw 0 1vw;
 }
 
 * form button:hover, html form button:hover {

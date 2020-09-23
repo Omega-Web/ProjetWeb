@@ -43,7 +43,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
 </head>
 <body>
     <div id="div-logo">
-        <img id="logo" src="../../Assets/logo.png" alt="logo">
+        <a href="Connection.php"><img id="logo" src="../../Assets/logo.png" alt="logo"></a>
     </div>
     <form method="post">
         <input id="username" name="username" placeholder="Nom d'utilisateur">
