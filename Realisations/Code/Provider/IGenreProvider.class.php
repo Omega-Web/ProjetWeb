@@ -20,6 +20,4 @@ interface IGenreProvider {
     public function deleteGenre(Genre $id): bool;
     
     public function insertGenre(Genre $newValue): bool;
-
-
 }
