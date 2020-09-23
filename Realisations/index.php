@@ -33,12 +33,12 @@ use Code\Repository\StaffRepository;
 // $genreRepo->updateGenre($genre, $genre2);
 
 // Test insert Genre :)
-$genreArray = array();
-$genreArray['id'] = 21;
-$genreArray['name'] = 'NEWcomedyhorror';
-$genre = new Genre($genreArray);
-$genreRepo = new GenreRepository(Database::get());
-$genreRepo->deleteGenre($genre);
+// $genreArray = array();
+// $genreArray['id'] = 21;
+// $genreArray['name'] = 'NEWcomedyhorror';
+// $genre = new Genre($genreArray);
+// $genreRepo = new GenreRepository(Database::get());
+// $genreRepo->deleteGenre($genre);
 
 
 /*$repo = new StaffRepository(Database::get());
