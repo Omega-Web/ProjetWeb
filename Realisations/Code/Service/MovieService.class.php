@@ -8,33 +8,33 @@ Use Code\Provider\IMovieProvider;
 
 Class MovieService implements IMovieProvider
 {
-    private IMovieProvider $Movie;
-    private IGenreProvider $Genre;
+    private IMovieProvider $MovieAccess;
+    private IGenreProvider $GenreAccess;
 
-    public function MovieService(IMovieProvider $m,IGenreProvider $g)
+    public function __construct(IMovieProvider $m,IGenreProvider $g)
     {
-     $this->Movie = $m;
-     $this->Genre = $g;
+     $this->MovieAccess = $m;
+     $this->GenreAccess = $g;
 
     }
 
     public function findAll(): array
     {
-        $movies = $this->Movie->findAll();
+        $movies = $this->MovieAccess->findAll();
 
         foreach($movies as $movie)
         {
-            $genres = $this->Genre->findAllByIdMovie($movie->getId());
-            $movie->setGenre($genres);
+            $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
+            $movie->setGenres($genres);
         }
 
-        return [];
+        return $movies;
     }
 
     public function findOne(int $id): Movie
     {
-        $movie = $this->Movie->findOne($id);
-        $genres = $this->Genre->findAllByIdMovie($movie->getId());
+        $movie = $this->MovieAccess->findOne($id);
+        $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
         $movie->setGenres($genres);
 
         return $movie;
@@ -43,6 +43,14 @@ Class MovieService implements IMovieProvider
 
     public function findAllByTitle(string $title): array
     {
-        return [];
+        $movies = $this->MovieAccess->findAllByTitle($title);
+
+        foreach($movies as $movie)
+        {
+            $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
+            $movie->setGenres($genres);
+        }
+
+        return $movies;
     }
 }

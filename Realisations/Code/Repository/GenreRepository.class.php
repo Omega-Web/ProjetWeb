@@ -61,7 +61,7 @@ class GenreRepository implements IGenreProvider{
         $Genres = [];
         while($data = $stt->fetch(PDO::FETCH_ASSOC))
         {
-            $Genres[]= new Genre($data);
+            $Genres[] = new Genre($data);
         }  
         $stt->closeCursor();
         return $Genres;
