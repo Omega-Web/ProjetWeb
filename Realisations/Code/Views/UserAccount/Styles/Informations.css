@@ -1,17 +1,241 @@
 *, html {
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
-  background-color: #010F21;
   font-size: 1rem;
 }
 
-* #div-logo, html #div-logo {
+* body, html body {
+  background-color: #010F21;
+}
+
+* body header, html body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* body header #div-logo, html body header #div-logo {
   margin: 1vh 3vw;
 }
 
-* #div-logo #logo, html #div-logo #logo {
+* body header #div-logo #logo, html body header #div-logo #logo {
   width: 6vw;
   height: auto;
   margin: 3vh 0 5vh 0;
+}
+
+* body header nav, html body header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 60vw;
+}
+
+* body header nav li, html body header nav li {
+  list-style-type: none;
+}
+
+* body header nav li a, html body header nav li a {
+  text-decoration: none;
+  height: 50px;
+}
+
+* body header nav li a:hover, html body header nav li a:hover {
+  border-bottom: #2869D1 4px solid;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 10px;
+  height: 47px;
+}
+
+* body header nav li a:active, html body header nav li a:active {
+  border-bottom: #D9B68B 4px solid;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 10px;
+  height: 47px;
+}
+
+* body header #div-logout #logout, html body header #div-logout #logout {
+  width: 35px;
+  margin: 0 5vw 0 0;
+}
+
+* body main #first-form, html body main #first-form {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2vh 1vw;
+  grid-auto-rows: minmax(10px, auto);
+  width: 60vw;
+  margin: 0 auto;
+}
+
+* body main #first-form input, html body main #first-form input {
+  background-color: #FFFFFF;
+  color: #000000;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  height: 4.64286vh;
+  width: 25vw;
+  padding: 0.5vh 1vw;
+  margin: 1vh 0vw;
+}
+
+* body main #first-form #firstname, html body main #first-form #firstname {
+  -ms-grid-column: 1;
+  grid-column: 1 / 1;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  background-color: #787575;
+}
+
+* body main #first-form #lastname, html body main #first-form #lastname {
+  -ms-grid-column: 2;
+  grid-column: 2 / 2;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  background-color: #787575;
+}
+
+* body main #first-form #email, html body main #first-form #email {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+* body main #first-form #dob, html body main #first-form #dob {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  background-color: #787575;
+}
+
+* body main #first-form #username, html body main #first-form #username {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 3;
+  grid-row: 3;
+  background-color: #787575;
+}
+
+* body main #first-form #password, html body main #first-form #password {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 3;
+  grid-row: 3;
+}
+
+* body main #second-form, html body main #second-form {
+  /* The switch - the box around the slider */
+  /* Hide default HTML checkbox */
+  /* The slider */
+  /* Rounded sliders */
+}
+
+* body main #second-form .switch, html body main #second-form .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+* body main #second-form .switch input, html body main #second-form .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+* body main #second-form .slider, html body main #second-form .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #787575;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+* body main #second-form .slider:before, html body main #second-form .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+* body main #second-form input:checked + .slider, html body main #second-form input:checked + .slider {
+  background-color: #2196F3;
+}
+
+* body main #second-form input:focus + .slider, html body main #second-form input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #2196F3;
+          box-shadow: 0 0 1px #2196F3;
+}
+
+* body main #second-form input:checked + .slider:before, html body main #second-form input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+* body main #second-form .slider.round, html body main #second-form .slider.round {
+  border-radius: 34px;
+}
+
+* body main #second-form .slider.round:before, html body main #second-form .slider.round:before {
+  border-radius: 50%;
+}
+
+* body main #second-form #button, html body main #second-form #button {
+  background-color: #2869D1;
+  color: #FFFFFF;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  height: 9.75vh;
+  width: 12vw;
+  padding: 1vh 0vw;
+  margin: 3vh 1vw 0 0;
+  margin-bottom: 10vh;
+}
+
+* body main #second-form #button:hover, html body main #second-form #button:hover {
+  cursor: pointer;
+  background-color: #D9B68B;
+}
+
+* body main #second-form .cookie, html body main #second-form .cookie {
+  background-color: #158BBF;
+  padding: 3vh 3vw;
+  margin: 1vh 2vw;
 }
 /*# sourceMappingURL=Informations.css.map */
