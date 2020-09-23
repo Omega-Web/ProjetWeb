@@ -1,13 +1,29 @@
 <?php
 
-// require_once '../../Infrastructure/Database.class.php';
-use Code\Infrastructure\Database;
-use PDOException;
-Use PDO;
-
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
+// require_once '../../Infrastructure/Database.class.php';
+require_once '../../../bootstrap.php';
 
+use Code\Model\User;
+use Code\Repository\UserRepository;
+use Code\Infrastructure\Database;
+use PDOException;
+use PDO;
+
+// $id = 2;
+
+// $repoUser = new UserRepository(Database::get());
+// $currentUser = $repoUser->findOne($id);
+
+// if($id > 0 ) {
+//     $firstname      = $currentUser->getFirstname();    
+//     $lastname       = $currentUser->getLastname();    
+//     $username       = $currentUser->getUsername();    
+//     $email          = $currentUser->getEmail();    
+//     $password       = $currentUser->getPassword();    
+//     $dob            = $currentUser->getBirthday();    
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,17 +52,17 @@ ini_set("display_errors", 1);
         <div>
             <h3>Informations de compte</h3>
             <form id="first-form" action="post">
-                <input id="firstname" name="firstname" placeholder="Prénom" disabled>
+                <input id="firstname" name="firstname" placeholder="Prénom" value=".$firstname." disabled>
                 <br>
-                <input id="lastname" name="lastname" placeholder="Nom" disabled>
+                <input id="lastname" name="lastname" placeholder="Nom" value=".$lastname." disabled>
                 <br>
-                <input id="email" name="email" placeholder="Adresse e-mail">
+                <input id="email" name="email" placeholder="Adresse e-mail" value=".$email.">
                 <br>
-                <input id="dob" name="dob" placeholder="Date de naissance" disabled>
+                <input id="dob" name="dob" placeholder="Date de naissance" value=".$dob." disabled>
                 <br>
-                <input id="username" name="username" placeholder="Nom d'utilisateur" disabled>
+                <input id="username" name="username" placeholder="Nom d'utilisateur" value=".$username." disabled>
                 <br>
-                <input id="password" name="password" type="password" placeholder="Mot de passe">
+                <input id="password" name="password" type="password" placeholder="Mot de passe" value=".$password.">
                 <br>
             </form>
             
