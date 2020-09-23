@@ -36,11 +36,11 @@ class UserRepository implements IUserProvider {
         return new User($data);
 
     }
-    //Créer un utilisateur ou mmet à jour un utilisateur existant
-    public function createUser($user): int
+    //Créer un utilisateur ou met à jour un utilisateur existant
+    public function createUser($user): bool
     {
+        try{
         $sql = 'INSERT INTO user (firstname,lastname,email,username,password,birthday) VALUES (:firstname, :lastname, :email, :username, :password, :birthday)';
-        
         
 
         $stt = $this->con->prepare($sql);
@@ -53,8 +53,12 @@ class UserRepository implements IUserProvider {
 
         $stt->execute();
         $stt->closeCursor();
+        return true;
+        } catch (PDOException $e) {
+            die($e->getMessage());
+            return false;
+        }
 
-        return $user->getId() > 0 ? $user->getId() : $this->con->lastInsertId();
 
     }
     
@@ -77,6 +81,20 @@ class UserRepository implements IUserProvider {
 
         return $user->getId();
 
+    }
+
+    public function delUser($user)
+    {
+        try {
+        $sql = 'DELETE FROM user WHERE id = :id';
+        $stt = $this->con->prepare($sql);
+        $stt->bindValue('id',$user->getId(),PDO::PARAM_INT);
+        $stt->execute();
+        $stt->closeCursor();
+        } catch (PDOException $e) {
+            die($e->getMessage());
+            return false;
+        }
     }
   
 }
