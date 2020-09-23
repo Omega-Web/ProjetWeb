@@ -7,6 +7,7 @@ require_once 'bootstrap.php';
 //require_once './Provider/IMovieProvider.class.php';
 //require_once './Model/Movie.class.php';
 use PDO;
+use PDOException;
 use Code\Model\Movie;
 use Code\Provider\IMovieProvider;
 
@@ -57,6 +58,49 @@ class MovieRepository implements IMovieProvider
         $stt->closeCursor();
         return $Movies;
 
+    }
+    public function updateMovie(Movie $oldMovie, Movie $newMovie): bool
+    {
+        try {
+            $sql = 'UPDATE movie SET title = :title, plot = :plot, duration = :duration, date = :date, fk_age_restriction = :age_restriction_id WHERE id =:id';
+            $stt = $this->con->prepare($sql);
+            $stt-> bindValue('id',$oldMovie->getId(), PDO::PARAM_INT);
+            $stt-> bindValue('title',$newMovie->getTitle(), PDO::PARAM_STR);
+            $stt-> bindValue('plot',$newMovie->getPlot(), PDO::PARAM_STR);
+            $stt-> bindValue('duration',$newMovie->getDuration(), PDO::PARAM_STR);
+            $stt-> bindValue('date',$newMovie->getDate()->format('Y-m-d'));
+            $stt-> bindValue('age_restriction_id',$newMovie->getAge_restriction_id(), PDO::PARAM_INT);
+            $stt->execute();
+            $stt->closeCursor();
+            return true;
+        }
+        catch (PDOException $e) {
+            return false;
+        }        
+    }
+    public function insertMovie(Movie $newMovie): bool
+    {
+        try {
+            $stt = $this->con->prepare('INSERT INTO movie ' . $newMovie);
+            $stt->execute();
+            $stt->closeCursor();
+            return true;
+        }
+        catch (PDOException $e) {
+            return false;
+        }
+    }
+    public function deleteMovie($id): bool
+    {
+        try {
+            $stt = $this->con->prepare('DELETE FROM movie WHERE id = ' . $id);
+            $stt->execute();
+            $stt->closeCursor();
+            return true;
+        }
+        catch (PDOException $e) {
+            return false;
+        }
     }
 
     
