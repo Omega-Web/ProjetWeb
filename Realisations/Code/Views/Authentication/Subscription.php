@@ -23,9 +23,8 @@ if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['use
     $tabUser['email']       = $_POST['email'];
     $tabUser['birthday']    = $_POST['dob'];
     
-    $newUser = new User($tabUser);
     $UserRepo = new UserRepository(Database::get());
-    $UserRepo->saveUser($newUser);
+    $UserRepo->saveUser(new User($tabUser));
     
 } else {
 ?>
