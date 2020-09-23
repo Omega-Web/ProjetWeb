@@ -61,7 +61,7 @@ class UserRepository implements IUserProvider {
 
 
     }
-    
+    //Mise à jour des infos utilisateurs, retourne l'id de l'utilisateur
     public function updateUser($user): int
     {
 
@@ -82,8 +82,8 @@ class UserRepository implements IUserProvider {
         return $user->getId();
 
     }
-
-    public function delUser($user)
+    //Supprime l'utilisateur en fonction de l'id
+    public function delUser($user): bool
     {
         try {
         $sql = 'DELETE FROM user WHERE id = :id';
