@@ -13,7 +13,7 @@ class UserRepository implements IUserProvider {
     {
         $this->con = $con;
     }
-
+    //Retourne tous les utilisateurs
     public function findAll():array
     {
         $sql = 'SELECT * FROM user';
@@ -25,6 +25,7 @@ class UserRepository implements IUserProvider {
         }   
         return $User;
     }
+    //Retourne un utilisateur
     public function findOne(int $id):User
     {
         
@@ -35,6 +36,7 @@ class UserRepository implements IUserProvider {
         return new User($data);
 
     }
+    //Crer un utilisateur ou mmet `a jour un utilisateur existant
     public function saveUser($user): int
     {
         if($user->getId() === 0 ||$user->getId() === NULL) {
