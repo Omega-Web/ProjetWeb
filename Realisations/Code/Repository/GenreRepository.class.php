@@ -51,4 +51,18 @@ class GenreRepository implements IGenreProvider{
         $stt->closeCursor();
         return $Genres;
     }
+
+    public function findAllByIdMovie(int $id):array
+    {
+        $stt = $this->con->prepare('SELECT genre.id,genre.name from Movie join movie_genre on movie.id = movie_genre.fk_movie join genre on movie_genre.fk_genre = genre.id where movie.id=:id');
+        $stt-> bindValue('id',$id,PDO::PARAM_INT);
+        $stt->execute();
+        $Genres = [];
+        while($data = $stt->fetch(PDO::FETCH_ASSOC))
+        {
+            $Genres[]= new Genre($data);
+        }  
+        $stt->closeCursor();
+        return $Genres;
+    }
 }
