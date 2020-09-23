@@ -2,7 +2,7 @@
 
 namespace Code\Repository;
 
-
+Use PDO;
 use Code\Model\Genre;
 use Code\Provider\IGenreProvider;
 
