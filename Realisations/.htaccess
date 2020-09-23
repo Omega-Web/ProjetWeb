@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RedirectPermanent /ProjetWeb/Realisations/index.php /ProjetWeb/Realisations/Code/Views/Connection/connection
@@ -5,3 +6,10 @@ RedirectPermanent /ProjetWeb/Realisations/index.php /ProjetWeb/Realisations/Code
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.php [L]
+=======
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RedirectPermanent /ProjetWeb/Realisations/index.php /ProjetWeb/Realisations/Code/Views/Connection/connection.php
+</IfModule>
+>>>>>>> caa08bda0001a4f41e9d44b28ae52dd368c351fe

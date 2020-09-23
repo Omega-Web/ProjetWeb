@@ -1,0 +1,134 @@
+*, html {
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  background-color: #010F21;
+  font-size: 1rem;
+}
+
+* #div-logo, html #div-logo {
+  text-align: center;
+}
+
+* #div-logo #logo, html #div-logo #logo {
+  width: 250px;
+  height: auto;
+  margin: 3vh auto 5vh auto;
+}
+
+* form, html form {
+  display: -ms-grid;
+  display: grid;
+  justify-items: flex-end;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: .5vh;
+  grid-auto-rows: minmax(10px, auto);
+  width: 60vw;
+  margin: 0 auto;
+}
+
+* form input, html form input {
+  background-color: #FFFFFF;
+  color: #000000;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  height: 6.5vh;
+  width: 25vw;
+  padding: 0.5vh 1vw;
+  margin: 1vh 0vw;
+}
+
+* form #firstname, html form #firstname {
+  -ms-grid-column: 1;
+  grid-column: 1 / 1;
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+* form #lastname, html form #lastname {
+  -ms-grid-column: 2;
+  grid-column: 2 / 2;
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+* form #email, html form #email {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+* form #dob, html form #dob {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+* form #username, html form #username {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 3;
+  grid-row: 3;
+}
+
+* form #password, html form #password {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-row: 3;
+  grid-row: 3;
+}
+
+* form button, html form button {
+  background-color: #2869D1;
+  color: #FFFFFF;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  height: 6.5vh;
+  width: 12vw;
+  padding: 1vh 0vw;
+  margin: 3vh 1vw 0 0;
+}
+
+* form button:hover, html form button:hover {
+  cursor: pointer;
+  background-color: #D9B68B;
+}
+
+* .connect-subscribe, html .connect-subscribe {
+  text-align: center;
+  font-size: 0.83333rem;
+}
+
+* .connect-subscribe a, html .connect-subscribe a {
+  font-size: 0.83333rem;
+}
+
+* footer .wrapper, html footer .wrapper {
+  margin: 15vh auto 0 auto;
+  width: 35vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+* footer .wrapper li, html footer .wrapper li {
+  list-style-type: none;
+  margin: 0 2vw;
+}
+
+* footer .wrapper li a, html footer .wrapper li a {
+  color: #787575;
+  font-size: 0.83333rem;
+  text-decoration: none;
+}
+/*# sourceMappingURL=Subscription.css.map */
