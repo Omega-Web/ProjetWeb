@@ -4,7 +4,7 @@ namespace Code\Model;
 
 Use DateTime;
 USe Exception;
-use Genre;
+use Code\Model\Genre;
 
 class Movie
 {
@@ -14,7 +14,7 @@ class Movie
     private $duration;
     private $date;
     private $age_restriction_id;
-    private Genre $genres;
+    private $genres = [];
 
     public function __construct($data)
     {
