@@ -5,11 +5,11 @@
   font-size: 1rem;
 }
 
-* header #div-logo, html header #div-logo {
+* #div-logo, html #div-logo {
   text-align: center;
 }
 
-* header #div-logo #logo, html header #div-logo #logo {
+* #div-logo #logo, html #div-logo #logo {
   width: 18vw;
   height: auto;
   margin: 3vh auto 5vh auto;
@@ -70,6 +70,7 @@
 }
 
 * footer .wrapper, html footer .wrapper {
+  padding: 0;
   margin: 15vh auto 0 auto;
   width: 35vw;
   display: -webkit-box;
