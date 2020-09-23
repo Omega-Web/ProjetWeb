@@ -10,4 +10,10 @@ interface IMovieProvider {
     public function findOne(int $id): Movie;
 
     public function findAllByTitle(string $title):array;
+
+    public function update(Movie $oldMovie, Movie $newMovie): bool;
+
+    public function insert(Movie $newMovie): bool;
+
+    public function delete(Movie $movie): bool;
 }
