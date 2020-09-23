@@ -2,7 +2,8 @@
 
 namespace Code\Repository;
 
-
+use PDO;
+use PDOException;
 use Code\Model\Genre;
 use Code\Provider\IGenreProvider;
 
@@ -66,4 +67,57 @@ class GenreRepository implements IGenreProvider{
         $stt->closeCursor();
         return $Genres;
     }
+
+    public function updateGenre(Genre $oldValue, Genre $newValue): bool
+    {
+        try {
+            $sql = 'UPDATE genre SET name = :name WHERE id =:id';
+            $stt = $this->con->prepare($sql);
+            $stt-> bindValue('id',$oldValue->getId(), PDO::PARAM_INT);
+            $stt-> bindValue('name',$newValue->getName(), PDO::PARAM_STR);
+            $stt->execute();
+            $stt->closeCursor();
+
+            return true;
+
+        } catch (PDOException $e) {
+                die($e->getMessage());
+                return false;
+        }
+    }
+
+    public function deleteGenre(Genre $id): bool
+    {
+        try {
+            $sql = 'DELETE FROM genre WHERE id=:id';
+            $stt = $this->con->prepare($sql);
+            $stt-> bindValue('id',$id->getId(), PDO::PARAM_INT);
+            $stt->execute();
+            $stt->closeCursor();
+
+            return true;
+        
+        } catch (PDOException $e) {
+                die($e->getMessage());
+                return false;
+        }
+    }
+
+    public function insertGenre(Genre $newValue): bool
+    {
+        try {
+            $sql = 'INSERT INTO genre (name) VALUES (:name)';
+            $stt = $this->con->prepare($sql);
+            $stt-> bindValue('name',$newValue->getName(), PDO::PARAM_STR);
+            $stt->execute();
+            $stt->closeCursor();
+
+            return true;
+
+        } catch (PDOException $e) {
+                die($e->getMessage());
+                return false;
+        }
+    }
+  
 }
