@@ -39,7 +39,7 @@ ini_set("display_errors", 1);
     <main>
         <div id="main-div">
             <h3>Informations de compte</h3>
-            <form id="first-form" action="post">
+            <form id="first-form" action="" method="post">
                 <input id="firstname" name="firstname" placeholder="Prénom" disabled>
                 <br>
                 <input id="lastname" name="lastname" placeholder="Nom" disabled>
@@ -58,7 +58,7 @@ ini_set("display_errors", 1);
             
             <h3>Préférences cookies</h3>
             
-            <form id="second-form" action="post">
+            <form id="second-form" action="" method="post">
             
                 <div class="cookie" id="first-cookie">
                     <div>
@@ -94,7 +94,7 @@ ini_set("display_errors", 1);
                     </label>
                 </div>
 
-            <button id="button" type="submit">Enregistrer les modifications</button>
+            <button id="button" onclick="submitForms()">Enregistrer les modifications</button>
             </form>
         </div>
         
