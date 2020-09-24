@@ -2,6 +2,7 @@
 
 namespace Code\Repository;
 
+use PDOException;
 use PDO;
 use Code\Model\User;
 use Code\Provider\IUserProvider;
