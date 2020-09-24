@@ -3,14 +3,16 @@ $background-color:#010F21;
 $button-color:#2869D1;
 $cookie-color:#158BBF;
 $selected-color:#D9B68B;
-$border-radius: 2px;
+$disabled-color:#b3b1b1;
+$border-radius: 4px;
+$border-test:2px solid;
 
 // logo variables
 $logo-width: 18vw;
 $logo-height: auto;
 
 // logout logo variables
-$logout-width: 10vw;
+$logout-width: 35px;
 $logout-height: auto;
 
 // typo variables
@@ -27,7 +29,7 @@ $input-margin: 1vh 0vw;
 
 // button variables
 $button-padding: 1vh 0vw;
-$button-margin: 3vh 1vw 0 0;
+$button-margin: 3vh 1vw 0 1vw;
 $button-height: 8vh;
 $button-width: 12vw;
 
@@ -39,3 +41,5 @@ $form-with: 60vw;
 // footer variables
 $footer-font: #787575;
 $footer-ul-width: 35vw;
+$footer-ul-padding: 0;
+

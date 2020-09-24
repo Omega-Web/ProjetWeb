@@ -11,20 +11,20 @@ use Code\Infrastructure\Database;
 use PDOException;
 use PDO;
 
-$id = 2;
+// $id = 2;
 
-$repoUser = new UserRepository(Database::get());
-$currentUser = $repoUser->findOne($id);
+// $repoUser = new UserRepository(Database::get());
+// $currentUser = $repoUser->findOne($id);
 
-if($id > 0 ) {
-    $firstname      = $currentUser->getFirstname();    
-    $lastname       = $currentUser->getLastname();    
-    $username       = $currentUser->getUsername();    
-    $email          = $currentUser->getEmail();    
-    $password       = $currentUser->getPassword();    
-    $dob            = $currentUser->getBirthday();    
-}
-?>
+// if($id > 0 ) {
+//     $firstname      = $currentUser->getFirstname();    
+//     $lastname       = $currentUser->getLastname();    
+//     $username       = $currentUser->getUsername();    
+//     $email          = $currentUser->getEmail();    
+//     $password       = $currentUser->getPassword();    
+//     $dob            = $currentUser->getBirthday();    
+// }
+// ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,21 +37,25 @@ if($id > 0 ) {
 <body>
     <header>
         <div id="div-logo">
-            <img id="logo" src="../../Assets/logo.png" alt="logo">
+            <!-- ADD PHP HERE -- If clicked on logo while identified take on Films search page -->
+            <a href="../Authentication/Connection.php"><img id="logo" src="../../Assets/logo.png" alt="logo"></a>
         </div>
         <nav>
-            <li><a href="#">Films</a></li>
-            <li><a href="#">Ma liste</a></li>
-            <li><a href="#">Mon compte</a></li>
+            <ul>
+                <li><a id="films-a" href="#">Films</a></li>
+                <li><a id="list-a" href="#">Ma liste</a></li>
+                <li><a id="account-a" href="#">Mon compte</a></li>
+            </ul>
         </nav>
         <div id="div-logout">
-                <a href="#"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
+            <!-- ADD PHP HERE -- LOGOUT / SESSION END-DESTROY ? -->
+                <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
     <main>
-        <div>
+        <div id="main-div">
             <h3>Informations de compte</h3>
-            <form id="first-form" action="post">
+            <form id="first-form" action="" method="post">
                 <input id="firstname" name="firstname" placeholder="Prénom" value="<?php echo htmlspecialchars($firstname); ?>" disabled>
                 <br>
                 <input id="lastname" name="lastname" placeholder="Nom" value="<?php echo htmlspecialchars($lastname); ?>" disabled>
@@ -62,26 +66,32 @@ if($id > 0 ) {
                 <br>
                 <input id="username" name="username" placeholder="Nom d'utilisateur" value="<?php echo htmlspecialchars($username); ?>" disabled>
                 <br>
-                <input id="password" name="password" type="password" placeholder="Mot de passe" value="<?php echo htmlspecialchars($password); ?>">
+                <input id="password" name="password" type="password" placeholder="Mot de passe" >
+                <br>
+                <input id="password2" name="password" type="password" placeholder="Vérifier le mot de passe">
                 <br>
             </form>
             
             <h3>Préférences cookies</h3>
             
-            <form id="second-form" action="post">
+            <form id="second-form" action="" method="post">
             
                 <div class="cookie" id="first-cookie">
-                    <h5>Cookies indispensables</h5>
-                    <span>Cookies utilisés pour faire fonctionner le site. Ces cookies ne sont pas désactivables</span>
+                    <div>
+                        <h5>Cookies indispensables</h5>
+                        <span>Cookies utilisés pour faire fonctionner le site. Ces cookies ne sont pas désactivables</span>
+                    </div>
                     <!-- Rounded switch -->
                     <label class="switch">
-                        <input type="checkbox">
+                        <input type="checkbox" checked disabled>
                         <span class="slider round"></span>
                     </label>
                 </div>
                 <div class="cookie" id="second-cookie">
-                    <h5>Préférences</h5>
-                    <span>Pour enregistrer vos préférences et améliorer votre expérience sur notre site</span>
+                    <div>
+                        <h5>Préférences</h5>
+                        <span>Pour enregistrer vos préférences et améliorer votre expérience sur notre site</span>                    
+                    </div>
                     <!-- Rounded switch -->
                     <label class="switch">
                         <input type="checkbox">
@@ -89,18 +99,19 @@ if($id > 0 ) {
                     </label>
                 </div>
                 <div class="cookie" id="third-cookie">
-                    <h5>Performances et annalyse</h5>
-                    <span>Ces cookies sont utilisés pour collecter des informations sur la manière dont vous utilisez notre site mais aussi améliorer ses performances et votre expérience</span>
+                    <div>
+                        <h5>Performances et annalyse</h5>
+                        <span>Ces cookies sont utilisés pour collecter des informations sur la manière dont vous utilisez notre site mais aussi améliorer ses performances et votre expérience</span>
+                    </div>
                     <!-- Rounded switch -->
                     <label class="switch">
                         <input type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
-            <!-- <?php
-                $repoUser->updateUser($currentUser)
-            ?> -->
-            <button id="button" type="submit">Enregistrer les modifications</button>
+                
+                
+            <button id="button" onclick="submitForms()">Enregistrer les modifications</button>
             </form>
         </div>
         

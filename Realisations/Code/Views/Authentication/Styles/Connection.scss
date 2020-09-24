@@ -7,17 +7,14 @@
     background-color: $background-color;
     font-size: $font-size;
 
-    header{
-        #div-logo{
-            text-align: center;
-        
-            #logo{
-                width: $logo-width;
-                height: $logo-height;
-                margin: 3vh auto 5vh auto;
-            }
+    #div-logo{
+        text-align: center;
+    
+        #logo{
+            width: $logo-width;
+            height: $logo-height;
+            margin: 3vh auto 5vh auto;
         }
-
     }
 
     form{
@@ -72,6 +69,7 @@
 
     footer{
         .wrapper {
+            padding: $footer-ul-padding;
             margin: 15vh auto 0 auto;
             width: $footer-ul-width;
             display: flex;
