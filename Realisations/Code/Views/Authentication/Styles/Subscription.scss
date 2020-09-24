@@ -1,44 +1,34 @@
-$background-color:#010F21;
-$button-color:#2869D1;
-$cookie-color:#158BBF;
-$selected-color:#D9B68B;
-$font-color:#FFFFFF;
-$input-bg-color:#FFFFFF;
-$input-ft-color:#000000;
-$input-height: 6.5vh;
-$input-width: 25vw;
-$border-radius: 2px;
-$input-padding: 0.5vh 1vw;
-$input-margin: 1vh 0vw;
-$font-size: 1rem;
-$button-padding: 1vh 0vw;
-$button-margin: 3vh 1vw 0 0;
-$button-height: 8vh;
-$button-width: 12vw;
-$form-margin: 1vh 0vw;
-$form-padding: 0.5vh 1vw;
-$footer-font: #787575;
-$footer-ul-width: 35vw;
+// Utilities
+@import "../../Styles/variables";
+
 
 *, html {
     color: $font-color;
     font-family: 'Roboto', sans-serif;
     background-color: $background-color;
     font-size: $font-size;
-
+    
     #div-logo{
         text-align: center;
     
         #logo{
-            width: 250px;
-            height: auto;
+            width: $logo-width;
+            height: $logo-height;
             margin: 3vh auto 5vh auto;
         }
     }
 
     form{
-        text-align: center;
-        #username{
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2vh 1vw;
+        
+        grid-auto-rows: minmax(10px, auto);
+        width: 60vw;
+        margin: 0 auto;
+
+        input{
             background-color: $input-bg-color;
             color: $input-ft-color;
             outline: none;
@@ -49,16 +39,33 @@ $footer-ul-width: 35vw;
             padding: $input-padding;
             margin: $input-margin;
         }
-        #password{
-            background-color: $input-bg-color;
-            color: $input-ft-color;
-            outline: none;
-            border: none;
-            border-radius: $border-radius;
-            height: $input-height;
-            width: $input-width; 
-            padding: $input-padding;
-            margin: $input-margin;
+        #firstname {
+            grid-column: 1 / 1;
+            grid-row: 1;
+          }
+        #lastname { 
+            grid-column: 2 / 2;
+            grid-row: 1;
+        }
+        #email {
+            grid-column: 1 / 2;
+            grid-row: 2;
+        }
+        #dob {
+            grid-column: 2 / 3;
+            grid-row: 2;
+        }
+        #username {
+            grid-column: 1 / 2;
+            grid-row: 3;
+        }
+        #password {
+            grid-column: 2 / 3;
+            grid-row: 3;
+        }
+        #button{
+            grid-column: 1 / 3;
+            grid-row: 4;
         }
         
         button{
@@ -71,6 +78,7 @@ $footer-ul-width: 35vw;
             width: $button-width; 
             padding: $button-padding;
             margin: $button-margin;
+            
         }
         button:hover{
             cursor: pointer;
@@ -79,6 +87,7 @@ $footer-ul-width: 35vw;
         }
     }
     .connect-subscribe{
+        margin: -8vh auto 0 auto ;
         text-align: center;
         font-size: $font-size/1.2;
         a{
