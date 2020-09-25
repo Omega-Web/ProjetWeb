@@ -66,16 +66,16 @@ class UserRepository implements IUserProvider {
     public function updateUser($user): int
     {
 
-        $sql = 'UPDATE user SET firstname = :firstname, lastname = :lastname, email = :email, username = :username, password = :password, birthday = :birthday WHERE id=:id';
+        $sql = 'UPDATE user SET email = :email, password = :password WHERE id=:id';
 
         $stt = $this->con->prepare($sql);
-        $stt-> bindValue('if',$user->getId(),PDO::PARAM_INT);
-        $stt-> bindValue('firstname',$user->getFirstname(),PDO::PARAM_STR);
-        $stt-> bindValue('lastname',$user->getLastname(),PDO::PARAM_STR);
-        $stt-> bindValue('username',$user->getUsername(),PDO::PARAM_STR);
+        $stt-> bindValue('id',$user->getId(),PDO::PARAM_INT);
+        // $stt-> bindValue('firstname',$user->getFirstname(),PDO::PARAM_STR);
+        // $stt-> bindValue('lastname',$user->getLastname(),PDO::PARAM_STR);
+        // $stt-> bindValue('username',$user->getUsername(),PDO::PARAM_STR);
         $stt-> bindValue('email',$user->getEmail(),PDO::PARAM_STR);
         $stt-> bindValue('password',password_hash($user->getPassword(), PASSWORD_ARGON2I),PDO::PARAM_STR);
-        $stt-> bindValue('birthday',$user->getBirthday()->format('Y-m-d'));
+        // $stt-> bindValue('birthday',$user->getBirthday()->format('Y-m-d'));
 
         $stt->execute();
         $stt->closeCursor();

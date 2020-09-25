@@ -11,20 +11,40 @@ use Code\Infrastructure\Database;
 use PDOException;
 use PDO;
 
-// $id = 2;
+$id = 2;
 
-// $repoUser = new UserRepository(Database::get());
-// $currentUser = $repoUser->findOne($id);
+$repoUser = new UserRepository(Database::get());
+$currentUser = $repoUser->findOne($id);
+if($id > 0 ) {
+    $firstname      = $currentUser->getFirstname();    
+    $lastname       = $currentUser->getLastname();    
+    $username       = $currentUser->getUsername();    
+    $email          = $currentUser->getEmail();    
+    $password       = $currentUser->getPassword();    
+    $dob            = $currentUser->getBirthday();    
+}
+$passwordError = "";
+if(!empty($_POST)) {
 
-// if($id > 0 ) {
-//     $firstname      = $currentUser->getFirstname();    
-//     $lastname       = $currentUser->getLastname();    
-//     $username       = $currentUser->getUsername();    
-//     $email          = $currentUser->getEmail();    
-//     $password       = $currentUser->getPassword();    
-//     $dob            = $currentUser->getBirthday();    
-// }
-// ?>
+    $userArray['email'] = $_POST['email'];
+    $userArray['id'] = $id;
+
+    if ($_POST['password'] === $_POST['password2']){
+        $userArray['password'] = $_POST['password'];
+        try{
+            $repoUser->updateUser(new User($userArray));
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    else{
+        $passwordError = "Les mots de passe ne correspondent pas";
+    }
+    
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,8 +88,10 @@ use PDO;
                 <br>
                 <input id="password" name="password" type="password" placeholder="Mot de passe" >
                 <br>
-                <input id="password2" name="password" type="password" placeholder="Vérifier le mot de passe">
+                <label for="password"><?php echo $passwordError; ?></label>
+                <input id="password2" name="password2" type="password" placeholder="Vérifier le mot de passe">
                 <br>
+                <button type="submit">ghgh</button>
             </form>
             
             <h3>Préférences cookies</h3>
@@ -116,10 +138,6 @@ use PDO;
         </div>
         
     </main>
-    </body>
+    <script src="JS/Submit.js"></script>
+</body>
 </html>
-    <?php
-
- 
-?>
-
