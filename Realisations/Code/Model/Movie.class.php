@@ -6,6 +6,7 @@ Use DateTime;
 USe Exception;
 use Code\Model\Genre;
 
+//representation en classe de la table movie de la bdd
 class Movie
 {
     private $id;

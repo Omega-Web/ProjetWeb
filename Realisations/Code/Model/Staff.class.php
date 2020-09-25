@@ -5,6 +5,7 @@ namespace Code\Model;
 Use DateTime;
 Use Exception;
 
+//representation en classe de la table staff_movie de la bdd
 class Staff
 {
     private $id;
