@@ -1,25 +1,30 @@
-*, html {
+*,
+html {
   color: #ffffff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #010f21;
   font-size: 1rem;
 }
 
-* #div-logo, html #div-logo {
+* #div-logo,
+html #div-logo {
   text-align: center;
 }
 
-* #div-logo #logo, html #div-logo #logo {
+* #div-logo #logo,
+html #div-logo #logo {
   width: 18vw;
   height: auto;
   margin: 3vh auto 5vh auto;
 }
 
-* form, html form {
+* form,
+html form {
   text-align: center;
 }
 
-* form #username, html form #username {
+* form #username,
+html form #username {
   background-color: #ffffff;
   color: #000000;
   outline: none;
@@ -31,7 +36,8 @@
   margin: 1vh 0vw;
 }
 
-* form #password, html form #password {
+* form #password,
+html form #password {
   background-color: #ffffff;
   color: #000000;
   outline: none;
@@ -43,7 +49,8 @@
   margin: 1vh 0vw;
 }
 
-* form button, html form button {
+* form button,
+html form button {
   background-color: #2869d1;
   color: #ffffff;
   outline: none;
@@ -55,21 +62,25 @@
   margin: 1vh 1vw 0 1vw;
 }
 
-* form button:hover, html form button:hover {
+* form button:hover,
+html form button:hover {
   cursor: pointer;
   background-color: #d9b68b;
 }
 
-* .connect-subscribe, html .connect-subscribe {
+* .connect-subscribe,
+html .connect-subscribe {
   text-align: center;
   font-size: 0.83333rem;
 }
 
-* .connect-subscribe a, html .connect-subscribe a {
+* .connect-subscribe a,
+html .connect-subscribe a {
   font-size: 0.83333rem;
 }
 
-* footer .wrapper, html footer .wrapper {
+* footer .wrapper,
+html footer .wrapper {
   padding: 0;
   margin: 15vh auto 0 auto;
   width: 35vw;
@@ -77,15 +88,17 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
-* footer .wrapper li, html footer .wrapper li {
+* footer .wrapper li,
+html footer .wrapper li {
   list-style-type: none;
   margin: 0 2vw;
 }
 
-* footer .wrapper li a, html footer .wrapper li a {
+* footer .wrapper li a,
+html footer .wrapper li a {
   color: #787575;
   font-size: 0.83333rem;
   text-decoration: none;
