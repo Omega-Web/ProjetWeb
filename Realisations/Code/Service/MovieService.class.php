@@ -6,7 +6,7 @@ use Code\Model\Movie;
 use Code\Provider\IGenreProvider;
 use Code\Provider\IMovie_imageProvider;
 Use Code\Provider\IMovieProvider;
-
+use Exception;
 
 //
 Class MovieService implements IMovieProvider
@@ -26,15 +26,19 @@ Class MovieService implements IMovieProvider
     public function findAll(): array
     {
         $movies = $this->MovieAccess->findAll();
-
+           
         foreach($movies as $movie)
         {
-            $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
+            $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());         
             $images = $this->ImageAccess->findAll($movie->getId());
             $movie->setGenres($genres);
             
+            $movie->setImages($images);
+                    
         }
 
+       
+       
         return $movies;
     }
 
