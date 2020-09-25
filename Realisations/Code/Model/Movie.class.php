@@ -18,7 +18,7 @@ class Movie
 
     public function __construct($data)
     {
-        $this->setId( $data['id']);
+        $this->setId( $data['id'] ?? 0);
         $this->setTitle($data['title'] ?? '');
         $this->setPlot($data['plot'] ?? '');
         $this->setDuration($data['duration']);
