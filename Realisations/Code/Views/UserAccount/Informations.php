@@ -15,7 +15,6 @@ $id = 2;
 
 $repoUser = new UserRepository(Database::get());
 $currentUser = $repoUser->findOne($id);
-
 if($id > 0 ) {
     $firstname      = $currentUser->getFirstname();    
     $lastname       = $currentUser->getLastname();    
@@ -24,6 +23,27 @@ if($id > 0 ) {
     $password       = $currentUser->getPassword();    
     $dob            = $currentUser->getBirthday();    
 }
+$passwordError = "";
+if(!empty($_POST)) {
+
+    $userArray['email'] = $_POST['email'];
+    $userArray['id'] = $id;
+
+    if ($_POST['password'] === $_POST['password2']){
+        $userArray['password'] = $_POST['password'];
+        try{
+            $repoUser->updateUser(new User($userArray));
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    else{
+        $passwordError = "Les mots de passe ne correspondent pas";
+    }
+    
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,13 +75,15 @@ if($id > 0 ) {
     <main>
         <div id="main-div">
             <h3>Informations de compte</h3>
-<<<<<<< HEAD
+
             <form id="first-form" action="post">
                 <input id="firstname" name="firstname" placeholder="Prénom" value="<?php echo htmlspecialchars($firstname); ?>" disabled>
-=======
+
             <form id="first-form" action="" method="post">
                 <input id="firstname" name="firstname" placeholder="Prénom" disabled>
->>>>>>> origin/Dev
+
+            <form id="first-form" action="" method="post">
+                <input id="firstname" name="firstname" placeholder="Prénom" value="<?php echo htmlspecialchars($firstname); ?>" disabled>
                 <br>
                 <input id="lastname" name="lastname" placeholder="Nom" value="<?php echo htmlspecialchars($lastname); ?>" disabled>
                 <br>
@@ -71,10 +93,12 @@ if($id > 0 ) {
                 <br>
                 <input id="username" name="username" placeholder="Nom d'utilisateur" value="<?php echo htmlspecialchars($username); ?>" disabled>
                 <br>
-                <input id="password" name="password" type="password" placeholder="Mot de passe" value="<?php echo htmlspecialchars($password); ?>">
+                <input id="password" name="password" type="password" placeholder="Mot de passe" >
                 <br>
-                <input id="password2" name="password" type="password" placeholder="Vérifier le mot de passe">
+                <label for="password"><?php echo $passwordError; ?></label>
+                <input id="password2" name="password2" type="password" placeholder="Vérifier le mot de passe">
                 <br>
+                <button type="submit">ghgh</button>
             </form>
             
             <h3>Préférences cookies</h3>
@@ -114,23 +138,13 @@ if($id > 0 ) {
                         <span class="slider round"></span>
                     </label>
                 </div>
-<<<<<<< HEAD
-            <!-- <?php
-                $repoUser->updateUser($currentUser)
-            ?> -->
-            <button id="button" type="submit">Enregistrer les modifications</button>
-=======
 
             <button id="button" onclick="submitForms()">Enregistrer les modifications</button>
->>>>>>> origin/Dev
+ 
             </form>
         </div>
         
     </main>
-    </body>
+    <script src="JS/Submit.js"></script>
+</body>
 </html>
-    <?php
-
- 
-?>
-
