@@ -5,6 +5,7 @@ namespace Code\Model;
 use DateTime;
 use Exception;
 
+//representation en classe de la table user de la bdd
 class User {
     private $id;
     private $firstname;
@@ -13,6 +14,7 @@ class User {
     private $username;
     private $password;
     private $birthday;
+    private $id_movies = [];
 
     public function __construct(array $data)
     {
