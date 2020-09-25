@@ -25,7 +25,6 @@ if($id > 0 ) {
     'password'       => $currentUser->getPassword(),    
     'dob'            => $currentUser->getBirthday()->format('Y-m-d')
     ) ;
-    print_r($userInfo);
 }
 $passwordError = "";
 if(!empty($_POST)) {
