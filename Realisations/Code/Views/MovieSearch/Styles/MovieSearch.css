@@ -50,6 +50,12 @@
         width: 35px;
         margin: 0 5vw 0 0; }
     * body #main-div, html body #main-div {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 2vh 1vw;
+      grid-auto-rows: minmax(10px, auto);
+      margin: 0 auto;
       /* On mouse-over, add a deeper shadow */
       /* Add some padding inside the card container */ }
       * body #main-div .card, html body #main-div .card {
@@ -59,9 +65,12 @@
         width: 15vw;
         background-color: black;
         margin: 3vh 3vw; }
+        * body #main-div .card .div-img, html body #main-div .card .div-img {
+          min-height: 50vh;
+          display: flex;
+          justify-content: center; }
         * body #main-div .card #card-img, html body #main-div .card #card-img {
-          width: 15vw;
-          height: auto; }
+          width: 15vw; }
       * body #main-div .card:hover, html body #main-div .card:hover {
         box-shadow: 0 2px 16px 0 #2869d1; }
       * body #main-div .container, html body #main-div .container {
@@ -89,4 +98,4 @@
           * body #main-div .container div a, html body #main-div .container div a {
             text-decoration: none; }
 
-/*# sourceMappingURL=UserMovieList.css.map */
+/*# sourceMappingURL=MovieSearch.css.map */

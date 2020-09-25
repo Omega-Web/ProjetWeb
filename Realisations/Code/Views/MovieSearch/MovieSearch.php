@@ -1,10 +1,30 @@
+<?php 
+
+require_once '../../../bootstrap.php';
+use PDO;
+use PDOException;
+use Code\Repository\Movie_imageRepository;
+use Code\Infrastructure\Database;
+use Code\Repository\GenreRepository;
+use Code\Repository\MovieRepository;
+use Code\Service\MovieService;
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+$movie_imagerepo = new Movie_imageRepository(Database::get());
+$genreRepo = new GenreRepository(Database::get());
+$movierepo = new MovieRepository(Database::get());
+$service = new MovieService($movierepo,$genreRepo,$movie_imagerepo);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VidéoMega, recherche de films</title>
-    <link rel="stylesheet" href="Styles/UserMovieList.css">
+    <link rel="stylesheet" href="Styles/MovieSearch.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
 </head>
 <body>
@@ -15,7 +35,7 @@
         </div>
         <nav>
             <ul>
-                <li><a id="films-a" href="MovieList.php">Films</a></li>
+                <li><a class="focus-nav" id="films-a" href="MovieList.php">Films</a></li>
                 <li><a id="list-a" href="../UserMovieList/UserMovieList.php">Ma liste</a></li>
                 <li><a id="account-a" href="../UserAccount/Informations.php">Mon compte</a></li>
             </ul>
@@ -25,18 +45,24 @@
                 <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
-    <main>
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="images/office.jpg">
-            </div>
-            <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-            <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-        </div>
+    <main id="main-div">
+        <?php
+        $movies = $service->findAll();
+        foreach ($movies as $movie) {
+            ?>
+            <div class="card">
+                <div class="div-img">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,'.base64_encode( $movie->getImages()[0]['image']).'"' ?> alt="imageMovie">
+                </div>
+                <div class="container">
+                    <h4><b><?= $movie->getTitle() ?></b></h4>
+                    <div>
+                        <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
+                        <a href="#"><button id="seemore-btn" type="button">Plus</button></a>
+                    </div>
+                </div>
+            </div> 
+            <?php 
+        }
+        ?>
     </main>

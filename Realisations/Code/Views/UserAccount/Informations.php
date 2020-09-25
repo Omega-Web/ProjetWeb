@@ -65,9 +65,9 @@ if(!empty($_POST)) {
         </div>
         <nav>
             <ul>
-                <li><a id="films-a" href="#">Films</a></li>
-                <li><a id="list-a" href="#">Ma liste</a></li>
-                <li><a id="account-a" href="#">Mon compte</a></li>
+                <li><a id="films-a" href="../MovieSearch/MovieSearch.php">Films</a></li>
+                <li><a id="list-a" href="../UserMovieList/UserMovieList.php">Ma liste</a></li>
+                <li><a class="focus-nav" id="account-a" href="../UserAccount/Informations.php">Mon compte</a></li>
             </ul>
         </nav>
         <div id="div-logout">
