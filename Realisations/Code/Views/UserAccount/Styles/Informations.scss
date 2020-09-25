@@ -1,257 +1,267 @@
 // Utilities
-@import '../../Styles/variables';
+@import "../../Styles/variables";
 
-*, html {
+*,
+html {
+  color: $font-color;
+  font-family: "Roboto", sans-serif;
+  font-size: $font-size;
 
-    color: $font-color;
-    font-family: 'Roboto', sans-serif;
-    font-size: $font-size;
-    
-    body{
-        background-color: $background-color;
-        // Header section
-        header{
-            display: flex;
-            justify-content: space-between;
-            text-align: center;
-            align-items: center;
+  body {
+    background-color: $background-color;
+    // Header section
+    header {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      align-items: center;
 
-            #div-logo{
-                margin: 1vh 3vw;
-        
-            #logo{
-                width: $logo-width/3;
-                height: $logo-height;
-                margin: 3vh 0 5vh 0;
-                }
-            }
+      #div-logo {
+        margin: 1vh 3vw;
 
-            nav{
-                width: 60vw;
-                ul{
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    li{
-                        list-style-type: none;
-                        a{
-                            text-decoration: none;
-                            height:50px;
-                        }
-                        #account-a{
-                            color:$selected-color;
-                            border-bottom: $button-color 4px solid;
-                            border-radius: $border-radius;
-                            box-sizing: border-box;
-                            padding-bottom: 10px;
-                            height: 47px;
-                        }
-                        a:hover{
-                            border-bottom: $button-color 4px solid;
-                            border-radius: $border-radius;
-                            box-sizing: border-box;
-                            padding-bottom: 10px;
-                            height: 47px;
-                        }
-                        a:active{
-                            border-bottom: $selected-color 4px solid;
-                            border-radius: $border-radius;
-                            box-sizing: border-box;
-                            padding-bottom: 10px;
-                            height: 47px;
-                        }
-                    }
-                }
-                
-            }
-            #div-logout{
-
-                #logout{
-                    width: $logout-width;
-                    margin: 0 5vw 0 0;
-                }
-            }
+        #logo {
+          width: $logo-width/3;
+          height: $logo-height;
+          margin: 3vh 0 5vh 0;
         }
+      }
 
-        // Main section
-        main{
-            #main-div{
-
-                h3{
-                    margin-left: 20.5vw;
-                }
-                // First form
-                #first-form{
-                    display: grid;
-                    justify-items: center;
-                    grid-template-columns: repeat(2, 1fr);
-                    grid-gap: 2vh 1vw;
-                    
-                    grid-auto-rows: minmax(10px, auto);
-                    width: 60vw;
-                    margin: 0 auto;
-            
-                    input{
-                        background-color: $input-bg-color;
-                        color: $input-ft-color;
-                        outline: none;
-                        border: none;
-                        border-radius: $border-radius;
-                        height: $input-height/1.4;
-                        width: $input-width; 
-                        padding: $input-padding;
-                        margin: $input-margin;
-                    }
-                    #firstname {
-                        grid-column: 1 / 1;
-                        grid-row: 1;
-                        background-color: $disabled-color;
-                    }
-                    #lastname { 
-                        grid-column: 2 / 2;
-                        grid-row: 1;
-                        background-color: $disabled-color;
-
-                    }
-                    #email {
-                        grid-column: 1 / 2;
-                        grid-row: 3;
-                    }
-                    #dob {
-                        grid-column: 2 / 3;
-                        grid-row: 2;
-                        background-color: $disabled-color;
-
-                    }
-                    #username {
-                        grid-column: 1 / 2;
-                        grid-row: 2;
-                        background-color: $disabled-color;
-                    }
-                    #password {
-                        grid-column: 2 / 3;
-                        grid-row: 3;
-                    }
-                    #password2 {
-                        grid-column: 2 / 3;
-                        grid-row: 4;
-                    }
-                }
-
-                #second-form{
-                    // Second form
-                    width: 60vw;
-                    margin: 0 auto;
-                    padding: 2vh auto;
-                    
-                    #button{
-                        background-color: $button-color;
-                        color: $font-color;
-                        outline: none;
-                        border: none;
-                        border-radius: $border-radius;
-                        height: $input-height*1.5;
-                        width: $button-width; 
-                        padding: $button-padding;
-                        margin: $button-margin;
-                        margin-bottom: 10vh;
-                    }
-                    
-                    #button:hover{
-                        cursor: pointer;
-                        background-color: $selected-color;
-                    }
-
-                    .cookie{
-                        display: flex;
-                        align-items: center;
-                        background-color: $cookie-color;
-                        padding: 3vh 3vw;
-                        margin: 2vh 1vw;
-                        border-radius: $border-radius;
-                        div{
-                            // border: $border-test red;
-                            width: 45vw;
-                            h5{
-                                // border: $border-test blue;
-                                margin: 0;
-                            }
-                            span{
-                                // border: $border-test orange;
-                                font-size: $font-size/1.2;
-                            }
-                            label{
-                                input{}
-                            }
-                        }
-                        /* The switch - the box around the slider */
-                        .switch {
-                            position: relative;
-                            display: inline-block;
-                            width: 50px;
-                            height: 28.33px;
-                            margin: 0 auto;
-                        }
-                        /* Hide default HTML checkbox */
-                        .switch input {
-                            opacity: 0;
-                            width: 0;
-                            height: 0;
-                        }
-
-
-                        /* The slider */
-                        .slider {
-                            position: absolute;
-                            cursor: pointer;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                            background-color: $disabled-color;
-                            -webkit-transition: .4s;
-                            transition: .4s;
-                        }
-                        
-                        .slider:before {
-                            position: absolute;
-                            content: "";
-                            height: 21.66px;
-                            width: 21.66px;
-                            left: 3.63px;
-                            bottom: 3.63px;
-                            background-color: white;
-                            -webkit-transition: .4s;
-                            transition: .4s;
-                        }
-                        
-                        input:checked + .slider {
-                            background-color: #2196F3;
-                        }
-                        
-                        input:focus + .slider {
-                            box-shadow: 0 0 1px #2196F3;
-                        }
-                        
-                        input:checked + .slider:before {
-                            -webkit-transform: translateX(21.66px);
-                            -ms-transform: translateX(21.66px);
-                            transform: translateX(21.66px);
-                        }
-                        
-                        /* Rounded sliders */
-                        .slider.round {
-                            border-radius: 34px;
-                        }
-                        
-                        .slider.round:before {
-                            border-radius: 50%;
-                        }
-                    }
-                }
+      nav {
+        width: 60vw;
+        ul {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          li {
+            list-style-type: none;
+            a {
+              text-decoration: none;
+              height: 50px;
             }
+            #account-a {
+              color: $selected-color;
+              border-bottom: $button-color 4px solid;
+              border-radius: $border-radius;
+              box-sizing: border-box;
+              padding-bottom: 10px;
+              height: 47px;
+            }
+            a:hover {
+              border-bottom: $button-color 4px solid;
+              border-radius: $border-radius;
+              box-sizing: border-box;
+              padding-bottom: 10px;
+              height: 47px;
+            }
+            a:active {
+              border-bottom: $selected-color 4px solid;
+              border-radius: $border-radius;
+              box-sizing: border-box;
+              padding-bottom: 10px;
+              height: 47px;
+            }
+          }
         }
+      }
+      #div-logout {
+        #logout {
+          width: $logout-width;
+          margin: 0 5vw 0 0;
+        }
+      }
     }
+
+    // Main section
+    main {
+      #main-div {
+        h3 {
+          margin-left: 20.5vw;
+        }
+        // First form
+        #first-form {
+          display: grid;
+          justify-items: center;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 2vh 1vw;
+
+          grid-auto-rows: minmax(10px, auto);
+          width: 60vw;
+          margin: 0 auto;
+
+          #button-info {
+            background-color: $button-color;
+            color: $font-color;
+            outline: none;
+            border: none;
+            border-radius: $border-radius;
+            height: $input-height * 1.5;
+            width: $button-width;
+            padding: $button-padding;
+            margin: $button-margin;
+            margin-bottom: 10vh;
+            grid-column: 2 / 3;
+            grid-row: 5;
+          }
+
+          #button-info:hover {
+            cursor: pointer;
+            background-color: $selected-color;
+          }
+
+          input {
+            background-color: $input-bg-color;
+            color: $input-ft-color;
+            outline: none;
+            border: none;
+            border-radius: $border-radius;
+            height: $input-height/1.4;
+            width: $input-width;
+            padding: $input-padding;
+            margin: $input-margin;
+          }
+          #firstname {
+            grid-column: 1 / 1;
+            grid-row: 1;
+            background-color: $disabled-color;
+          }
+          #lastname {
+            grid-column: 2 / 2;
+            grid-row: 1;
+            background-color: $disabled-color;
+          }
+          #email {
+            grid-column: 1 / 2;
+            grid-row: 3;
+          }
+          #dob {
+            grid-column: 2 / 3;
+            grid-row: 2;
+            background-color: $disabled-color;
+          }
+          #username {
+            grid-column: 1 / 2;
+            grid-row: 2;
+            background-color: $disabled-color;
+          }
+          #password {
+            grid-column: 2 / 3;
+            grid-row: 3;
+          }
+          #password2 {
+            grid-column: 2 / 3;
+            grid-row: 4;
+          }
+        }
+
+        #second-form {
+          // Second form
+          width: 60vw;
+          margin: 0 auto;
+          padding: 2vh auto;
+
+          #button-param {
+            background-color: $button-color;
+            color: $font-color;
+            outline: none;
+            border: none;
+            border-radius: $border-radius;
+            height: $input-height * 1.5;
+            width: $button-width;
+            padding: $button-padding;
+            margin: $button-margin;
+            margin-bottom: 10vh;
+            float: right;
+          }
+
+          #button-param:hover {
+            cursor: pointer;
+            background-color: $selected-color;
+          }
+
+          .cookie {
+            display: flex;
+            align-items: center;
+            background-color: $cookie-color;
+            padding: 3vh 3vw;
+            margin: 2vh 1vw;
+            border-radius: $border-radius;
+            div {
+              // border: $border-test red;
+              width: 45vw;
+              h5 {
+                // border: $border-test blue;
+                margin: 0;
+              }
+              span {
+                // border: $border-test orange;
+                font-size: $font-size/1.2;
+              }
+            }
+            /* The switch - the box around the slider */
+            .switch {
+              position: relative;
+              display: inline-block;
+              width: 50px;
+              height: 28.33px;
+              margin: 0 auto;
+            }
+            /* Hide default HTML checkbox */
+            .switch input {
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+
+            /* The slider */
+            .slider {
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: $disabled-color;
+              -webkit-transition: 0.4s;
+              transition: 0.4s;
+            }
+
+            .slider:before {
+              position: absolute;
+              content: "";
+              height: 21.66px;
+              width: 21.66px;
+              left: 3.63px;
+              bottom: 3.63px;
+              background-color: white;
+              -webkit-transition: 0.4s;
+              transition: 0.4s;
+            }
+
+            input:checked + .slider {
+              background-color: #2196f3;
+            }
+
+            input:focus + .slider {
+              box-shadow: 0 0 1px #2196f3;
+            }
+
+            input:checked + .slider:before {
+              -webkit-transform: translateX(21.66px);
+              -ms-transform: translateX(21.66px);
+              transform: translateX(21.66px);
+            }
+
+            /* Rounded sliders */
+            .slider.round {
+              border-radius: 34px;
+            }
+
+            .slider.round:before {
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
-
-

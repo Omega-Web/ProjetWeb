@@ -95,7 +95,7 @@ if(!empty($_POST)) {
                 <label for="password"><?php echo $passwordError; ?></label>
                 <input id="password2" name="password2" type="password" placeholder="Vérifier le mot de passe">
                 <br>
-                <!-- <button type="submit">ghgh</button> -->
+                <button id="button-info" type="submit">Enregistrer les modifications</button>
             </form>
             
             <h3>Préférences cookies</h3>
@@ -135,12 +135,12 @@ if(!empty($_POST)) {
                         <span class="slider round"></span>
                     </label>
                 </div> 
+                <button id="button-param" type="submit">Enregistrer les paramètres</button>
+
             </form>
-            <button id="button" onclick="submitForms()">Enregistrer les modifications</button>
 
         </div>
         
     </main>
-    <script src="JS/submit.js"></script>
 </body>
 </html>
