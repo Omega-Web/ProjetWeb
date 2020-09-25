@@ -11,16 +11,16 @@ class Staff
     private $id;
     private $firstname;
     private $lastname;
-    private $birthdate;
+    private $birthday;
 
     public function __construct(array $data)
     {
-        $this->setId($data['id']);
+        $this->setId($data['id'] ?? 0);
         $this->setFirstname($data['firstname']);
         $this->setLastname($data['lastname']);
         try{
             $date =new DateTime($data['birthday']);
-            $this->setBirthdate($date);
+            $this->setBirthday($date);
         }catch(Exception $e)
         {
             die($e->getMessage());
@@ -90,9 +90,9 @@ class Staff
     /**
      * Get the value of birthdate
      */ 
-    public function getBirthdate()
+    public function getBirthday()
     {
-        return $this->birthdate;
+        return $this->birthday;
     }
 
     /**
@@ -100,9 +100,9 @@ class Staff
      *
      * @return  self
      */ 
-    public function setBirthdate($birthdate)
+    public function setBirthday($birthday)
     {
-        $this->birthdate = $birthdate;
+        $this->birthday = $birthday;
 
         return $this;
     }

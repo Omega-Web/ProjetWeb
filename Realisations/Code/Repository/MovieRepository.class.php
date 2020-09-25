@@ -78,7 +78,6 @@ class MovieRepository implements IMovieProvider
             $stt->execute();
             $stt->closeCursor();
             return true;
-            
         }
         catch (PDOException $e) {
             die($e->getMessage());
