@@ -1,0 +1,161 @@
+*, html {
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+* body, html body {
+  background-color: #010f21;
+}
+
+* body header, html body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* body header #div-logo, html body header #div-logo {
+  margin: 1vh 3vw;
+}
+
+* body header #div-logo #logo, html body header #div-logo #logo {
+  width: 6vw;
+  height: auto;
+  margin: 3vh 0 5vh 0;
+}
+
+* body header nav, html body header nav {
+  width: 60vw;
+}
+
+* body header nav ul, html body header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* body header nav ul li, html body header nav ul li {
+  list-style-type: none;
+}
+
+* body header nav ul li a, html body header nav ul li a {
+  text-decoration: none;
+  height: 50px;
+}
+
+* body header nav ul li #account-a, html body header nav ul li #account-a {
+  color: #d9b68b;
+  border-bottom: #2869d1 4px solid;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 10px;
+  height: 47px;
+}
+
+* body header nav ul li a:hover, html body header nav ul li a:hover {
+  border-bottom: #2869d1 4px solid;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 10px;
+  height: 47px;
+}
+
+* body header nav ul li a:active, html body header nav ul li a:active {
+  border-bottom: #d9b68b 4px solid;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 10px;
+  height: 47px;
+}
+
+* body header #div-logout #logout, html body header #div-logout #logout {
+  width: 35px;
+  margin: 0 5vw 0 0;
+}
+
+* body #main-div, html body #main-div {
+  /* On mouse-over, add a deeper shadow */
+  /* Add some padding inside the card container */
+}
+
+* body #main-div .card, html body #main-div .card {
+  /* Add shadows to create the "card" effect */
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 15vw;
+  background-color: black;
+  margin: 3vh 3vw;
+}
+
+* body #main-div .card #card-img, html body #main-div .card #card-img {
+  width: 15vw;
+  height: auto;
+}
+
+* body #main-div .card:hover, html body #main-div .card:hover {
+  -webkit-box-shadow: 0 2px 16px 0 #2869d1;
+          box-shadow: 0 2px 16px 0 #2869d1;
+}
+
+* body #main-div .container, html body #main-div .container {
+  padding: 2px 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+* body #main-div .container h4, html body #main-div .container h4 {
+  margin: 0;
+  margin-bottom: 2vh;
+}
+
+* body #main-div .container div, html body #main-div .container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+* body #main-div .container div #seen-img, html body #main-div .container div #seen-img {
+  width: 2.5vw;
+}
+
+* body #main-div .container div #seemore-btn, html body #main-div .container div #seemore-btn {
+  background-color: #158bbf;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  height: 3.25vh;
+  width: 5.21739vw;
+  margin: 1vh 1vw 0 1vw;
+  cursor: pointer;
+}
+
+* body #main-div .container div a, html body #main-div .container div a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=UserMovieList.css.map */
