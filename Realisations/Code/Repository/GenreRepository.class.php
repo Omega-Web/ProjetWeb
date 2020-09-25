@@ -3,10 +3,7 @@
 namespace Code\Repository;
 
 use PDO;
-<<<<<<< HEAD
-=======
 use PDOException;
->>>>>>> Dev
 use Code\Model\Genre;
 use Code\Provider\IGenreProvider;
 
