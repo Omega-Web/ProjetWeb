@@ -16,12 +16,12 @@ html body header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   text-align: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 * body header #div-logo,
@@ -47,10 +47,10 @@ html body header nav ul {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 * body header nav ul li,
@@ -70,7 +70,7 @@ html body header nav ul li #account-a {
   border-bottom: #2869d1 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   padding-bottom: 10px;
   height: 47px;
 }
@@ -80,7 +80,7 @@ html body header nav ul li a:hover {
   border-bottom: #2869d1 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   padding-bottom: 10px;
   height: 47px;
 }
@@ -90,7 +90,7 @@ html body header nav ul li a:active {
   border-bottom: #d9b68b 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   padding-bottom: 10px;
   height: 47px;
 }
@@ -111,8 +111,8 @@ html body main #main-div #first-form {
   display: -ms-grid;
   display: grid;
   justify-items: center;
-  -ms-grid-columns: (1fr) [2];
-  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
   grid-gap: 2vh 1vw;
   grid-auto-rows: minmax(10px, auto);
   width: 60vw;
@@ -130,6 +130,7 @@ html body main #main-div #first-form #button-info {
   width: 12vw;
   padding: 1vh 0vw;
   margin: 1vh 1vw 0 1vw;
+  margin-right: -14vw;
   margin-bottom: 10vh;
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
@@ -256,8 +257,8 @@ html body main #main-div #second-form .cookie {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #158bbf;
   padding: 3vh 3vw;
   margin: 2vh 1vw;
@@ -333,7 +334,7 @@ html body main #main-div #second-form .cookie input:checked + .slider {
 * body main #main-div #second-form .cookie input:focus + .slider,
 html body main #main-div #second-form .cookie input:focus + .slider {
   -webkit-box-shadow: 0 0 1px #2196f3;
-  box-shadow: 0 0 1px #2196f3;
+          box-shadow: 0 0 1px #2196f3;
 }
 
 * body main #main-div #second-form .cookie input:checked + .slider:before,

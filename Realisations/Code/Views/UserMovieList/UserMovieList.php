@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VidéoMega, Ma liste de films</title>
     <link rel="stylesheet" href="Styles/UserMovieList.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
 </head>
 <body>
@@ -25,18 +26,17 @@
                 <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
-    <main>
+    <main id="main-div">
         <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="images/office.jpg">
+            <img id="card-img" src="../../Assets/avengers.jpg" alt="Avatar">
+            <div class="container">
+                <h4><b>Avengers: Endgame</b></h4>
+                <div>
+                    <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
+                    <a href="#"><button id="seemore-btn" type="button">Plus</button></a>
+                </div>
             </div>
-            <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-            <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-        </div>
+        </div> 
     </main>
+
+

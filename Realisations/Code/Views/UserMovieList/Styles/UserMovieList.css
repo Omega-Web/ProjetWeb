@@ -1,11 +1,11 @@
 *, html {
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
 }
 
 * body, html body {
-  background-color: #010F21;
+  background-color: #010f21;
 }
 
 * body header, html body header {
@@ -56,8 +56,8 @@
 }
 
 * body header nav ul li #account-a, html body header nav ul li #account-a {
-  color: #D9B68B;
-  border-bottom: #2869D1 4px solid;
+  color: #d9b68b;
+  border-bottom: #2869d1 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -66,7 +66,7 @@
 }
 
 * body header nav ul li a:hover, html body header nav ul li a:hover {
-  border-bottom: #2869D1 4px solid;
+  border-bottom: #2869d1 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -75,7 +75,7 @@
 }
 
 * body header nav ul li a:active, html body header nav ul li a:active {
-  border-bottom: #D9B68B 4px solid;
+  border-bottom: #d9b68b 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -88,202 +88,74 @@
   margin: 0 5vw 0 0;
 }
 
-* body main #main-div h3, html body main #main-div h3 {
-  margin-left: 20.5vw;
+* body #main-div, html body #main-div {
+  /* On mouse-over, add a deeper shadow */
+  /* Add some padding inside the card container */
 }
 
-* body main #main-div #first-form, html body main #main-div #first-form {
-  display: -ms-grid;
-  display: grid;
-  justify-items: center;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2vh 1vw;
-  grid-auto-rows: minmax(10px, auto);
-  width: 60vw;
-  margin: 0 auto;
+* body #main-div .card, html body #main-div .card {
+  /* Add shadows to create the "card" effect */
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 15vw;
+  background-color: black;
+  margin: 3vh 3vw;
 }
 
-* body main #main-div #first-form input, html body main #main-div #first-form input {
-  background-color: #FFFFFF;
-  color: #000000;
-  outline: none;
-  border: none;
-  border-radius: 4px;
-  height: 4.64286vh;
-  width: 25vw;
-  padding: 0.5vh 1vw;
-  margin: 1vh 0vw;
+* body #main-div .card #card-img, html body #main-div .card #card-img {
+  width: 15vw;
+  height: auto;
 }
 
-* body main #main-div #first-form #firstname, html body main #main-div #first-form #firstname {
-  -ms-grid-column: 1;
-  grid-column: 1 / 1;
-  -ms-grid-row: 1;
-  grid-row: 1;
-  background-color: #b3b1b1;
+* body #main-div .card:hover, html body #main-div .card:hover {
+  -webkit-box-shadow: 0 2px 16px 0 #2869d1;
+          box-shadow: 0 2px 16px 0 #2869d1;
 }
 
-* body main #main-div #first-form #lastname, html body main #main-div #first-form #lastname {
-  -ms-grid-column: 2;
-  grid-column: 2 / 2;
-  -ms-grid-row: 1;
-  grid-row: 1;
-  background-color: #b3b1b1;
-}
-
-* body main #main-div #first-form #email, html body main #main-div #first-form #email {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1 / 2;
-  -ms-grid-row: 3;
-  grid-row: 3;
-}
-
-* body main #main-div #first-form #dob, html body main #main-div #first-form #dob {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2 / 3;
-  -ms-grid-row: 2;
-  grid-row: 2;
-  background-color: #b3b1b1;
-}
-
-* body main #main-div #first-form #username, html body main #main-div #first-form #username {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1 / 2;
-  -ms-grid-row: 2;
-  grid-row: 2;
-  background-color: #b3b1b1;
-}
-
-* body main #main-div #first-form #password, html body main #main-div #first-form #password {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2 / 3;
-  -ms-grid-row: 3;
-  grid-row: 3;
-}
-
-* body main #main-div #first-form #password2, html body main #main-div #first-form #password2 {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2 / 3;
-  -ms-grid-row: 4;
-  grid-row: 4;
-}
-
-* body main #main-div #second-form, html body main #main-div #second-form {
-  width: 60vw;
-  margin: 0 auto;
-  padding: 2vh auto;
-}
-
-* body main #main-div #second-form #button, html body main #main-div #second-form #button {
-  background-color: #2869D1;
-  color: #FFFFFF;
-  outline: none;
-  border: none;
-  border-radius: 4px;
-  height: 9.75vh;
-  width: 12vw;
-  padding: 1vh 0vw;
-  margin: 3vh 1vw 0 1vw;
-  margin-bottom: 10vh;
-}
-
-* body main #main-div #second-form #button:hover, html body main #main-div #second-form #button:hover {
-  cursor: pointer;
-  background-color: #D9B68B;
-}
-
-* body main #main-div #second-form .cookie, html body main #main-div #second-form .cookie {
+* body #main-div .container, html body #main-div .container {
+  padding: 2px 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #158BBF;
-  padding: 3vh 3vw;
-  margin: 2vh 1vw;
-  border-radius: 4px;
-  /* The switch - the box around the slider */
-  /* Hide default HTML checkbox */
-  /* The slider */
-  /* Rounded sliders */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-* body main #main-div #second-form .cookie div, html body main #main-div #second-form .cookie div {
-  width: 45vw;
-}
-
-* body main #main-div #second-form .cookie div h5, html body main #main-div #second-form .cookie div h5 {
+* body #main-div .container h4, html body #main-div .container h4 {
   margin: 0;
+  margin-bottom: 2vh;
 }
 
-* body main #main-div #second-form .cookie div span, html body main #main-div #second-form .cookie div span {
-  font-size: 0.83333rem;
+* body #main-div .container div, html body #main-div .container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-* body main #main-div #second-form .cookie .switch, html body main #main-div #second-form .cookie .switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 28.33px;
-  margin: 0 auto;
+* body #main-div .container div #seen-img, html body #main-div .container div #seen-img {
+  width: 2.5vw;
 }
 
-* body main #main-div #second-form .cookie .switch input, html body main #main-div #second-form .cookie .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-* body main #main-div #second-form .cookie .slider, html body main #main-div #second-form .cookie .slider {
-  position: absolute;
+* body #main-div .container div #seemore-btn, html body #main-div .container div #seemore-btn {
+  background-color: #158bbf;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  height: 3.25vh;
+  width: 5.21739vw;
+  margin: 1vh 1vw 0 1vw;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #b3b1b1;
-  -webkit-transition: .4s;
-  transition: .4s;
 }
 
-* body main #main-div #second-form .cookie .slider:before, html body main #main-div #second-form .cookie .slider:before {
-  position: absolute;
-  content: "";
-  height: 21.66px;
-  width: 21.66px;
-  left: 3.63px;
-  bottom: 3.63px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-* body main #main-div #second-form .cookie input:checked + .slider, html body main #main-div #second-form .cookie input:checked + .slider {
-  background-color: #2196F3;
-}
-
-* body main #main-div #second-form .cookie input:focus + .slider, html body main #main-div #second-form .cookie input:focus + .slider {
-  -webkit-box-shadow: 0 0 1px #2196F3;
-          box-shadow: 0 0 1px #2196F3;
-}
-
-* body main #main-div #second-form .cookie input:checked + .slider:before, html body main #main-div #second-form .cookie input:checked + .slider:before {
-  -webkit-transform: translateX(21.66px);
-  transform: translateX(21.66px);
-}
-
-* body main #main-div #second-form .cookie .slider.round, html body main #main-div #second-form .cookie .slider.round {
-  border-radius: 34px;
-}
-
-* body main #main-div #second-form .cookie .slider.round:before, html body main #main-div #second-form .cookie .slider.round:before {
-  border-radius: 50%;
+* body #main-div .container div a, html body #main-div .container div a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=UserMovieList.css.map */
