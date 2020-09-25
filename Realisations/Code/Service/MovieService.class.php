@@ -32,6 +32,7 @@ Class MovieService implements IMovieProvider
             $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
             $images = $this->ImageAccess->findAll($movie->getId());
             $movie->setGenres($genres);
+            $movie->setImages($images);
             
         }
 

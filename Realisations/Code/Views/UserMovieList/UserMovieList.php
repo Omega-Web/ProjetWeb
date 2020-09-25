@@ -1,3 +1,22 @@
+<?php 
+
+require_once '../../../bootstrap.php';
+use PDO;
+use PDOException;
+use Code\Repository\Movie_imageRepository;
+use Code\Infrastructure\Database;
+use Code\Repository\GenreRepository;
+use Code\Repository\MovieRepository;
+use Code\Service\MovieService;
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+$movie_imagerepo = new Movie_imageRepository(Database::get());
+$genreRepo = new GenreRepository(Database::get());
+$movierepo = new MovieRepository(Database::get());
+$service = new MovieService($movierepo,$genreRepo,$movie_imagerepo);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,16 +46,21 @@
         </div>
     </header>
     <main id="main-div">
-        <div class="card">
-            <img id="card-img" src="../../Assets/avengers.jpg" alt="Avatar">
-            <div class="container">
-                <h4><b>Avengers: Endgame</b></h4>
-                <div>
-                    <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
-                    <a href="#"><button id="seemore-btn" type="button">Plus</button></a>
+        <?php
+        $movies = $service->findAll();
+        foreach ($movies as $movie) {
+            ?>
+            <div class="card">
+                <img id="card-img" <?= 'src="data:image/jpeg;base64,'.base64_encode( $movie->getImages()[0]['image']).'"' ?> alt="Avatar">
+                <div class="container">
+                    <h4><b><?= $movie->getTitle() ?></b></h4>
+                    <div>
+                        <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
+                        <a href="#"><button id="seemore-btn" type="button">Plus</button></a>
+                    </div>
                 </div>
-            </div>
-        </div> 
+            </div> 
+            <?php 
+        }
+        ?>
     </main>
-
-
