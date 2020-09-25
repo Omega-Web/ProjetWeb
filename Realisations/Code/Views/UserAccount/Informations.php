@@ -15,13 +15,16 @@ $id = 2;
 
 $repoUser = new UserRepository(Database::get());
 $currentUser = $repoUser->findOne($id);
+
 if($id > 0 ) {
-    $firstname      = $currentUser->getFirstname();    
-    $lastname       = $currentUser->getLastname();    
-    $username       = $currentUser->getUsername();    
-    $email          = $currentUser->getEmail();    
-    $password       = $currentUser->getPassword();    
-    $dob            = $currentUser->getBirthday();    
+    $userInfo = array(
+    'firstname'      => $currentUser->getFirstname(),  
+    'lastname'       => $currentUser->getLastname(),    
+    'username'       => $currentUser->getUsername(),    
+    'email'          => $currentUser->getEmail(), 
+    'password'       => $currentUser->getPassword(),    
+    'dob'            => $currentUser->getBirthday()->format('Y-m-d')
+    ) ;
 }
 $passwordError = "";
 if(!empty($_POST)) {
@@ -76,22 +79,22 @@ if(!empty($_POST)) {
         <div id="main-div">
             <h3>Informations de compte</h3>
             <form id="first-form" action="" method="post">
-                <input id="firstname" name="firstname" placeholder="Prénom" value="<?php echo htmlspecialchars($firstname); ?>" disabled>
+                <input id="firstname" name="firstname" placeholder="Prénom" value="<?php echo htmlspecialchars($userInfo['firstname']); ?>" disabled>
                 <br>
-                <input id="lastname" name="lastname" placeholder="Nom" value="<?php echo htmlspecialchars($lastname); ?>" disabled>
+                <input id="lastname" name="lastname" placeholder="Nom" value="<?php echo htmlspecialchars($userInfo['lastname']); ?>" disabled>
                 <br>
-                <input id="email" name="email" placeholder="Adresse e-mail" value="<?php echo htmlspecialchars($email); ?>">
+                <input id="email" name="email" placeholder="Adresse e-mail" value="<?php echo htmlspecialchars($userInfo['email']); ?>">
                 <br>
-                <input id="dob" name="dob" type="date" placeholder="Date de naissance" value="<?php echo htmlspecialchars($dob); ?>" disabled>
+                <input id="dob" name="dob" type="date" placeholder="Date de naissance" value="<?php echo htmlspecialchars($userInfo['dob']); ?>" disabled>
                 <br>
-                <input id="username" name="username" placeholder="Nom d'utilisateur" value="<?php echo htmlspecialchars($username); ?>" disabled>
+                <input id="username" name="username" placeholder="Nom d'utilisateur" value="<?php echo htmlspecialchars($userInfo['username']); ?>" disabled>
                 <br>
                 <input id="password" name="password" type="password" placeholder="Mot de passe" >
                 <br>
                 <label for="password"><?php echo $passwordError; ?></label>
                 <input id="password2" name="password2" type="password" placeholder="Vérifier le mot de passe">
                 <br>
-                <button type="submit">ghgh</button>
+                <button id="button-info" type="submit">Enregistrer les modifications</button>
             </form>
             
             <h3>Préférences cookies</h3>
@@ -130,14 +133,13 @@ if(!empty($_POST)) {
                         <input type="checkbox">
                         <span class="slider round"></span>
                     </label>
-                </div>
-                
-                
-            <button id="button" onclick="submitForms()">Enregistrer les modifications</button>
+                </div> 
+                <button id="button-param" type="submit">Enregistrer les paramètres</button>
+
             </form>
+
         </div>
         
     </main>
-    <script src="JS/Submit.js"></script>
 </body>
 </html>
