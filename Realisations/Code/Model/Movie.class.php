@@ -16,6 +16,7 @@ class Movie
     private $date;
     private $age_restriction_id;
     private $genres = [];
+    private $images = [];
 
     public function __construct($data)
     {
@@ -152,6 +153,26 @@ class Movie
     public function setGenres($genres)
     {
         $this->genres = $genres;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of images
+     */ 
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Set the value of images
+     *
+     * @return  self
+     */ 
+    public function setImages($images)
+    {
+        $this->images = $images;
 
         return $this;
     }

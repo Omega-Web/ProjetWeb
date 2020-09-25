@@ -25,7 +25,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
             $_SESSION['id'] = $id_user; 
             $UserRepo  = new UserRepository(Database::get()); 
             $user = $UserRepo->findOne($id_user);
-            header('Location: ../MovieList/MovieList.php');
+            header('Location: ../MovieSearch/MovieSearch.php');
         } else {
             $passwordError = "Le mot de passe ne correspond pas avec l'identifiant";
         }
