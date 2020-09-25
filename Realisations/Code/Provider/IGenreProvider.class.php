@@ -13,7 +13,7 @@ interface IGenreProvider {
 
     public function findAllByIdMovie(int $id):array;
 
-    // update, remove, insert for new genres
+    // update, remove, insert genres
 
     public function updateGenre(Genre $oldValue, Genre $newValue): bool;
     

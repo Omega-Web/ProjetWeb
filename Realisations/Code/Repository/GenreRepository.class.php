@@ -67,7 +67,7 @@ class GenreRepository implements IGenreProvider{
         $stt->closeCursor();
         return $Genres;
     }
-
+    //change les valeur en base pour un genre
     public function updateGenre(Genre $oldValue, Genre $newValue): bool
     {
         try {
@@ -86,6 +86,7 @@ class GenreRepository implements IGenreProvider{
         }
     }
 
+//supprime un genre
     public function deleteGenre(Genre $id): bool
     {
         try {
@@ -102,7 +103,7 @@ class GenreRepository implements IGenreProvider{
                 return false;
         }
     }
-
+    //ajoute un genre
     public function insertGenre(Genre $newValue): bool
     {
         try {

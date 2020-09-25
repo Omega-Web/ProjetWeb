@@ -10,4 +10,5 @@ interface IMovieProvider {
     public function findOne(int $id): Movie;
 
     public function findAllByTitle(string $title):array;
+
 }
