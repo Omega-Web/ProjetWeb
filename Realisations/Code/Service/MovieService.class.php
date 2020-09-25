@@ -4,6 +4,7 @@ namespace Code\Service;
 
 use Code\Model\Movie;
 use Code\Provider\IGenreProvider;
+use Code\Provider\IMovie_imageProvider;
 Use Code\Provider\IMovieProvider;
 
 
@@ -12,11 +13,13 @@ Class MovieService implements IMovieProvider
 {
     private IMovieProvider $MovieAccess;
     private IGenreProvider $GenreAccess;
+    private IMovie_imageProvider $ImageAccess;
 
-    public function __construct(IMovieProvider $m,IGenreProvider $g)
+    public function __construct(IMovieProvider $m,IGenreProvider $g,IMovie_imageProvider $i)
     {
      $this->MovieAccess = $m;
      $this->GenreAccess = $g;
+     $this->ImageAccess = $i;
 
     }
 
@@ -27,7 +30,9 @@ Class MovieService implements IMovieProvider
         foreach($movies as $movie)
         {
             $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
+            $images = $this->ImageAccess->findAll($movie->getId());
             $movie->setGenres($genres);
+            
         }
 
         return $movies;
@@ -38,7 +43,8 @@ Class MovieService implements IMovieProvider
         $movie = $this->MovieAccess->findOne($id);
         $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
         $movie->setGenres($genres);
-
+        $images = $this->ImageAccess->findAll($movie->getId());
+        $movie->setImages($images);
         return $movie;
     }
 
@@ -51,6 +57,8 @@ Class MovieService implements IMovieProvider
         {
             $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
             $movie->setGenres($genres);
+            $images = $this->ImageAccess->findAll($movie->getId());
+            $movie->setImages($images);
         }
 
         return $movies;
