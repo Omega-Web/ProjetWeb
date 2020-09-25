@@ -24,7 +24,7 @@ if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['use
     $tabUser['birthday']    = $_POST['dob'];
     
     $UserRepo = new UserRepository(Database::get());
-    $UserRepo->saveUser(new User($tabUser));
+    $UserRepo->createUser(new User($tabUser));
     
 } else {
 ?>
@@ -39,7 +39,7 @@ if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['use
 </head>
 <body>
     <div id="div-logo">
-        <img id="logo" src="../../Assets/logo.png" alt="logo">
+        <a href="Subscription.php"><img id="logo" src="../../Assets/logo.png" alt="logo"></a>
     </div>
     <form method="post">
         <input id="firstname" name="firstname" placeholder="Prénom">
@@ -56,7 +56,7 @@ if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['use
         <br>
         <button id="button" type="submit">Se connecter</button>
     </form>
-        <p class="connect-subscribe">Vous ne possédez pas encore de compte ? Inscrivez-vous <a href="Connection.php">ici</a></p>
+        <p class="connect-subscribe">Vous possédez déjà un compte ? Connectez-vous <a href="Connection.php">ici</a></p>
     
     <footer>
         <ul class="wrapper">

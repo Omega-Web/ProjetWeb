@@ -5,6 +5,7 @@ namespace Code\Model;
 use DateTime;
 use Exception;
 
+//representation en classe de la table genre de la bdd
 class Genre {
     private $id;
     private $name;

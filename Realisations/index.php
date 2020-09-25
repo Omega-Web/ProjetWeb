@@ -5,13 +5,41 @@ ini_set("display_errors", 1);
 
 require_once 'bootstrap.php';
 use Code\Infrastructure\Database;
-use Code\Model\Movie;
+use Code\Model\Genre;
+use Code\Repository\GenreRepository;
 use Code\Repository\MovieRepository;
 use Code\Repository\StaffRepository;
 
-// try {
-//     $repo = new MovieRepository(Database::get());
-//     $repo->
+// Test insert Genre :)
+// $genreArray = array();
+// $genreArray['id'] = 0;
+// $genreArray['name'] = 'comedyhorror';
+// $genre = new Genre($genreArray);
+// $genreRepo = new GenreRepository(Database::get());
+// $genreRepo->insertGenre($genre);
+
+// Test update Genre :)
+// $genreArray = array();
+// $genreArray['id'] = 17;
+// $genreArray['name'] = 'comedyhorror';
+
+// $genreArray2 = array();
+// $genreArray2['id'] = 17;
+// $genreArray2['name'] = 'comedyhorror updated';
+// $genre = new Genre($genreArray);
+// $genre2 = new Genre($genreArray2);
+
+// $genreRepo = new GenreRepository(Database::get());
+// $genreRepo->updateGenre($genre, $genre2);
+
+// Test insert Genre :)
+// $genreArray = array();
+// $genreArray['id'] = 21;
+// $genreArray['name'] = 'NEWcomedyhorror';
+// $genre = new Genre($genreArray);
+// $genreRepo = new GenreRepository(Database::get());
+// $genreRepo->deleteGenre($genre);
+
 
 /*$repo = new StaffRepository(Database::get());
 $staffs = $repo->findAll();

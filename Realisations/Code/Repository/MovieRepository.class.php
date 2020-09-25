@@ -22,6 +22,7 @@ class MovieRepository implements IMovieProvider
         $this->con = $con;
     }
 
+    //retourne tout les films en base
     public function findAll():array
     {
         $sql = 'SELECT * FROM movie';
@@ -34,6 +35,8 @@ class MovieRepository implements IMovieProvider
         $rs->closeCursor();
         return $Movies;
     }
+
+    //retourne un film en fonction de son id en base
     public function findOne(int $id):Movie
     {
         
@@ -46,10 +49,12 @@ class MovieRepository implements IMovieProvider
         
 
     }
+
+    //retourne les films qui contient la chaine reçu($title)
     public function findAllByTitle(string $title): array
     {
         $stt = $this->con->prepare('SELECT * FROM movie where title like ?');
-        $stt->execute(array("$title%"));
+        $stt->execute(array("%$title%"));
         $Movies = [];
         while($data = $stt->fetch(PDO::FETCH_ASSOC))
         {

@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+=======
+RewriteEngine Off
+RewriteCond %{REQUEST_FILENAME} !-f
+RedirectPermanent /ProjetWeb/Realisations/index.php /ProjetWeb/Realisations/Code/Views/Authentication/Connection
+
+RewriteEngine Off
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+>>>>>>> Dev
