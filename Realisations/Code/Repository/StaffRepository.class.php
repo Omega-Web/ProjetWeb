@@ -18,6 +18,7 @@ class StaffRepository implements IStaffProvider
         $this->con = $con;
     }
 
+    // retourne tout les personnes 
     public function findAll(): array
     {
         $sql = 'SELECT * FROM movie_staff';
@@ -30,7 +31,7 @@ class StaffRepository implements IStaffProvider
         $rs->closeCursor();
         return $Staffs;
     }
-
+    //retourne la personne correspondant à l'id
     public function findOne(int $id): Staff
     {
                 
@@ -42,7 +43,7 @@ class StaffRepository implements IStaffProvider
         return new Staff($data);
 
     }
-
+    //retourne les personne dont le nom entier contient la chaine reçu($name)
     public function findAllByName(string $name):array
     {
         $stt = $this->con->prepare('SELECT * FROM movie_staff where name like ?');
@@ -50,7 +51,7 @@ class StaffRepository implements IStaffProvider
         $Staffs = [];
         while($data = $stt->fetch(PDO::FETCH_ASSOC))
         {
-            $Staffs[]= new Movie($data);
+            $Staffs[]= new Staff($data);
         }  
         $stt->closeCursor();
         return $Staffs;
