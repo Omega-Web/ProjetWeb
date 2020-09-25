@@ -14,10 +14,10 @@ class Movie_user
 
     public function __construct($data)
     {
-        $this->id_movie=$this->setId_movie($data['fk_movie'] ?? 0);
-        $this->watch_state=$this->setWatch_state($data['watch_state'] ?? true);
-        $this->personal_ranking=$this->setPersonal_ranking($data['personal_ranking'] ?? null);
-        $this->comment=$this->setComment($data['comment'] ?? "");
+        $this->setId_movie($data['fk_movie'] ?? 0);
+        $this->setWatch_state($data['watch_state'] ?? true);
+        $this->setPersonal_ranking($data['personal_ranking'] ?? null);
+        $this->setComment($data['comment'] ?? "");
     }
 
 
