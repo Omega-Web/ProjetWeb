@@ -21,6 +21,8 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
         $id_user = $authen->Compare($_POST['username'],$_POST['password']);
 
         if ($id_user > 0){
+            session_start();
+            $_SESSION['id'] = $id_user; 
             $UserRepo  = new UserRepository(Database::get()); 
             $user = $UserRepo->findOne($id_user);
             header('Location: ../MovieList/MovieList.php');
