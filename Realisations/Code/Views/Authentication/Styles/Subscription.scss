@@ -97,6 +97,7 @@
 
     footer{
         .wrapper {
+            padding: $footer-ul-padding;
             margin: 15vh auto 0 auto;
             width: $footer-ul-width;
             display: flex;
