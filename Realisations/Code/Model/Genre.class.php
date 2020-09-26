@@ -13,7 +13,7 @@ class Genre {
     public function __construct(array $data)
     {
         $this->setId($data['id']);
-        $this->setName($data['name']);
+        $this->setName($data['name'] ?? '');
     }
 
     /**
