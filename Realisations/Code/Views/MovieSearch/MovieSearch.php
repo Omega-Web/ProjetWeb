@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once '../../../bootstrap.php';
 use PDO;
 use PDOException;
@@ -35,7 +35,7 @@ $service = new MovieService($movierepo,$genreRepo,$movie_imagerepo);
         </div>
         <nav>
             <ul>
-                <li><a class="focus-nav" id="films-a" href="MovieList.php">Films</a></li>
+                <li><a class="focus-nav" id="films-a" href="MovieSearch.php">Films</a></li>
                 <li><a id="list-a" href="../UserMovieList/UserMovieList.php">Ma liste</a></li>
                 <li><a id="account-a" href="../UserAccount/Informations.php">Mon compte</a></li>
             </ul>
@@ -58,7 +58,10 @@ $service = new MovieService($movierepo,$genreRepo,$movie_imagerepo);
                     <h4><b><?= $movie->getTitle() ?></b></h4>
                     <div>
                         <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
-                        <a href="#"><button id="seemore-btn" type="button">Plus</button></a>
+                        <form action="../MovieInfo/MovieInfo.php" method="post">
+                            <input type="text" name="movie-selected" value="<?= $movie->getId() ?>" hidden>
+                            <button type="submit" id="seemore-btn">Plus</button>
+                        </form>
                     </div>
                 </div>
             </div> 
@@ -66,3 +69,5 @@ $service = new MovieService($movierepo,$genreRepo,$movie_imagerepo);
         }
         ?>
     </main>
+</body>
+</html>
