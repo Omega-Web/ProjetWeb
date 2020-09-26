@@ -66,7 +66,7 @@
         background-color: black;
         margin: 3vh 3vw; }
         * body #main-div .card .div-img, html body #main-div .card .div-img {
-          min-height: 50vh;
+          min-height: auto;
           display: flex;
           justify-content: center; }
         * body #main-div .card #card-img, html body #main-div .card #card-img {
