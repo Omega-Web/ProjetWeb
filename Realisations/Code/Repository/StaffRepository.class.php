@@ -2,7 +2,6 @@
 
 namespace Code\Repository;
 
-require_once 'bootstrap.php';
 
 use PDO;
 use PDOException;
