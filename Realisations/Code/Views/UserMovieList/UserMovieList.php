@@ -6,16 +6,20 @@ use PDOException;
 use Code\Repository\Movie_imageRepository;
 use Code\Infrastructure\Database;
 use Code\Repository\GenreRepository;
+use Code\Repository\Movie_staffRepository;
 use Code\Repository\MovieRepository;
+use Code\Repository\StaffRepository;
 use Code\Service\MovieService;
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-$movie_imagerepo = new Movie_imageRepository(Database::get());
+$movieImageRepo = new Movie_imageRepository(Database::get());
 $genreRepo = new GenreRepository(Database::get());
-$movierepo = new MovieRepository(Database::get());
-$service = new MovieService($movierepo,$genreRepo,$movie_imagerepo);
+$movieRepo = new MovieRepository(Database::get());
+$movieStaffRepo = new Movie_staffRepository(Database::get());
+$staffRepo = new StaffRepository(Database::get());
+$service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRepo, $staffRepo);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
