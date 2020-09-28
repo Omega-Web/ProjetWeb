@@ -25,7 +25,7 @@ $movieUserService = new Movie_userService($movieUserRepo, $movieRepo);
 if(!empty($_POST['movie-selected'])){
     $movie = $service->findOne($_POST['movie-selected']);
     // HAVE TO ADD SESSION ID FOR ->
-    $userMovie = $movieUserService->findOne(1, $_POST['movie-selected'])
+    $userMovie = $movieUserService->findOne(1, $_POST['movie-selected']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -62,17 +62,20 @@ if(!empty($_POST['movie-selected'])){
                 <div class="div-title">
                     <h2 id="title"><b><?= $movie->getTitle() ?></b></h2>
                 </div>
-                <form id="form-movieinfo" action="" method="post">
-                    <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
-                    <a href="#"><button id="add-to-list-btn" type="submit">Ajouter</button></a>
+                <form id="form-movieinfo" action="updateUserMovie.php?id=<?=$_GET['id']?>" method="post">
+                    <label class="label" for="watch_state" id="labelup">
+                            <input class="radio" type="radio" name="watch_state" id="seen"/>
+                            <input class="seen-img submit-img" type="image" name="watch_state" src="../../Assets/eye.svg" alt="Submit"/>
+                    </label>
+                    <button id="add-to-list-btn" value="<?= $movie->getId() ?>" type="submit">Ajouter</button>
                     <div>
                         <label class="label" for="up" id="labelup">
                             <input class="radio" type="radio" name="up" value="up" id="up"/>
-                            <input class="submit-img" type="image" name="submit_up" src="../../Assets/like.svg" alt="Submit"/>
+                            <input class="submit-img" type="image" name="personal_ranking" src="../../Assets/like.svg" alt="Submit"/>
                         </label>
                         <label class="label" for="down" id="labeldown">
                             <input class="radio" type="radio" name="down" value="down" id="down"/>
-                            <input class="submit-img" type="image" name="submit_down" src="../../Assets/dislike.svg" alt="Submit"/>
+                            <input class="submit-img" type="image" name="personal_ranking" src="../../Assets/dislike.svg" alt="Submit"/>
                         </label>
                     </div>
                 </form>
@@ -81,18 +84,16 @@ if(!empty($_POST['movie-selected'])){
                 </div>
                 <div class="movie-comment">
                     <h3>Commentaire :</h3>
-                    <form action="" method="post">
-                        <textarea rows="5" type="textarea" placeholder="Entrez un commentaire sur le film"><?php
-                            if ($userMovie->getComment()==true) {
-                                echo $userMovie->getComment();
-                            }
+                    <form action="updateUserMovie.php?id=<?=$_GET['id']?>" method="post">
+                        <textarea rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?php
+                        echo $userMovie->getComment();
                         ?></textarea>
                         <button id="movie-comment-btn" type="submit">Enregistrer le commentaire</button>
                     </form>
                 </div>
                 <div class="movie-year">
                     <h3>Année : </h3>
-                    <p class="movie-p"><?= 'année'//$movie->getDate() ?></p>
+                    <p class="movie-p"><?= $movie->getDate()->format('d M Y') ?></p>
                 </div>
                 <div class="movie-duration">
                     <h3>Durée : </h3>
@@ -105,12 +106,15 @@ if(!empty($_POST['movie-selected'])){
                 </div>
                 <div class="movie-genre">
                     <h3>Genre : </h3>
-                    <p class="movie-p"><?= 'genre ici'//$movie->getGenres()[0]['genre'] ?></p>
+                    <p class="movie-p"><?php 
+                    $genreArray = $movie->getGenres();
+                    foreach($genreArray as $genre) {
+                        echo $genre->getName() . ' ';
+                    }?>
+                    </p>
                 </div>
             </div> 
-            
-            <!-- <a href="#"><button id="seemore-btn" type="button">Plus</button></a> -->
-    </main>
+        </main>
 </body>
 </html>
 <?php

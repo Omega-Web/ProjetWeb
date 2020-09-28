@@ -58,7 +58,7 @@ $service = new MovieService($movierepo,$genreRepo,$movie_imagerepo);
                     <h4><b><?= $movie->getTitle() ?></b></h4>
                     <div>
                         <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
-                        <form action="../MovieInfo/MovieInfo.php" method="post">
+                        <form action="../MovieInfo/MovieInfo.php?id=<?= $movie->getId() ?>" method="post">
                             <input type="text" name="movie-selected" value="<?= $movie->getId() ?>" hidden>
                             <button type="submit" id="seemore-btn">Plus</button>
                         </form>

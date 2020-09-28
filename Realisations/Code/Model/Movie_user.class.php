@@ -17,7 +17,7 @@ class Movie_user
         $this->setId_movie($data['fk_movie'] ?? 0);
         $this->setWatch_state($data['watch_state'] ?? true);
         $this->setPersonal_ranking($data['personal_ranking'] ?? null);
-        $this->setComment($data['comment'] ?? "");
+        $this->setComment($data['comment'] ?? '');
     }
 
 

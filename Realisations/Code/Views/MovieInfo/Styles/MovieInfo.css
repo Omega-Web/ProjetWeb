@@ -96,7 +96,6 @@
   grid-gap: 2vh 1vw;
   grid-auto-rows: minmax(10px, auto);
   margin: 3vh 5vw;
-  border: 2px solid red;
 }
 
 * body #main-div .movie .div-img, html body #main-div .movie .div-img {
