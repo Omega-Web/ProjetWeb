@@ -33,7 +33,10 @@ class UserService implements IUserProvider
 
     public function findOne(int $id): User
     {
-        return $this->UserAccess->findOne($id);
+        $user = $this->UserAccess->findOne($id);
+        $ids =  $this->Movie_userAccess->findAll($user->getId());
+        $user->setId_movies($ids);
+        return $user;
     }
 
     public function updateUser(User $user): bool
