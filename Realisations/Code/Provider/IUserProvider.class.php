@@ -9,9 +9,9 @@ interface IUserProvider {
 
     public function findOne(int $id): User;
 
-    public function createUser($array): bool;
+    public function insertUser( User $user): bool;
 
-    public function updateUser($array): int;
+    public function updateUser(User $user): bool;
 
-    public function delUser($array): bool;
+    public function deleteUser(User $user): bool;
 }

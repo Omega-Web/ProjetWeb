@@ -7,7 +7,7 @@ use Exception;
 
 //representation en classe de la table user de la bdd
 class User {
-    private $id;
+    private $id_user;
     private $firstname;
     private $lastname;
     private $email;
@@ -165,4 +165,25 @@ class User {
 
         return $this;
     }
+
+    /**
+     * Get the value of id_movies
+     */ 
+    public function getId_movies()
+    {
+        return $this->id_movies;
+    }
+
+    /**
+     * Set the value of id_movies
+     *
+     * @return  self
+     */ 
+    public function setId_movies($id_movies)
+    {
+        $this->id_movies = $id_movies;
+
+        return $this;
+    }
+
 }
