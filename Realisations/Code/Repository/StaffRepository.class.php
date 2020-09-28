@@ -2,7 +2,10 @@
 
 namespace Code\Repository;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6b59f6b5e2def13e6b8faecce8f6a2d89d5741a6
 use PDO;
 use PDOException;
 use Code\Model\Staff;
