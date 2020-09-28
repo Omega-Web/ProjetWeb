@@ -54,6 +54,13 @@ class Movie_userService implements IMovie_userProvider
         $movie_user->setMovie($movie);
         return $movie_user;
     }
+
+    public function update(Movie_user $movie_user, int $id_user): bool{
+
+        return $this->$movie_user->update($movie_user, $id_user);
+    }
+
+
 }
 
 ?>
