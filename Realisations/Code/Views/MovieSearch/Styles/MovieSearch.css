@@ -109,6 +109,7 @@
   transition: 0.3s;
   width: 15vw;
   background-color: black;
+  text-align: center;
 }
 
 * body #main-div .card .div-img, html body #main-div .card .div-img {

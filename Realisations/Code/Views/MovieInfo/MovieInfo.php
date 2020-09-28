@@ -13,11 +13,8 @@ use Code\Repository\Movie_staffRepository;
 use Code\Repository\Movie_userRepository;
 use Code\Repository\StaffRepository;
 
-
-
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-
 
 $movieImageRepo = new Movie_imageRepository(Database::get());
 $genreRepo = new GenreRepository(Database::get());
