@@ -16,7 +16,30 @@ class Movie_userRepository implements IMovie_userProvider
         $this->con = $con;
     }
 
-    public function findAll(int $id_user): array
+    public function findAll(): array
+    {
+        $stt = $this->con->prepare('SELECT * FROM user_movie_list');
+        $stt->execute();
+        while($data = $stt->fetch(PDO::FETCH_ASSOC))
+        {
+            $Movies_user[]= new Movie_user($data);
+        }   
+        return $Movies_user;
+    }
+
+    public function findAllByIdMovie($id_movie): array
+    {
+        $stt = $this->con->prepare('SELECT * FROM user_movie_list where fk_movie=:id_movie');
+        $stt-> bindValue('id_user',$id_movie,PDO::PARAM_INT);
+        $stt->execute();
+        while($data = $stt->fetch(PDO::FETCH_ASSOC))
+        {
+            $Movies_user[]= new Movie_user($data);
+        }   
+        return $Movies_user;
+    }
+
+    public function findAllByIdUser($id_user): array
     {
         $stt = $this->con->prepare('SELECT * FROM user_movie_list where fk_user=:id_user');
         $stt-> bindValue('id_user',$id_user,PDO::PARAM_INT);
@@ -27,6 +50,7 @@ class Movie_userRepository implements IMovie_userProvider
         }   
         return $Movies_user;
     }
+      
 
     public function findOne(int $id_user, int $id_movie): Movie_user
     {
