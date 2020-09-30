@@ -14,19 +14,19 @@ use Code\Repository\StaffRepository;
 
 class MovieInfoController
 {
-    private $MovieService;
+    private $movieService;
     private $movieUserService;
     private $movie;
     private $usermovie;
 
     public function __construct()
     {
-        $movieImageRepo = new Movie_imageRepository(Database::get());
-        $genreRepo = new GenreRepository(Database::get());
-        $movieRepo = new MovieRepository(Database::get());
-        $movieStaffRepo = new Movie_staffRepository(Database::get());
-        $staffRepo = new StaffRepository(Database::get());
-        $movieUserRepo = new Movie_userRepository(Database::get());
+        $movieImageRepo     = new Movie_imageRepository(Database::get());
+        $genreRepo          = new GenreRepository(Database::get());
+        $movieRepo          = new MovieRepository(Database::get());
+        $movieStaffRepo     = new Movie_staffRepository(Database::get());
+        $staffRepo          = new StaffRepository(Database::get());
+        $movieUserRepo      = new Movie_userRepository(Database::get());
 
         $this->service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRepo, $staffRepo);
         $this->movieUserService = new Movie_userService($movieUserRepo, $movieRepo);
