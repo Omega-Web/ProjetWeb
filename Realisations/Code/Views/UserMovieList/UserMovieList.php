@@ -35,7 +35,7 @@ $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRe
     <header>
         <div id="div-logo">
             <!-- ADD PHP HERE -- If clicked on logo while identified take on Films search page -->
-            <a href="UserMovieList.php"><img id="logo" src="../../Assets/logo.png" alt="logo"></a>
+            <a href="../MovieSearch/MovieSearch.php"><img id="logo" src="../../Assets/logo.png" alt="logo"></a>
         </div>
         <nav>
             <ul>
@@ -73,5 +73,5 @@ $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRe
         }
         ?>
     </main>
-    <?php
+<?php
 include '../footer.php';

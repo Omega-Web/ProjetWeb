@@ -61,7 +61,7 @@ if(!empty($_POST)) {
     <header>
         <div id="div-logo">
             <!-- ADD PHP HERE -- If clicked on logo while identified take on Films search page -->
-            <a href="../Authentication/Connection.php"><img id="logo" src="../../Assets/logo.png" alt="logo"></a>
+            <a href="../MovieSearch/MovieSearch.php"><img id="logo" src="../../Assets/logo.png" alt="logo"></a>
         </div>
         <nav>
             <ul>
@@ -141,5 +141,5 @@ if(!empty($_POST)) {
         </div>
         
     </main>
-</body>
-</html>
+<?php
+include '../footer.php';

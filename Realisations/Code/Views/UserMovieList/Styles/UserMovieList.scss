@@ -3,13 +3,12 @@
 @import '../../Styles/focusNav';
 @import '../../Styles/footer';
 
-
 *, html {
 
     color: $font-color;
     font-family: 'Roboto', sans-serif;
     font-size: $font-size;
-    
+     
     body{
         background-color: $background-color;
         // Header section
