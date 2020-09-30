@@ -1,3 +1,26 @@
+<?php 
+
+require_once '../../../bootstrap.php';
+use PDO;
+use PDOException;
+use Code\Repository\Movie_imageRepository;
+use Code\Infrastructure\Database;
+use Code\Repository\GenreRepository;
+use Code\Repository\Movie_staffRepository;
+use Code\Repository\MovieRepository;
+use Code\Repository\StaffRepository;
+use Code\Service\MovieService;
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+$movieImageRepo = new Movie_imageRepository(Database::get());
+$genreRepo = new GenreRepository(Database::get());
+$movieRepo = new MovieRepository(Database::get());
+$movieStaffRepo = new Movie_staffRepository(Database::get());
+$staffRepo = new StaffRepository(Database::get());
+$service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRepo, $staffRepo);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,8 +39,8 @@
         </div>
         <nav>
             <ul>
-                <li><a id="films-a" href="#">Films</a></li>
-                <li><a id="list-a" href="UserMovieList.php">Ma liste</a></li>
+                <li><a id="films-a" href="../MovieSearch/MovieSearch.php">Films</a></li>
+                <li><a class="focus-nav" id="list-a" href="UserMovieList.php">Ma liste</a></li>
                 <li><a id="account-a" href="../UserAccount/Informations.php">Mon compte</a></li>
             </ul>
         </nav>
@@ -27,16 +50,23 @@
         </div>
     </header>
     <main id="main-div">
-        <div class="card">
-            <img id="card-img" src="../../Assets/avengers.jpg" alt="Avatar">
-            <div class="container">
-                <h4><b>Avengers: Endgame</b></h4>
-                <div>
-                    <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
-                    <a href="#"><button id="seemore-btn" type="button">Plus</button></a>
+        <?php
+        $movies = $service->findAll();
+        foreach ($movies as $movie) {
+            ?>
+            <div class="card">
+                <img id="card-img" <?= 'src="data:image/jpeg;base64,'.base64_encode( $movie->getImages()[0]['image']).'"' ?> alt="Avatar">
+                <div class="container">
+                    <h4><b><?= $movie->getTitle() ?></b></h4>
+                    <div>
+                        <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
+                        <a href="#"><button id="seemore-btn" type="button">Plus</button></a>
+                    </div>
                 </div>
-            </div>
-        </div> 
+            </div> 
+            <?php 
+        }
+        ?>
     </main>
-
-
+</body>
+</html>

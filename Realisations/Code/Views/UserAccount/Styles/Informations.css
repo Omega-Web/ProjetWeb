@@ -1,3 +1,13 @@
+.focus-nav {
+  color: #d9b68b;
+  border-bottom: #2869d1 4px solid;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 10px;
+  height: 47px;
+}
+
 *,
 html {
   color: #ffffff;
@@ -62,17 +72,6 @@ html body header nav ul li {
 html body header nav ul li a {
   text-decoration: none;
   height: 50px;
-}
-
-* body header nav ul li #account-a,
-html body header nav ul li #account-a {
-  color: #d9b68b;
-  border-bottom: #2869d1 4px solid;
-  border-radius: 4px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding-bottom: 10px;
-  height: 47px;
 }
 
 * body header nav ul li a:hover,

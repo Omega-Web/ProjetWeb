@@ -3,6 +3,7 @@
 namespace Code\Repository;
 
 use PDO;
+use PDOException;
 use Code\Model\Staff;
 use Code\Provider\IStaffProvider;
 
@@ -54,5 +55,57 @@ class StaffRepository implements IStaffProvider
         $stt->closeCursor();
         return $Staffs;
 
+    }
+    public function updateStaff(Staff $newStaff): bool
+    {
+        try {
+            $sql = 'UPDATE movie_staff SET firstname=:firstname, lastname=:lastname, birthday=:birthday WHERE id=:id ';
+            $stt = $this->con->prepare($sql);
+            $stt->bindValue('id',$newStaff->getId(), PDO::PARAM_INT);
+            $stt->bindValue('firstname',$newStaff->getFirstname(), PDO::PARAM_STR);
+            $stt->bindValue('lastname',$newStaff->getLastname(), PDO::PARAM_STR);
+            $stt->bindValue('birthday',$newStaff->getBirthday());
+            $stt->execute();
+            $stt->closeCursor();
+            return true;
+        }
+        catch (PDOException $e) {
+            die($e->getMessage());
+            return false;
+        }        
+    }
+    public function insertStaff(Staff $newStaff): bool
+    {
+        try {
+            $sql = 'INSERT INTO movie_staff (firstname, lastname, birthday) VALUES (:firstname, :lastname, :birthday)';
+            $stt = $this->con->prepare($sql);
+            // $stt-> bindValue('id',$newStaff->getId(), PDO::PARAM_INT);
+            $stt-> bindValue('firstname',$newStaff->getFirstname(), PDO::PARAM_STR);
+            $stt-> bindValue('lastname',$newStaff->getLastname(), PDO::PARAM_STR);
+            $stt-> bindValue('birthday',$newStaff->getBirthday());
+            $stt->execute();
+            $stt->closeCursor();
+            return true;
+        }
+        catch (PDOException $e) {
+            die($e->getMessage());
+            return false;
+        }
+    }
+    public function deleteStaff($staff): bool
+    {
+        try {
+            $sql = 'DELETE FROM movie_staff WHERE id = :id';
+            $stt = $this->con->prepare($sql);
+            $stt->bindValue('id',$staff->getId(), PDO::PARAM_INT);
+            $stt->execute();
+            $stt->closeCursor();
+            return true;
+        }
+        catch (PDOException $e) {
+            
+            die($e->getMessage());
+            return false;
+        }
     }
 }

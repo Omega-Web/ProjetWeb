@@ -1,5 +1,7 @@
 // Utilities
 @import '../../Styles/variables';
+@import '../../Styles/focusNav';
+
 
 *, html {
 
@@ -37,14 +39,6 @@
                         a{
                             text-decoration: none;
                             height:50px;
-                        }
-                        #account-a{
-                            color:$selected-color;
-                            border-bottom: $button-color 4px solid;
-                            border-radius: $border-radius;
-                            box-sizing: border-box;
-                            padding-bottom: 10px;
-                            height: 47px;
                         }
                         a:hover{
                             border-bottom: $button-color 4px solid;

@@ -15,12 +15,15 @@ class Movie
     private $duration;
     private $date;
     private $age_restriction_id;
+    private $genresId =[];
     private $genres = [];
     private $images = [];
+    private $staffsId =[];
+    private $staffs =[];
 
     public function __construct($data)
     {
-        $this->setId( $data['id']);
+        $this->setId( $data['id'] ?? 0);
         $this->setTitle($data['title'] ?? '');
         $this->setPlot($data['plot'] ?? '');
         $this->setDuration($data['duration']);
@@ -173,6 +176,66 @@ class Movie
     public function setImages($images)
     {
         $this->images = $images;
+
+        return $this;
+    }
+
+        /**
+     * Get the value of genresId
+     */ 
+    public function getGenresId()
+    {
+        return $this->genresId;
+    }
+
+    /**
+     * Set the value of genresId
+     *
+     * @return  self
+     */ 
+    public function setGenresId($genresId)
+    {
+        $this->genresId = $genresId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of staffs
+     */ 
+    public function getStaffs()
+    {
+        return $this->staffs;
+    }
+
+    /**
+     * Set the value of staffs
+     *
+     * @return  self
+     */ 
+    public function setStaffs($staffs)
+    {
+        $this->staffs = $staffs;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of staffsId
+     */ 
+    public function getStaffsId()
+    {
+        return $this->staffsId;
+    }
+
+    /**
+     * Set the value of staffsId
+     *
+     * @return  self
+     */ 
+    public function setStaffsId($staffsId)
+    {
+        $this->staffsId = $staffsId;
 
         return $this;
     }
