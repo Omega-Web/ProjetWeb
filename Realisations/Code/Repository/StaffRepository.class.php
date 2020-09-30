@@ -2,8 +2,6 @@
 
 namespace Code\Repository;
 
-require_once 'bootstrap.php';
-
 use PDO;
 use Code\Model\Staff;
 use Code\Provider\IStaffProvider;
