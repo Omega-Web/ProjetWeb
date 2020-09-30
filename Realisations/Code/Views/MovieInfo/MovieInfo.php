@@ -1,6 +1,8 @@
 <?php 
 
 require_once '../../../bootstrap.php';
+
+use Code\Controller\MovieInfoController;
 use PDO;
 use PDOException;
 use Code\Repository\Movie_imageRepository;
@@ -26,17 +28,21 @@ $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRe
 
 $movieUserService = new Movie_userService($movieUserRepo, $movieRepo);
 
+
+
 if(!empty($_POST['movie-selected'])){
-    $movie = $service->findOne($_POST['movie-selected']);
+    $controller = new MovieInfoController();
+     $controller->getInfoMovie(1,$_POST['movie-selected']);
+    /*$movie = $service->findOne($_POST['movie-selected']);
     // HAVE TO ADD SESSION ID FOR ->
-    $userMovie = $movieUserService->findOne(1, $_POST['movie-selected']);
+    $userMovie = $movieUserService->findOne(1, $_POST['movie-selected']);*/
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VidéoMega, <?= $movie->getTitle() ?></title>
+    <title>VidéoMega, <?= $controller->getTitle() ?></title>
     <link rel="stylesheet" href="Styles/MovieInfo.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
 </head>
@@ -61,7 +67,7 @@ if(!empty($_POST['movie-selected'])){
     <main id="main-div">
             <div class="movie">
                 <div class="div-img">
-                    <img id="card-img" <?= 'src="data:image/jpeg;base64,'.base64_encode( $movie->getImages()[0]['image']).'"' ?> alt="imageMovie">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,'.$controller->getImageBase64().'"' ?> alt="imageMovie">
                 </div>
                 <div class="div-title">
                     <h2 id="title"><b><?= $movie->getTitle() ?></b></h2>

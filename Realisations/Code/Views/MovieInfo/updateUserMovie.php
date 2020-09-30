@@ -28,7 +28,7 @@ $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRe
 $movieUserService = new Movie_userService($movieUserRepo, $movieRepo);
 
 $userMovie = $movieUserService->findOne(1, $_GET['id']);
-$userMovie2 = $movieUserService->findOne(1, $_GET['id']);
+//$userMovie2 = $movieUserService->findOne(1, $_GET['id']);
 
 if(!empty($_POST['watch_state'])){
     // $userMovieData['id_movie'] = $_GET['id'];
@@ -36,29 +36,29 @@ if(!empty($_POST['watch_state'])){
     // $userMovieData['watch_state'] = $_POST['watch_state'];
     // $userMovieData['personal_ranking'] = $_POST['personal_ranking'];
     // $userMovieData['comment'] = $_POST['comment'];
-
-    $userMovie2->setWatch_state($_POST['watch_state']);
+    
+    $userMovie->setWatch_state($_POST['watch_state']);
 
     try {
-        $movieUserService->update($userMovie2, $_GET['id']);
+        $movieUserService->update($userMovie, $_GET['id']);
     } catch (Exception $e) {
         echo $e;
     }
 }
 else if(!empty($_POST['personal_ranking'])){
-    $userMovie2->setPersonal_ranking($_POST['personal_ranking']);
+    $userMovie->setPersonal_ranking($_POST['personal_ranking']);
 
     try {
-        $movieUserService->update($userMovie2, $_GET['id']);
+        $movieUserService->update($userMovie, $_GET['id']);
     } catch (Exception $e) {
         echo $e;
     }
 }
 else if(!empty($_POST['comment'])){
-    $userMovie2->setComment($_POST['comment']);
+    $userMovie->setComment($_POST['comment']);
 
     try {
-        $movieUserService->update($userMovie2, $_GET['id']);
+        $movieUserService->update($userMovie, $_GET['id']);
     } catch (Exception $e) {
         echo $e;
     }
