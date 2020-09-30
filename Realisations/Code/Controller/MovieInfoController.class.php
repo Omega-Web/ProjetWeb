@@ -34,7 +34,7 @@ class MovieInfoController
 
     public function getInfoMovie($id_user,$id_movie)
     {
-        $this->movie = $this->MovieService->findOne($id_movie);
+        $this->movie = $this->service->findOne($id_movie);
         // HAVE TO ADD SESSION ID FOR ->
         $this->usermovie = $this->movieUserService->findOne($id_user, $id_movie);
     }
@@ -45,8 +45,34 @@ class MovieInfoController
     }
     public function getImageBase64()
     {
-        return base64_encode( $this->movie->getImages()[0]['image']);
+        return base64_encode($this->movie->getImages()[0]['image']);
     }
-
-
+    public function getId():int
+    {
+        return $this->movie->getId();
+    }
+    public function getPlot():string
+    {
+        return $this->movie->getPlot();
+    }
+    public function getComment():string
+    {
+        return $this->usermovie->getComment();
+    }
+    public function getDate():string
+    {
+        return $this->movie->getDate()->format('d M Y');
+    }
+    public function getStaffs():array
+    {
+        return $this->movie->getStaffs();
+    }
+    public function getGenres():array
+    {
+        return $this->movie->getGenres();
+    }
+    public function getDuration():string
+    {
+        return $this->movie->getDuration();
+    }
 }

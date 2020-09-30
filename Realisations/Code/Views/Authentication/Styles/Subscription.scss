@@ -1,5 +1,6 @@
 // Utilities
-@import "../../Styles/variables";
+@import '../../Styles/variables';
+@import '../../Styles/footer';
 
 
 *, html {
@@ -94,26 +95,5 @@
             font-size: $font-size/1.2;
         }
     }
-
-    footer{
-        .wrapper {
-            padding: $footer-ul-padding;
-            margin: 15vh auto 0 auto;
-            width: $footer-ul-width;
-            display: flex;
-            justify-content: space-around;
-
-            li{
-                list-style-type: none;
-                margin: 0 2vw;
-                a{
-                    color: $footer-font;
-                    font-size: $font-size/1.2;
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-
 }
 

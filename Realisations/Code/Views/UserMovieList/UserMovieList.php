@@ -55,12 +55,17 @@ $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRe
         foreach ($movies as $movie) {
             ?>
             <div class="card">
-                <img id="card-img" <?= 'src="data:image/jpeg;base64,'.base64_encode( $movie->getImages()[0]['image']).'"' ?> alt="Avatar">
+                <div class="div-img">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,'.base64_encode( $movie->getImages()[0]['image']).'"' ?> alt="imageMovie">
+                </div>
                 <div class="container">
                     <h4><b><?= $movie->getTitle() ?></b></h4>
                     <div>
                         <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
-                        <a href="#"><button id="seemore-btn" type="button">Plus</button></a>
+                        <form action="../MovieInfo/MovieInfo.php?id=<?= $movie->getId() ?>" method="post">
+                            <input type="text" name="movie-selected" value="<?= $movie->getId() ?>" hidden>
+                            <button type="submit" id="seemore-btn">Plus</button>
+                        </form>
                     </div>
                 </div>
             </div> 
@@ -68,5 +73,5 @@ $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRe
         }
         ?>
     </main>
-</body>
-</html>
+    <?php
+include '../footer.php';

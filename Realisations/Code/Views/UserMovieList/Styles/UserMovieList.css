@@ -89,6 +89,15 @@
 }
 
 * body #main-div, html body #main-div {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2vh 1vw;
+  grid-auto-rows: minmax(10px, auto);
+  margin: 0;
+  margin-bottom: 5vh;
   /* On mouse-over, add a deeper shadow */
   /* Add some padding inside the card container */
 }
@@ -101,12 +110,21 @@
   transition: 0.3s;
   width: 15vw;
   background-color: black;
-  margin: 3vh 3vw;
+  text-align: center;
+}
+
+* body #main-div .card .div-img, html body #main-div .card .div-img {
+  min-height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 * body #main-div .card #card-img, html body #main-div .card #card-img {
   width: 15vw;
-  height: auto;
 }
 
 * body #main-div .card:hover, html body #main-div .card:hover {

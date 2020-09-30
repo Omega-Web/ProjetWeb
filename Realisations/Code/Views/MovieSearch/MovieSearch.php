@@ -73,5 +73,5 @@ $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRe
         }
         ?>
     </main>
-</body>
-</html>
+<?php
+include '../footer.php';
