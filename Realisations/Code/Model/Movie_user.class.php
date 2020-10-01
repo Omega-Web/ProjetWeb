@@ -10,7 +10,6 @@ class Movie_user
     private $id_movie;
     private Movie $movie;
     private $watch_state;
-    private $personal_ranking;
     private $comment;
 
     public function __construct($data)
@@ -18,7 +17,6 @@ class Movie_user
         $this->setId_user($data['fk_movie'] ?? 0);
         $this->setId_movie($data['fk_movie'] ?? 0);
         $this->setWatch_state($data['watch_state'] ?? false);
-        $this->setPersonal_ranking($data['personal_ranking'] ?? null);
         $this->setComment($data['comment'] ?? '');
     }
 
@@ -82,27 +80,6 @@ class Movie_user
 
         return $this;
     }
-
-    /**
-     * Get the value of personal_ranking
-     */ 
-    public function getPersonal_ranking()
-    {
-        return $this->personal_ranking;
-    }
-
-    /**
-     * Set the value of personal_ranking
-     *
-     * @return  self
-     */ 
-    public function setPersonal_ranking($personal_ranking)
-    {
-        $this->personal_ranking = $personal_ranking;
-
-        return $this;
-    }
-
     /**
      * Get the value of comment
      */ 
