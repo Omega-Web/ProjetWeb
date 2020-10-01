@@ -4,11 +4,11 @@
 require_once '../../../bootstrap.php';
 use Code\Controller\UpdateUserMovieController;
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 
 $controller = new UpdateUserMovieController;
-
-// $userMovie = $movieUserService->findOne(1, $_GET['id']);
-//$userMovie2 = $movieUserService->findOne(1, $_GET['id']);
 
 // if(!empty($_POST['watch_state'])){
 //     // $userMovieData['id_movie'] = $_GET['id'];
@@ -36,10 +36,11 @@ $controller = new UpdateUserMovieController;
 // }
 if(!empty($_POST['add-to-list-btn'])){
     
+    echo 'avant insert';
     $controller->insertMovieToList($_GET['id'], 1);
-    // try {
-    //     $movieUserService->update($userMovie, $_GET['id']);
-    // } catch (Exception $e) {
-    //     echo $e;
-    // }
+    echo 'avant header';
+    header('Location: MovieInfo.php?id='.$_GET['id']);
+    echo 'apres header';
 }
+
+?>

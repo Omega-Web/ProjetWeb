@@ -47,7 +47,7 @@ $moviesLength = $controller->getMovies();
                 <div class="container">
                     <h4><b><?= $controller->getTitle($i) ?></b></h4>
                     <div>
-                        <form action="../MovieInfo/MovieInfo.php?id=<?= $controller->getId($i) ?>" method="post">
+                        <form action="../MovieInfo/MovieInfo.php?id=<?= $controller->getId($i) ?>" method="POST">
                             <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden>
                             <button type="submit" id="seemore-btn">Plus</button>
                         </form>
