@@ -17,9 +17,29 @@ class Movie_userService implements IMovie_userProvider
         $this->movie=$m;
     }
 
-    public function findAll(int $id_user): array
+    public function findAllByIdMovie($id_movie): array
     {
-        $movies_user = $this->movie_user->findAll($id_user);
+        $movies_user = $this->movie_user->findAllByIdMovie($id_movie);
+        foreach ($movies_user as $movie_user) {
+            $movie = $this->movie->findOne($movie_user->getId_movie());
+            $movie_user->setMovie($movie);
+        }
+        return $movies_user;
+    }
+
+    public function findAllByIdUser($id_user): array
+    {
+        $movies_user = $this->movie_user->findAllByIdUser($id_user);
+        foreach ($movies_user as $movie_user) {
+            $movie = $this->movie->findOne($movie_user->getId_movie());
+            $movie_user->setMovie($movie);
+        }
+        return $movies_user;
+    }
+
+    public function findAll(): array
+    {
+        $movies_user = $this->movie_user->findAll();
         foreach ($movies_user as $movie_user) {
             $movie = $this->movie->findOne($movie_user->getId_movie());
             $movie_user->setMovie($movie);
@@ -34,7 +54,13 @@ class Movie_userService implements IMovie_userProvider
         $movie_user->setMovie($movie);
         return $movie_user;
     }
-    
+
+    public function update(Movie_user $movie_user, int $id_user): bool{
+
+        return $this->$movie_user->update($movie_user, $id_user);
+    }
+
+
 }
 
 ?>
