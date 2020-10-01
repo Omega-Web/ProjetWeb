@@ -6,11 +6,6 @@ ini_set("display_errors", 1);
 // Import and use required files
 require_once '../../../bootstrap.php';
 
-// use Code\Infrastructure\Database;
-// use Code\Utils\Authentication;
-// use Code\Repository\StaffRepository;
-// use Code\Repository\UserRepository;
-// use Code\Model\User;
 use Code\Controller\ConnectionController;
 
 $conController = new ConnectionController();
