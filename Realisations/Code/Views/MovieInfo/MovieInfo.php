@@ -12,9 +12,6 @@ use Code\Controller\MovieInfoController;
 if(!empty($_POST['movie-selected'])){
     $controller = new MovieInfoController();
     $controller->getInfoMovie(1,$_POST['movie-selected']);
-    /*$movie = $service->findOne($_POST['movie-selected']);
-    // HAVE TO ADD SESSION ID FOR ->
-    $userMovie = $movieUserService->findOne(1, $_POST['movie-selected']);*/
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -56,6 +53,7 @@ if(!empty($_POST['movie-selected'])){
                             <input class="radio" type="radio" name="watch_state" id="seen"/>
                             <input class="seen-img submit-img" type="image" name="watch_state" src="../../Assets/eye.svg" alt="Submit"/>
                     </label>
+                    <input type="text" value="$_POST['movie-selected']" hidden name="movie-selected">
                     <button id="add-to-list-btn" value="<?= $controller->getId() ?>" name="add-to-list-btn" type="submit">Ajouter</button>
                     <div>
                         <label class="label" for="up" id="labelup">

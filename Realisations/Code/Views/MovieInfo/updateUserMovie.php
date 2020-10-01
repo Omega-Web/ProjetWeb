@@ -9,7 +9,6 @@ ini_set("display_errors", 1);
 
 
 $controller = new UpdateUserMovieController;
-
 // if(!empty($_POST['watch_state'])){
 //     // $userMovieData['id_movie'] = $_GET['id'];
 //     // $userMovieData['id_user'] = 1; // USE SESSION ID !!!!!!!!!! <---------
@@ -35,12 +34,7 @@ $controller = new UpdateUserMovieController;
 //     }
 // }
 if(!empty($_POST['add-to-list-btn'])){
-    
-    echo 'avant insert';
     $controller->insertMovieToList($_GET['id'], 1);
-    echo 'avant header';
-    header('Location: MovieInfo.php?id='.$_GET['id']);
-    echo 'apres header';
 }
 
 ?>
