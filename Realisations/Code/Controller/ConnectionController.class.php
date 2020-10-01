@@ -10,13 +10,16 @@ use Code\Model\User;
 
 class ConnectionController 
 {
-    
+    private $auth; 
+
     public function __construct()
     {
-        $auth       = new Authentication(Database::get()); 
-        $userRepo   = new UserRepository(Database::get()); 
-        
+        $this->auth = new Authentication(Database::get()); 
     }
     
+    public function getUserID($username,$password):int
+    {
+        return $this->auth->Compare($username,$password);
+    }
     
 }

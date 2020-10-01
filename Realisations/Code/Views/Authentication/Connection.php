@@ -18,14 +18,11 @@ $conController = new ConnectionController();
 $passwordError = "";
 if(!empty($_POST['username']) && !empty($_POST['password'])) {
     try{
-        $authen = new Authentication(Database::get()); 
-        $id_user = $authen->Compare($_POST['username'],$_POST['password']);
+        $id_user = $conController->getUserID($_POST['username'],$_POST['password']);
 
         if ($id_user > 0){
             session_start();
             $_SESSION['id'] = $id_user; 
-            $UserRepo  = new UserRepository(Database::get()); 
-            $user = $UserRepo->findOne($id_user);
             header('Location: ../MovieSearch/MovieSearch.php');
         } else {
             $passwordError = "Le mot de passe ne correspond pas avec l'identifiant";
