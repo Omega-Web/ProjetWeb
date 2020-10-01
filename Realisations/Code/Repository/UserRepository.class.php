@@ -71,12 +71,8 @@ class UserRepository implements IUserProvider {
 
             $stt = $this->con->prepare($sql);
             $stt-> bindValue('id',$user->getId(),PDO::PARAM_INT);
-            // $stt-> bindValue('firstname',$user->getFirstname(),PDO::PARAM_STR);
-            // $stt-> bindValue('lastname',$user->getLastname(),PDO::PARAM_STR);
-            // $stt-> bindValue('username',$user->getUsername(),PDO::PARAM_STR);
             $stt-> bindValue('email',$user->getEmail(),PDO::PARAM_STR);
             $stt-> bindValue('password',password_hash($user->getPassword(), PASSWORD_DEFAULT),PDO::PARAM_STR);
-            // $stt-> bindValue('birthday',$user->getBirthday()->format('Y-m-d'));
     
             $stt->execute();
             $stt->closeCursor();

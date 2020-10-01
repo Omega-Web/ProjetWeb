@@ -20,18 +20,12 @@ class UpdateUserMovieController
     
     public function __construct()
     {
-        $movieImageRepo = new Movie_imageRepository(Database::get());
-        $genreRepo = new GenreRepository(Database::get());
         $movieRepo = new MovieRepository(Database::get());
-        $movieStaffRepo = new Movie_staffRepository(Database::get());
-        $staffRepo = new StaffRepository(Database::get());
         $movieUserRepo = new Movie_userRepository(Database::get());
-        $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRepo, $staffRepo);
 
         $this->movieUserService = new Movie_userService($movieUserRepo, $movieRepo);
 
     }
-
     public function insertMovieToList($movieId, $userId)
     {
         $movie_user = new Movie_user([]);
@@ -40,8 +34,20 @@ class UpdateUserMovieController
 
         $this->movieUserService->insert($movie_user);
     }
-    public function updateWatchState()
+    public function getMovie($movieId, $userId)
     {
+        return $this->movieUserService->findOne($userId, $movieId);
+    }
+    public function updateWatchState($movie_user)
+    {
+        $movie_user->setWatch_state(true);
+
+        $this->movieUserService->update($movie_user);
+   
+    }
+    public function updateComment()
+    {
+
 
     }
 }
