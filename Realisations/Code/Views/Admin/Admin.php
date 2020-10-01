@@ -77,13 +77,17 @@
             </div>
             <div>
                 <h1 id="delete-user">Delete user</h1>
-                <form method="post"></form>
+                <form method="post">
+                    <input type="text">
+                    <button type="submit">Supprimer</button>
+                </form>
             </div>
         </div>
 
         <div class="movie">
             <div>
                 <h1 id="add-movie">Add movie</h1>
+                
             </div>
             <div>
                 <h1 id="update-movie">Update Movie</h1>
