@@ -5,18 +5,18 @@ ini_set("display_errors", 1);
 // require_once '../../Infrastructure/Database.class.php';
 require_once '../../../bootstrap.php';
 
-use Code\Model\User;
-use Code\Repository\UserRepository;
-use Code\Infrastructure\Database;
-use PDOException;
-use PDO;
+use Code\Controller\UserInformationsController;
+// use PDOException;
 
-$id = 2;
+// use PDO;
 
-$repoUser = new UserRepository(Database::get());
-$currentUser = $repoUser->findOne($id);
+$userInfoController = new UserInformationsController;
 
-if($id > 0 ) {
+$currentID = 2;
+//$currentID = $_SESSION['id'];
+$currentUser = $userInfoController->getUserInfo($currentID);
+print_r($currentUser);
+if($currentID > 0 ) {
     $userInfo = array(
     'firstname'      => $currentUser->getFirstname(),  
     'lastname'       => $currentUser->getLastname(),    
@@ -35,7 +35,7 @@ if(!empty($_POST)) {
     if ($_POST['password'] === $_POST['password2']){
         $userArray['password'] = $_POST['password'];
         try{
-            $repoUser->updateUser(new User($userArray));
+            $userInfoController->updateUser($userArray);
         } catch (Exception $e) {
             die($e->getMessage());
         }
