@@ -11,9 +11,9 @@ interface IMovieProvider {
 
     public function findAllByTitle(string $title):array;
 
-    public function updateMovie( Movie $newMovie): bool;
+    public function update( Movie $newMovie): bool;
 
-    public function insertMovie(Movie $newMovie): bool;
+    public function insert(Movie $newMovie): bool;
 
-    public function deleteMovie(Movie $movie): bool;
+    public function delete(Movie $movie): bool;
 }

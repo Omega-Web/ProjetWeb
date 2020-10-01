@@ -15,7 +15,10 @@ interface IMovie_userProvider {
 
     public function findOne(int $id_user,int $id_movie): Movie_user;
 
-    public function update(Movie_user $movie_user, int $id_user): bool;
- 
+    public function update(Movie_user $movie_user): bool;
+    
+    public function delete(Movie_user $movie_user): bool;
+
+    public function insert(Movie_user $movie_user): bool;
 
 }

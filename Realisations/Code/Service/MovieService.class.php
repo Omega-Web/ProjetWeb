@@ -97,33 +97,20 @@ Class MovieService implements IMovieProvider
         return $movies;
     }
 
-    public function updateMovie(Movie $newMovie): bool
+    public function update(Movie $newMovie): bool
     {
-        $genres = $newMovie->getGenres();
-
-        foreach ($genres as $genre) {
-            if($genre->getId() === 0)
-            {
-                $this->GenreAccess->insertGenre($genre);
-            }
-            else
-            {
-                //$this->GenreAccess->updateGenre($genre);
-            }
-           
-        }
+        return $this->MovieAccess->update($newMovie);
+               
+    }
         
-        return $this->MovieAccess->updateMovie($newMovie);
-    } 
-
-    public function insertMovie(Movie $newMovie): bool
+    public function insert(Movie $newMovie): bool
     {
-        return $this->MovieAccess->insertMovie($newMovie);
+        return $this->MovieAccess->insert($newMovie);
 
     }
 
-    public function deleteMovie(Movie $movie): bool
+    public function delete(Movie $movie): bool
     {
-        return $this->MovieAccess->deleteMovie($movie);
+        return $this->MovieAccess->delete($movie);
     }
 }

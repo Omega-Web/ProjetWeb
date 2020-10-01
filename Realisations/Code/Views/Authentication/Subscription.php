@@ -54,7 +54,7 @@ if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['use
         <br>
         <input id="password" name="password" type="password" placeholder="Mot de passe">
         <br>
-        <button id="button" type="submit">Se connecter</button>
+        <button id="button" type="submit">S'inscrire</button>
     </form>
         <p class="connect-subscribe">Vous possédez déjà un compte ? Connectez-vous <a href="Connection.php">ici</a></p>
     

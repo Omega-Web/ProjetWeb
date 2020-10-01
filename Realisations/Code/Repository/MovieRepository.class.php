@@ -64,7 +64,7 @@ class MovieRepository implements IMovieProvider
         return $Movies;
 
     }
-    public function updateMovie(Movie $newMovie): bool
+    public function update(Movie $newMovie): bool
     {
         try {
             $sql = 'UPDATE movie SET title=:title , plot=:plot , duration=:duration , date=:date , fk_age_restriction=:age_restriction_id WHERE id=:id ';
@@ -84,7 +84,7 @@ class MovieRepository implements IMovieProvider
             return false;
         }        
     }
-    public function insertMovie(Movie $newMovie): bool
+    public function insert(Movie $newMovie): bool
     {
         try {
             $sql = 'INSERT INTO movie (title, plot, duration, date, fk_age_restriction) VALUES (:title, :plot, :duration, :date, :age_restriction_id)';
@@ -103,7 +103,7 @@ class MovieRepository implements IMovieProvider
             return false;
         }
     }
-    public function deleteMovie($movie): bool
+    public function delete($movie): bool
     {
         try {
             $sql = 'DELETE FROM movie WHERE id = :id';
