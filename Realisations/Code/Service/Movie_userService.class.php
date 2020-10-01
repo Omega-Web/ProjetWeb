@@ -8,20 +8,20 @@ use Code\Provider\IMovieProvider;
 class Movie_userService implements IMovie_userProvider
 {
 
-    private $movie_user;
-    private $movie;
+    private $movie_userAccess;
+    private $movieAccess;
 
     public function __construct(IMovie_userProvider $mu,IMovieProvider $m)
     {
-        $this->movie_user = $mu;
-        $this->movie=$m;
+        $this->movie_userAccess = $mu;
+        $this->movieAccess=$m;
     }
 
     public function findAllByIdMovie($id_movie): array
     {
-        $movies_user = $this->movie_user->findAllByIdMovie($id_movie);
+        $movies_user = $this->movie_userAccess->findAllByIdMovie($id_movie);
         foreach ($movies_user as $movie_user) {
-            $movie = $this->movie->findOne($movie_user->getId_movie());
+            $movie = $this->movieAccess->findOne($movie_user->getId_movie());
             $movie_user->setMovie($movie);
         }
         return $movies_user;
@@ -29,9 +29,9 @@ class Movie_userService implements IMovie_userProvider
 
     public function findAllByIdUser($id_user): array
     {
-        $movies_user = $this->movie_user->findAllByIdUser($id_user);
+        $movies_user = $this->movie_userAccess->findAllByIdUser($id_user);
         foreach ($movies_user as $movie_user) {
-            $movie = $this->movie->findOne($movie_user->getId_movie());
+            $movie = $this->movieAccess->findOne($movie_user->getId_movie());
             $movie_user->setMovie($movie);
         }
         return $movies_user;
@@ -39,9 +39,9 @@ class Movie_userService implements IMovie_userProvider
 
     public function findAll(): array
     {
-        $movies_user = $this->movie_user->findAll();
+        $movies_user = $this->movie_userAccess->findAll();
         foreach ($movies_user as $movie_user) {
-            $movie = $this->movie->findOne($movie_user->getId_movie());
+            $movie = $this->movieAccess->findOne($movie_user->getId_movie());
             $movie_user->setMovie($movie);
         }
         return $movies_user;
@@ -49,15 +49,25 @@ class Movie_userService implements IMovie_userProvider
 
     public function findOne(int $id_user, int $id_movie): Movie_user
     {
-        $movie_user = $this->movie_user->findOne($id_user,$id_movie);
-        $movie = $this->movie->findOne($movie_user->getId_movie());
+        $movie_user = $this->movie_userAccess->findOne($id_user,$id_movie);
+        $movie = $this->movieAccess->findOne($movie_user->getId_movie());
         $movie_user->setMovie($movie);
         return $movie_user;
     }
 
-    public function update(Movie_user $movie_user, int $id_user): bool{
+    public function update(Movie_user $movie_user): bool{
 
-        return $this->$movie_user->update($movie_user, $id_user);
+        return $this->movie_userAccess->update($movie_user);
+    }
+
+    public function insert(Movie_user $movie_user): bool{
+
+        return $this->movie_userAccess->insert($movie_user);
+    }
+
+    public function delete(Movie_user $movie_user): bool{
+
+        return $this->movie_userAccess->delete($movie_user);
     }
 
 

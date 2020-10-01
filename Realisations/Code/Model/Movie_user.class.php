@@ -6,6 +6,7 @@ Use Code\Model\Movie;
 
 class Movie_user
 {
+    private $id_user;
     private $id_movie;
     private Movie $movie;
     private $watch_state;
@@ -14,6 +15,7 @@ class Movie_user
 
     public function __construct($data)
     {
+        $this->setId_user($data['fk_movie'] ?? 0);
         $this->setId_movie($data['fk_movie'] ?? 0);
         $this->setWatch_state($data['watch_state'] ?? true);
         $this->setPersonal_ranking($data['personal_ranking'] ?? null);
@@ -117,6 +119,26 @@ class Movie_user
     public function setComment($comment)
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_user
+     */ 
+    public function getId_user()
+    {
+        return $this->id_user;
+    }
+
+    /**
+     * Set the value of id_user
+     *
+     * @return  self
+     */ 
+    public function setId_user($id_user)
+    {
+        $this->id_user = $id_user;
 
         return $this;
     }
