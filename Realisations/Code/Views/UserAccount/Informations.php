@@ -18,7 +18,7 @@ $currentID = 2;
 $currentUser = $userInfoController->getUserInfo($currentID);
 
 //print_r($currentUser);
-// /die;
+// /    die;
 if($currentID > 0 ) {
     $userInfo = array(
     'firstname'      => $currentUser->getFirstname(),  
@@ -33,7 +33,7 @@ $passwordError = "";
 if(!empty($_POST)) {
 
     $userArray['email'] = $_POST['email'];
-    $userArray['id'] = $id;
+    $userArray['id'] = $currentID;
 
     if ($_POST['password'] === $_POST['password2']){
         $userArray['password'] = $_POST['password'];
