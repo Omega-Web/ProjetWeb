@@ -14,8 +14,11 @@ $userInfoController = new UserInformationsController;
 
 $currentID = 2;
 //$currentID = $_SESSION['id'];
+//print_r($userInfoController->getUserInfo($currentID));
 $currentUser = $userInfoController->getUserInfo($currentID);
-print_r($currentUser);
+
+//print_r($currentUser);
+// /die;
 if($currentID > 0 ) {
     $userInfo = array(
     'firstname'      => $currentUser->getFirstname(),  

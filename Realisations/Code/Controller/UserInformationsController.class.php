@@ -11,19 +11,20 @@ use Code\Repository\Movie_userRepository;
 class UserInformationsController
 {
     private $userService;
-
+    
     public function __construct()
     {
         $userRepo = new UserRepository(Database::get());
         $userMovieRepo = new Movie_userRepository(Database::get());
 
+        
         $this->userService = new UserService($userRepo,$userMovieRepo);
     }
-    public function getUserInfo($userID)
+    public function getUserInfo($userID):User
     {
-        $this->userService->findOne($userID);
+        return $this->userService->findOne($userID);
     }
-    public function updateUser($user)
+    public function updateUser($user):User
     {
        $this->userService->updateUser($user);
     }
