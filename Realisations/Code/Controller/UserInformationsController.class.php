@@ -11,6 +11,7 @@ use Code\Repository\Movie_userRepository;
 class UserInformationsController
 {
     private $userService;
+    private $myUser;
     
     public function __construct()
     {
@@ -22,11 +23,12 @@ class UserInformationsController
     }
     public function getUserInfo($userID):User
     {
-        return $this->userService->findOne($userID);
+        $this->myUser = $this->userService->findOne($userID);
+        return $this->myUser;
     }
-    public function updateUser($user):User
+    public function updateUser($user)
     {
-       $this->userService->updateUser($user);
+       $this->userService->updateUser(new User($user));
     }
 
     public function getFirstname():string
