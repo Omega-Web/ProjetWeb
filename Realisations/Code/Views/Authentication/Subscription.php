@@ -3,15 +3,13 @@
 namespace Code\Views\Authentication;
 require_once '../../../bootstrap.php';
 
-use Code\Model\User;
-use Code\Repository\UserRepository;
-use Code\Infrastructure\Database;
 
-use PDOException;
-use PDO;
+use Code\Controller\SubscriptionController;
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
+
+$subController = new SubscriptionController();
 
 
 if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['username']) &&!empty($_POST['dob']) && !empty($_POST['password']) && !empty($_POST['email'])) {
@@ -23,8 +21,7 @@ if(!empty($_POST['lastname']) &&!empty($_POST['firstname']) &&!empty($_POST['use
     $tabUser['email']       = $_POST['email'];
     $tabUser['birthday']    = $_POST['dob'];
     
-    $UserRepo = new UserRepository(Database::get());
-    $UserRepo->createUser(new User($tabUser));
+    $subController->createUser($tabUser);
     
 } else {
 ?>
