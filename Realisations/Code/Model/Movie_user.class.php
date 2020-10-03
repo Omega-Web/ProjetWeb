@@ -14,7 +14,7 @@ class Movie_user
 
     public function __construct($data)
     {
-        $this->setId_user($data['fk_movie'] ?? 0);
+        $this->setId_user($data['fk_user'] ?? 0);
         $this->setId_movie($data['fk_movie'] ?? 0);
         $this->setWatch_state($data['watch_state'] ?? false);
         $this->setComment($data['comment'] ?? '');
