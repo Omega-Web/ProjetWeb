@@ -7,6 +7,10 @@ $_SESSION['id'];
 $_SESSION['post-data'] = $_POST;
 
 require_once '../../../bootstrap.php';
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 use Code\Controller\MovieInfoController;
 
 if (!empty($_SESSION['post-data']['movie-selected'])) {

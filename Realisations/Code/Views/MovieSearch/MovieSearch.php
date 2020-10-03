@@ -6,6 +6,8 @@ if (!isset($_SESSION['id'])) {
 $_SESSION['id'];
 require_once '../../../bootstrap.php';
 use Code\Controller\MovieSearchController;
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 
 $controller = new MovieSearchController();
