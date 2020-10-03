@@ -5,8 +5,6 @@ namespace Code\Model;
 Use DateTime;
 USe Exception;
 use Code\Model\Genre;
-use Code\Model\Movie_image;
-use Code\Model\Staff;
 
 //representation en classe de la table movie de la bdd
 class Movie
@@ -19,9 +17,9 @@ class Movie
     private $age_restriction_id;
     private $genresId =[];
     private $genres = [];
-    private $images =[];
+    private $images = [];
     private $staffsId =[];
-    private $staffs= [];
+    private $staffs =[];
 
     public function __construct($data)
     {

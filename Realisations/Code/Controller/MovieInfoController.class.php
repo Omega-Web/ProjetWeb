@@ -15,19 +15,19 @@ use Code\Repository\StaffRepository;
 
 class MovieInfoController
 {
-    private $movieService;
+    private $MovieService;
     private $movieUserService;
     private $movie;
     private $usermovie;
 
     public function __construct()
     {
-        $movieImageRepo     = new Movie_imageRepository(Database::get());
-        $genreRepo          = new GenreRepository(Database::get());
-        $movieRepo          = new MovieRepository(Database::get());
-        $movieStaffRepo     = new Movie_staffRepository(Database::get());
-        $staffRepo          = new StaffRepository(Database::get());
-        $movieUserRepo      = new Movie_userRepository(Database::get());
+        $movieImageRepo = new Movie_imageRepository(Database::get());
+        $genreRepo = new GenreRepository(Database::get());
+        $movieRepo = new MovieRepository(Database::get());
+        $movieStaffRepo = new Movie_staffRepository(Database::get());
+        $staffRepo = new StaffRepository(Database::get());
+        $movieUserRepo = new Movie_userRepository(Database::get());
 
         $this->service = new MovieService($movieRepo, $genreRepo, $movieImageRepo, $movieStaffRepo, $staffRepo);
         $this->movieUserService = new Movie_userService($movieUserRepo, $movieRepo);
@@ -87,21 +87,14 @@ class MovieInfoController
 
     public function isMovieInList(): string
     {
-        if ($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0) {
+        if($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0){
             return 'Ajouter';
-        } else {
+        }else{
             return 'Ajouté';
         }
+
     }
 
-    public function updateComment($post): string
-    {
-        echo 'ta mere';
-        $this->usermovie->setComment($post);
-        $this->movieUserService->update($this->usermovie);
-
-        return $post;
-    }
     public function editUserMovie($post, $idMovie = 0, $idUser = 0)
     {
         // $fp = fopen('log.txt', 'w');
@@ -118,6 +111,7 @@ class MovieInfoController
                 echo json_encode($response);
                 break;
             case 'addToList':
+
                 $this->usermovie = new Movie_user([]);
                 $this->usermovie->setId_movie($idMovie);
                 $this->usermovie->setId_user($idUser);
@@ -126,12 +120,26 @@ class MovieInfoController
                 $response = ['text' => $textBtn];
                 echo json_encode($response);
                 break;
-            case $post:
-                // $comment = $this->usermovie->getComment();
-                $this->updateComment($post);
-                break;
-            default:
-                break;
+                // case 'addToList':
+
+
+                //     $movie_user = new Movie_userRepository(Database::get());
+
+                //     $this->usermovie->insert(); // Movie_user $movie_user
+                //     $seenImage = '../../Assets/seen.svg';
+                //     $unseenImage = '../../Assets/hide.svg';
+
+                //     echo json_encode(['seen' => $seenImage, 'unseen' => $unseenImage]);
+                //     break;
+                // case 'updateComment':
+                //     $comment = $this->usermovie->getComment();
+                //     $this->usermovie->setWatch_state(!$watch_state);
+
+                //     $seenImage = '../../Assets/seen.svg';
+                //     $unseenImage = '../../Assets/hide.svg';
+
+                //     echo json_encode(['seen' => $seenImage, 'unseen' => $unseenImage]);
+                //     break;
         }
     }
 }

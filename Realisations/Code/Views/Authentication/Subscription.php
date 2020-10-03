@@ -6,13 +6,15 @@ session_start();
 $_SESSION['id'];
 require_once '../../../bootstrap.php';
 
+use Code\Model\User;
+use Code\Repository\UserRepository;
+use Code\Infrastructure\Database;
 
-use Code\Controller\SubscriptionController;
+use PDOException;
+use PDO;
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-
-$subController = new SubscriptionController();
 
 
 if (
@@ -27,9 +29,9 @@ if (
     $tabUser['password']    = $_POST['password'];
     $tabUser['email']       = $_POST['email'];
     $tabUser['birthday']    = $_POST['dob'];
-    
-    $subController->createUser($tabUser);
-    
+
+    $UserRepo = new UserRepository(Database::get());
+    $UserRepo->createUser(new User($tabUser));
 } else {
 ?>
     <!DOCTYPE html>

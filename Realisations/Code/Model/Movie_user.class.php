@@ -8,7 +8,7 @@ class Movie_user
 {
     private $id_user;
     private $id_movie;
-    private $movie;
+    private Movie $movie;
     private $watch_state;
     private $comment;
 
