@@ -4,28 +4,18 @@ session_start();
 // Import and use required files
 require_once '../../../bootstrap.php';
 
-use Code\Infrastructure\Database;
-use Code\Utils\Authentication;
-use Code\Repository\StaffRepository;
-use Code\Repository\UserRepository;
-use Code\Model\User;
+use Code\Controller\ConnectionController;
 
-// Afficher les erreurs
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
+$conController = new ConnectionController();
 // Instanciation of password error variables
 $passwordError = "";
 if(!empty($_POST['username']) && !empty($_POST['password'])) {
     try{
-        $authen = new Authentication(Database::get()); 
-        $id_user = $authen->Compare($_POST['username'],$_POST['password']);
+        $id_user = $conController->getUserID($_POST['username'],$_POST['password']);
 
         if ($id_user > 0){
             session_start();
             $_SESSION['id'] = $id_user; 
-            $UserRepo  = new UserRepository(Database::get()); 
-            $user = $UserRepo->findOne($id_user);
             header('Location: ../MovieSearch/MovieSearch.php');
         } else {
             $passwordError = "Le mot de passe ne correspond pas avec l'identifiant";

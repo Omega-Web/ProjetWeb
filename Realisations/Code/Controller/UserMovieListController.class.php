@@ -10,11 +10,11 @@ use Code\Repository\MovieRepository;
 use Code\Repository\StaffRepository;
 use Code\Service\MovieService;
 
-class MovieSearchController
+class UserMovieListController 
 {
-    private $MovieService;
+    private $userListService;
     private $moviesArray;
-
+    
     public function __construct()
     {
         $movieImageRepo = new Movie_imageRepository(Database::get());
@@ -22,13 +22,12 @@ class MovieSearchController
         $movieRepo = new MovieRepository(Database::get());
         $movieStaffRepo = new Movie_staffRepository(Database::get());
         $staffRepo = new StaffRepository(Database::get());
-
-        $this->MovieService = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRepo, $staffRepo);
+    
+        $this->userListService = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRepo, $staffRepo);
     }
-
-    public function getMovies()
+        public function getMovies()
     {
-        $this->moviesArray = $this->MovieService->findAll();
+        $this->moviesArray = $this->userListService->findAll();
         return count($this->moviesArray);
     }
 
