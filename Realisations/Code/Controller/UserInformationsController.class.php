@@ -26,9 +26,9 @@ class UserInformationsController
         $this->myUser = $this->userService->findOne($userID);
         return $this->myUser;
     }
-    public function updateUser($user)
+    public function updateUser($tabUser)
     {
-       $this->userService->updateUser(new User($user));
+       $this->userService->updateUser(new User($tabUser));
     }
 
     public function getFirstname():string

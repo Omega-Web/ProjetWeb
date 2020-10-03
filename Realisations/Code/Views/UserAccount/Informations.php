@@ -6,19 +6,16 @@ ini_set("display_errors", 1);
 require_once '../../../bootstrap.php';
 
 use Code\Controller\UserInformationsController;
-// use PDOException;
 
-// use PDO;
-
+//Déclaration du controller 
 $userInfoController = new UserInformationsController;
 
-$currentID = 2;
-//$currentID = $_SESSION['id'];
-//print_r($userInfoController->getUserInfo($currentID));
+//$currentID = 2;
+//Récurperation id de la session en cours
+$currentID = $_SESSION['id'];
 $currentUser = $userInfoController->getUserInfo($currentID);
 
-//print_r($currentUser);
-// /    die;
+//Construction du tableau de notre user
 if($currentID > 0 ) {
     $userInfo = array(
     'firstname'      => $currentUser->getFirstname(),  
