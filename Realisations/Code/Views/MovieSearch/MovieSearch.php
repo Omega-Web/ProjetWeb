@@ -1,4 +1,3 @@
-
 <?php 
 session_start();
 if (!isset($_SESSION['id'])) {
@@ -65,3 +64,5 @@ $moviesLength = $controller->getMovies();
         }
         ?>
     </main>
+<?php
+include '../footer.php';
