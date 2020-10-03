@@ -30,17 +30,20 @@ footer .wrapper li a {
   text-decoration: none;
 }
 
-*, html {
+*,
+html {
   color: #ffffff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
 }
 
-* body, html body {
+* body,
+html body {
   background-color: #010f21;
 }
 
-* body header, html body header {
+* body header,
+html body header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,21 +56,25 @@ footer .wrapper li a {
           align-items: center;
 }
 
-* body header #div-logo, html body header #div-logo {
+* body header #div-logo,
+html body header #div-logo {
   margin: 1vh 3vw;
 }
 
-* body header #div-logo #logo, html body header #div-logo #logo {
+* body header #div-logo #logo,
+html body header #div-logo #logo {
   width: 6vw;
   height: auto;
   margin: 3vh 0 5vh 0;
 }
 
-* body header nav, html body header nav {
+* body header nav,
+html body header nav {
   width: 60vw;
 }
 
-* body header nav ul, html body header nav ul {
+* body header nav ul,
+html body header nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,16 +85,19 @@ footer .wrapper li a {
           align-items: center;
 }
 
-* body header nav ul li, html body header nav ul li {
+* body header nav ul li,
+html body header nav ul li {
   list-style-type: none;
 }
 
-* body header nav ul li a, html body header nav ul li a {
+* body header nav ul li a,
+html body header nav ul li a {
   text-decoration: none;
   height: 50px;
 }
 
-* body header nav ul li a:hover, html body header nav ul li a:hover {
+* body header nav ul li a:hover,
+html body header nav ul li a:hover {
   border-bottom: #2869d1 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
@@ -96,7 +106,8 @@ footer .wrapper li a {
   height: 47px;
 }
 
-* body header nav ul li a:active, html body header nav ul li a:active {
+* body header nav ul li a:active,
+html body header nav ul li a:active {
   border-bottom: #d9b68b 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
@@ -105,12 +116,14 @@ footer .wrapper li a {
   height: 47px;
 }
 
-* body header #div-logout #logout, html body header #div-logout #logout {
+* body header #div-logout #logout,
+html body header #div-logout #logout {
   width: 35px;
   margin: 0 5vw 0 0;
 }
 
-* body #main-div .movie, html body #main-div .movie {
+* body #main-div .movie,
+html body #main-div .movie {
   display: -ms-grid;
   display: grid;
   justify-items: start;
@@ -120,7 +133,8 @@ footer .wrapper li a {
   margin: 3vh 5vw;
 }
 
-* body #main-div .movie .div-img, html body #main-div .movie .div-img {
+* body #main-div .movie .div-img,
+html body #main-div .movie .div-img {
   grid-area: image;
   min-height: auto;
   display: -webkit-box;
@@ -136,11 +150,13 @@ footer .wrapper li a {
   grid-area: image;
 }
 
-* body #main-div .movie .div-img #card-img, html body #main-div .movie .div-img #card-img {
+* body #main-div .movie .div-img #card-img,
+html body #main-div .movie .div-img #card-img {
   width: 25vw;
 }
 
-* body #main-div .movie .div-title, html body #main-div .movie .div-title {
+* body #main-div .movie .div-title,
+html body #main-div .movie .div-title {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: title;
@@ -148,11 +164,13 @@ footer .wrapper li a {
   width: 25vw;
 }
 
-* body #main-div .movie .div-title h2 b, html body #main-div .movie .div-title h2 b {
+* body #main-div .movie .div-title h2 b,
+html body #main-div .movie .div-title h2 b {
   font-size: 2rem;
 }
 
-* body #main-div .movie .container, html body #main-div .movie .container {
+* body #main-div .movie .container,
+html body #main-div .movie .container {
   -ms-grid-row: 1;
   -ms-grid-column: 5;
   grid-area: buttons;
@@ -169,12 +187,14 @@ footer .wrapper li a {
           align-items: center;
 }
 
-* body #main-div .movie .container .submit-img, html body #main-div .movie .container .submit-img {
+* body #main-div .movie .container .submit-img,
+html body #main-div .movie .container .submit-img {
   width: 3vw;
   cursor: pointer;
 }
 
-* body #main-div .movie .container #add-to-list-btn, html body #main-div .movie .container #add-to-list-btn {
+* body #main-div .movie .container #add-to-list-btn,
+html body #main-div .movie .container #add-to-list-btn {
   background-color: #158bbf;
   color: #ffffff;
   outline: none;
@@ -185,17 +205,20 @@ footer .wrapper li a {
   cursor: pointer;
 }
 
-* body #main-div .movie .container label input, html body #main-div .movie .container label input {
+* body #main-div .movie .container label input,
+html body #main-div .movie .container label input {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
 }
 
-* body #main-div .movie .container label .submit-img, html body #main-div .movie .container label .submit-img {
+* body #main-div .movie .container label .submit-img,
+html body #main-div .movie .container label .submit-img {
   width: 1.5vw;
 }
 
-* body #main-div .movie .movie-plot, html body #main-div .movie .movie-plot {
+* body #main-div .movie .movie-plot,
+html body #main-div .movie .movie-plot {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   -ms-grid-column-span: 3;
@@ -203,12 +226,14 @@ footer .wrapper li a {
   margin: 0 1vw;
 }
 
-* body #main-div .movie .movie-plot p, html body #main-div .movie .movie-plot p {
+* body #main-div .movie .movie-plot p,
+html body #main-div .movie .movie-plot p {
   width: 60vw;
   text-align: justify;
 }
 
-* body #main-div .movie .movie-comment, html body #main-div .movie .movie-comment {
+* body #main-div .movie .movie-comment,
+html body #main-div .movie .movie-comment {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   -ms-grid-column-span: 3;
@@ -216,21 +241,29 @@ footer .wrapper li a {
   margin: 0 1vw;
 }
 
-* body #main-div .movie .movie-comment h3, html body #main-div .movie .movie-comment h3 {
+* body #main-div .movie .movie-comment h3,
+html body #main-div .movie .movie-comment h3 {
   font-size: 1.3rem;
   margin: 0.5vh 0;
 }
 
-* body #main-div .movie .movie-comment form, html body #main-div .movie .movie-comment form {
+* body #main-div .movie .movie-comment form,
+html body #main-div .movie .movie-comment form {
   margin: 0vh 1vw 0vh 0vw;
   text-align: end;
 }
 
-* body #main-div .movie .movie-comment form textarea, html body #main-div .movie .movie-comment form textarea {
+* body #main-div .movie .movie-comment form textarea,
+html body #main-div .movie .movie-comment form textarea {
   border-radius: 4px;
   background: #010f21;
+<<<<<<< HEAD
+  -webkit-box-shadow: inset 14px 14px 28px #010914, inset -14px -14px 28px #01152e;
+          box-shadow: inset 14px 14px 28px #010914, inset -14px -14px 28px #01152e;
+=======
   -webkit-box-shadow: inset 14px 14px 28px #010914,  inset -14px -14px 28px #01152e;
           box-shadow: inset 14px 14px 28px #010914,  inset -14px -14px 28px #01152e;
+>>>>>>> parent of 95d5c1c... resolve conflit
   height: 13vh;
   width: 60vw;
   border: none;
@@ -242,7 +275,8 @@ footer .wrapper li a {
   color: #158bbf;
 }
 
-* body #main-div .movie .movie-comment form #movie-comment-btn, html body #main-div .movie .movie-comment form #movie-comment-btn {
+* body #main-div .movie .movie-comment form #movie-comment-btn,
+html body #main-div .movie .movie-comment form #movie-comment-btn {
   background-color: #158bbf;
   color: #ffffff;
   outline: none;
@@ -253,7 +287,8 @@ footer .wrapper li a {
   cursor: pointer;
 }
 
-* body #main-div .movie .movie-year, html body #main-div .movie .movie-year {
+* body #main-div .movie .movie-year,
+html body #main-div .movie .movie-year {
   -ms-grid-row: 4;
   -ms-grid-column: 3;
   grid-area: year;
@@ -268,11 +303,13 @@ footer .wrapper li a {
           align-items: baseline;
 }
 
-* body #main-div .movie .movie-year h3, html body #main-div .movie .movie-year h3 {
+* body #main-div .movie .movie-year h3,
+html body #main-div .movie .movie-year h3 {
   font-size: 1.3rem;
 }
 
-* body #main-div .movie .movie-duration, html body #main-div .movie .movie-duration {
+* body #main-div .movie .movie-duration,
+html body #main-div .movie .movie-duration {
   -ms-grid-row: 4;
   -ms-grid-column: 5;
   grid-area: duration;
@@ -287,11 +324,13 @@ footer .wrapper li a {
           align-items: baseline;
 }
 
-* body #main-div .movie .movie-duration h3, html body #main-div .movie .movie-duration h3 {
+* body #main-div .movie .movie-duration h3,
+html body #main-div .movie .movie-duration h3 {
   font-size: 1.3rem;
 }
 
-* body #main-div .movie .movie-casting, html body #main-div .movie .movie-casting {
+* body #main-div .movie .movie-casting,
+html body #main-div .movie .movie-casting {
   -ms-grid-row: 5;
   -ms-grid-column: 3;
   grid-area: casting;
@@ -306,11 +345,13 @@ footer .wrapper li a {
           align-items: baseline;
 }
 
-* body #main-div .movie .movie-casting h3, html body #main-div .movie .movie-casting h3 {
+* body #main-div .movie .movie-casting h3,
+html body #main-div .movie .movie-casting h3 {
   font-size: 1.3rem;
 }
 
-* body #main-div .movie .movie-genre, html body #main-div .movie .movie-genre {
+* body #main-div .movie .movie-genre,
+html body #main-div .movie .movie-genre {
   -ms-grid-row: 5;
   -ms-grid-column: 5;
   grid-area: genre;
@@ -325,11 +366,13 @@ footer .wrapper li a {
           align-items: baseline;
 }
 
-* body #main-div .movie .movie-genre h3, html body #main-div .movie .movie-genre h3 {
+* body #main-div .movie .movie-genre h3,
+html body #main-div .movie .movie-genre h3 {
   font-size: 1.3rem;
 }
 
-* body #main-div .movie .movie-p, html body #main-div .movie .movie-p {
+* body #main-div .movie .movie-p,
+html body #main-div .movie .movie-p {
   color: #158bbf;
   margin-left: 1vw;
 }
