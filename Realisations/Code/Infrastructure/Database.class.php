@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 95d5c1c... resolve conflit
 namespace Code\Infrastructure;
 
 use PDO;
@@ -10,32 +6,10 @@ use PDOException;
 
 
 //classe static permettant de recuperer une connecion avec la base de données
-<<<<<<< HEAD
-class Database
-{
-
-    private static $con;
-
-    private function __contruct()
-    {
-    }
-
-    public static function get()
-    {
-
-        //si la connection n'existe pas la creer sinon la renvoyer
-        if (!self::$con) {
-            try {
-
-                // self::$con = new PDO('mysql:host=localhost:8889,dbname=videotheque', 'admin_videotheque', 'admin_videotheque');
-                self::$con = new PDO('mysql:host=localhost;dbname=videotheque', 'root', 'root');
-                self::$con->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
-                self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                self::$con->exec('SET NAMES "utf8"');
-=======
 class Database {
 
 
+    private static $con;
     private function __contruct() {
 
     }
@@ -52,7 +26,6 @@ class Database {
                 self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 self::$con->exec('SET NAMES "utf8"');
                 
->>>>>>> parent of 95d5c1c... resolve conflit
             } catch (PDOException $e) {
 
                 //TODO mettre en systeme de log
@@ -61,9 +34,5 @@ class Database {
         }
         return self::$con;
     }
-<<<<<<< HEAD
-}
-=======
 
 }
->>>>>>> parent of 95d5c1c... resolve conflit
