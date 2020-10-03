@@ -113,16 +113,9 @@
                     align-items: center;
                     
 
-                    .active.seen-img{
+                    .submit-img{
                         width:3vw;
                         cursor: pointer;
-                        // background-image: url('../../Assets/seen.svg');
-                    }
-
-                    .active.unseen-img{
-                        width: 3vw;
-                        cursor: pointer;
-                        // background-image: url('../../Assets/hide.svg');
                     }
                     #add-to-list-btn{
                         background-color: $cookie-color;
@@ -130,12 +123,10 @@
                         outline: none;
                         border: none;
                         border-radius: $border-radius;
-                        height: $input-height/2;
-                        width: $button-width/2.3;
+                        height: $input-height;
+                        width: $button-width;
                         cursor: pointer;
-                    }
-                    a{
-
+                        
                     }
                     label{
                         input{

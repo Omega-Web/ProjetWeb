@@ -15,19 +15,19 @@ use Code\Repository\StaffRepository;
 
 class MovieInfoController
 {
-    private $movieService;
+    private $MovieService;
     private $movieUserService;
     private $movie;
     private $usermovie;
 
     public function __construct()
     {
-        $movieImageRepo     = new Movie_imageRepository(Database::get());
-        $genreRepo          = new GenreRepository(Database::get());
-        $movieRepo          = new MovieRepository(Database::get());
-        $movieStaffRepo     = new Movie_staffRepository(Database::get());
-        $staffRepo          = new StaffRepository(Database::get());
-        $movieUserRepo      = new Movie_userRepository(Database::get());
+        $movieImageRepo = new Movie_imageRepository(Database::get());
+        $genreRepo = new GenreRepository(Database::get());
+        $movieRepo = new MovieRepository(Database::get());
+        $movieStaffRepo = new Movie_staffRepository(Database::get());
+        $staffRepo = new StaffRepository(Database::get());
+        $movieUserRepo = new Movie_userRepository(Database::get());
 
         $this->service = new MovieService($movieRepo, $genreRepo, $movieImageRepo, $movieStaffRepo, $staffRepo);
         $this->movieUserService = new Movie_userService($movieUserRepo, $movieRepo);
@@ -88,20 +88,24 @@ class MovieInfoController
     public function isMovieInList(): string
     {
         if ($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0) {
-            return 'Ajouter';
+            return 'Ajouter à ma liste';
         } else {
-            return 'Ajouté';
+            return 'Enlever de ma liste';
         }
     }
 
     public function updateComment($post): string
     {
-        echo 'ta mere';
         $this->usermovie->setComment($post);
         $this->movieUserService->update($this->usermovie);
 
         return $post;
     }
+
+    // public function deleteFromList()
+    // {
+
+    // }
     public function editUserMovie($post, $idMovie = 0, $idUser = 0)
     {
         // $fp = fopen('log.txt', 'w');
@@ -127,7 +131,6 @@ class MovieInfoController
                 echo json_encode($response);
                 break;
             case $post:
-                // $comment = $this->usermovie->getComment();
                 $this->updateComment($post);
                 break;
             default:

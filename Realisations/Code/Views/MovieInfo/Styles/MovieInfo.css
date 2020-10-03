@@ -169,12 +169,7 @@ footer .wrapper li a {
           align-items: center;
 }
 
-* body #main-div .movie .container .active.seen-img, html body #main-div .movie .container .active.seen-img {
-  width: 3vw;
-  cursor: pointer;
-}
-
-* body #main-div .movie .container .active.unseen-img, html body #main-div .movie .container .active.unseen-img {
+* body #main-div .movie .container .submit-img, html body #main-div .movie .container .submit-img {
   width: 3vw;
   cursor: pointer;
 }
@@ -185,8 +180,8 @@ footer .wrapper li a {
   outline: none;
   border: none;
   border-radius: 4px;
-  height: 3.25vh;
-  width: 5.21739vw;
+  height: 6.5vh;
+  width: 12vw;
   cursor: pointer;
 }
 

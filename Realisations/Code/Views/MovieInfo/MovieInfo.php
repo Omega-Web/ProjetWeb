@@ -8,9 +8,6 @@ $_SESSION['post-data'] = $_POST;
 
 require_once '../../../bootstrap.php';
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
 use Code\Controller\MovieInfoController;
 
 if (!empty($_SESSION['post-data']['movie-selected'])) {
@@ -153,22 +150,6 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     })
                 })
             });
-            // $(function updateComment() {
-            //     $("#form-comment").submit(function(e) {
-            //         e.preventDefault(); // avoid to execute the actual submit of the form.
-
-            //         var form = $(this);
-            //         var url = form.attr('action');
-            //         $.ajax({
-            //             type: "POST",
-            //             url: '../../Infrastructure/Route.php',
-            //             data: form.serialize(), // serializes the form's elements.
-            //             success: function(response) {
-            //                 $("#comment-area").html(response.text); // show response from the php script.
-            //             }
-            //         });
-            //     })
-            // });
         </script>
     </body>
 
