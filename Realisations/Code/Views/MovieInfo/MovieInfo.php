@@ -16,6 +16,9 @@ use Code\Controller\MovieInfoController;
 if (!empty($_SESSION['post-data']['movie-selected'])) {
     $controller = new MovieInfoController();
     $controller->getInfoMovie($_SESSION['id'], $_SESSION['post-data']['movie-selected']);
+    // if (!empty($_POST['comment'])) {
+    //     $controller->updateComment($_POST['comment']);
+    // }
 ?>
     <!DOCTYPE html>
     <html lang="fr">
@@ -56,7 +59,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     <h2 id="title"><b><?= $controller->getTitle() ?></b></h2>
                 </div>
                 <div class="container">
-                    <img class="submit-img active" name="watch_state" src="<?= $controller->getWatchState()?>"/>
+                    <img class="submit-img active" name="watch_state" src="<?= $controller->getWatchState() ?>" />
                     <button id="add-to-list-btn" name="add-to-list-btn">
                         <?= $controller->isMovieInList() ?>
                     </button>
@@ -66,8 +69,8 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                 </div>
                 <div class="movie-comment">
                     <h3>Commentaire :</h3>
-                    <form action="updateUserMovie.php?id=<?= $_SESSION['movie-selected'] ?>" method="post">
-                        <textarea rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?= $controller->getComment() ?></textarea>
+                    <form method="post">
+                        <textarea id="comment-textarea" rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?= $controller->getComment() ?></textarea>
                         <button id="movie-comment-btn" type="submit">Enregistrer le commentaire</button>
                     </form>
                 </div>
@@ -132,20 +135,38 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     })
                 })
             });
-            // $(function updateComment(){
-            //     $btn = $("#add-to-list-btn");
-            //     $btn.on('click', function(){
-            //         $.ajax({
-            //             type: 'POST',
-            //             url: '../../Controller/MovieInfoController.class.php',
-            //             data: {
-            //                 action: 'updateComment'
-            //             },
-            //             dataType: 'json',
-            //             success: function(response) {
-            //             }
-            //         })
+            $(function updateComment() {
+                $btn = $("#movie-comment-btn");
+                $btn.on('click', function(e) {
+                    e.preventDefault();
+                    $textarea_value = $("#comment-textarea").val();
+                    $.ajax({
+                        type: 'POST',
+                        url: '../../Infrastructure/Route.php',
+                        data: {
+                            action: $textarea_value,
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            $btn.html(response.text);
+                        }
+                    })
+                })
+            });
+            // $(function updateComment() {
+            //     $("#form-comment").submit(function(e) {
+            //         e.preventDefault(); // avoid to execute the actual submit of the form.
 
+            //         var form = $(this);
+            //         var url = form.attr('action');
+            //         $.ajax({
+            //             type: "POST",
+            //             url: '../../Infrastructure/Route.php',
+            //             data: form.serialize(), // serializes the form's elements.
+            //             success: function(response) {
+            //                 $("#comment-area").html(response.text); // show response from the php script.
+            //             }
+            //         });
             //     })
             // });
         </script>
