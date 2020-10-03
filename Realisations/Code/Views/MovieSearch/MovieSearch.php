@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php 
 session_start();
 if (!isset($_SESSION['id'])) {
@@ -67,6 +68,8 @@ $moviesLength = $controller->getMovies();
     </main>
 <?php
 =======
+=======
+>>>>>>> parent of 95d5c1c... resolve conflit
 <?php 
 session_start();
 if (!isset($_SESSION['id'])) {
@@ -132,5 +135,8 @@ $moviesLength = $controller->getMovies();
         ?>
     </main>
 <?php
+<<<<<<< HEAD
+>>>>>>> parent of 95d5c1c... resolve conflit
+=======
 >>>>>>> parent of 95d5c1c... resolve conflit
 include '../footer.php';
