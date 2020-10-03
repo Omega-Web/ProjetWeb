@@ -96,7 +96,6 @@ class MovieInfoController
 
     public function updateComment($post): string
     {
-        echo 'ta mere';
         $this->usermovie->setComment($post);
         $this->movieUserService->update($this->usermovie);
 
@@ -132,7 +131,6 @@ class MovieInfoController
                 echo json_encode($response);
                 break;
             case $post:
-                // $comment = $this->usermovie->getComment();
                 $this->updateComment($post);
                 break;
             default:
