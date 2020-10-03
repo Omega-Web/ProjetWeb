@@ -66,7 +66,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                 </div>
                 <div class="movie-comment">
                     <h3>Commentaire :</h3>
-                    <form action="updateUserMovie.php?id=<?= $_SESSION['movie-selected'] ?>" method="post">
+                    <form action="updateUserMovie.php?id=<?= $_SESSION['post-data']['movie-selected'] ?>" method="post">
                         <textarea rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?= $controller->getComment() ?></textarea>
                         <button id="movie-comment-btn" type="submit">Enregistrer le commentaire</button>
                     </form>
