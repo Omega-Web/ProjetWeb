@@ -45,12 +45,13 @@ $userListController = new UserMovieListController();
     <main id="main-div">
         <?php
         $movies = $userListController->getMovies();
-        foreach ($movies as $movie) {
+        foreach($movies as $movie) {
             ?>
             <div class="card">
                 <div class="div-img">
-                    <img id="card-img" <?= 'src="data:image/jpeg;base64,'.base64_encode( $movie->getImages()[0]['image']).'"' ?> alt="imageMovie">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,'.$movie->getImages()[0]['image'].'"' ?> alt="imageMovie">
                 </div>
+                
                 <div class="container">
                     <h4><b><?= $movie->getTitle() ?></b></h4>
                     <div>

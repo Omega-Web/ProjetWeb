@@ -33,26 +33,26 @@ class UserInformationsController
 
     public function getFirstname():string
     {
-        return $this->userService->getFirstname();
+        return $this->myUser->getFirstname();
     }
     public function getLastname():string
     {
-        return $this->userService->getLastname();
+        return $this->myUser->getLastname();
     } 
     public function getUserName():string
     {
-        return $this->userService->getUserName();
+        return $this->myUser->getUserName();
     }
      public function getEmail():string
     {
-        return $this->userService->getEmail();
+        return $this->myUser->getEmail();
     } 
     public function getPassword():string
     {
-        return $this->userService->getPassword();
+        return $this->myUser->getPassword();
     } 
     public function getBirthday():string
     {
-        return $this->userService->getBirthday()->format('Y-m-d');
+        return $this->myUser->getBirthday()->format('Y-m-d');
     }
 }

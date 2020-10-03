@@ -25,17 +25,18 @@ class UserMovieListController
     
         $this->userListService = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRepo, $staffRepo);
     }
-        public function getMovies()
+
+    public function getMovies()
     {
-        $this->moviesArray = $this->userListService->findAll();
-        return count($this->moviesArray);
+        return $this->userListService->findAll();
+        //return count($this->moviesArray);
     }
 
     public function getTitle($index):string 
     {
         return $this->moviesArray[$index]->getTitle();
     }
-    public function getImageBase64($index)
+    public function getImageBase64($index):string
     {
         return base64_encode($this->moviesArray[$index]->getImages()[0]['image']);
     }

@@ -9,6 +9,7 @@ use Code\Repository\Movie_staffRepository;
 use Code\Repository\MovieRepository;
 use Code\Repository\StaffRepository;
 use Code\Service\MovieService;
+Use Code\Model\Movie_image;
 
 class MovieSearchController
 {

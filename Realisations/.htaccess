@@ -1,5 +1,5 @@
-RewriteEngine On
+RewriteEngine off
 RewriteCond %{REQUEST_FILENAME} !-f
-RedirectPermanent /ProjetWeb/Realisations/index.php /ProjetWeb/Realisations/Code/Views/Authentication/Connection
+RedirectPermanent /ProjetWeb/Realisations/index.php /ProjetWeb/Realisations/index.php 
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.php [L]
