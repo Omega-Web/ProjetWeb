@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // Import and use required files
 require_once '../../../bootstrap.php';

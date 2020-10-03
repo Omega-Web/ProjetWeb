@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location: ../Authentication/Connection.php');
+}
+$_SESSION['id'];
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -11,12 +16,11 @@ use Code\Infrastructure\Database;
 use PDOException;
 use PDO;
 
-$id = 2;
 
 $repoUser = new UserRepository(Database::get());
-$currentUser = $repoUser->findOne($id);
+$currentUser = $repoUser->findOne($_SESSION['id']);
 
-if($id > 0 ) {
+if($_SESSION['id'] > 0 ) {
     $userInfo = array(
     'firstname'      => $currentUser->getFirstname(),  
     'lastname'       => $currentUser->getLastname(),    
@@ -30,7 +34,7 @@ $passwordError = "";
 if(!empty($_POST)) {
 
     $userArray['email'] = $_POST['email'];
-    $userArray['id'] = $id;
+    $userArray['id'] = $_SESSION['id'];
 
     if ($_POST['password'] === $_POST['password2']){
         $userArray['password'] = $_POST['password'];
@@ -71,27 +75,26 @@ if(!empty($_POST)) {
             </ul>
         </nav>
         <div id="div-logout">
-            <!-- ADD PHP HERE -- LOGOUT / SESSION END-DESTROY ? -->
-                <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
+                <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
     <main>
         <div id="main-div">
             <h3>Informations de compte</h3>
             <form id="first-form" action="" method="post">
-                <input id="firstname" name="firstname" placeholder="Prénom" value="<?php echo htmlspecialchars($userInfo['firstname']); ?>" disabled>
+                <input id="firstname" name="firstname" placeholder="Prénom" value="<?= htmlspecialchars($userInfo['firstname']); ?>" disabled>
                 <br>
-                <input id="lastname" name="lastname" placeholder="Nom" value="<?php echo htmlspecialchars($userInfo['lastname']); ?>" disabled>
+                <input id="lastname" name="lastname" placeholder="Nom" value="<?= htmlspecialchars($userInfo['lastname']); ?>" disabled>
                 <br>
-                <input id="email" name="email" placeholder="Adresse e-mail" value="<?php echo htmlspecialchars($userInfo['email']); ?>">
+                <input id="email" name="email" placeholder="Adresse e-mail" value="<?= htmlspecialchars($userInfo['email']); ?>">
                 <br>
-                <input id="dob" name="dob" type="date" placeholder="Date de naissance" value="<?php echo htmlspecialchars($userInfo['dob']); ?>" disabled>
+                <input id="dob" name="dob" type="date" placeholder="Date de naissance" value="<?= htmlspecialchars($userInfo['dob']); ?>" disabled>
                 <br>
-                <input id="username" name="username" placeholder="Nom d'utilisateur" value="<?php echo htmlspecialchars($userInfo['username']); ?>" disabled>
+                <input id="username" name="username" placeholder="Nom d'utilisateur" value="<?= htmlspecialchars($userInfo['username']); ?>" disabled>
                 <br>
                 <input id="password" name="password" type="password" placeholder="Mot de passe" >
                 <br>
-                <label for="password"><?php echo $passwordError; ?></label>
+                <label for="password"><?= $passwordError; ?></label>
                 <input id="password2" name="password2" type="password" placeholder="Vérifier le mot de passe">
                 <br>
                 <button id="button-info" type="submit">Enregistrer les modifications</button>

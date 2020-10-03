@@ -152,7 +152,7 @@ footer .wrapper li a {
   font-size: 2rem;
 }
 
-* body #main-div .movie #form-movieinfo, html body #main-div .movie #form-movieinfo {
+* body #main-div .movie .container, html body #main-div .movie .container {
   -ms-grid-row: 1;
   -ms-grid-column: 5;
   grid-area: buttons;
@@ -169,11 +169,17 @@ footer .wrapper li a {
           align-items: center;
 }
 
-* body #main-div .movie #form-movieinfo #seen-img, html body #main-div .movie #form-movieinfo #seen-img {
-  width: 2.5vw;
+* body #main-div .movie .container .active.seen-img, html body #main-div .movie .container .active.seen-img {
+  width: 3vw;
+  cursor: pointer;
 }
 
-* body #main-div .movie #form-movieinfo #add-to-list-btn, html body #main-div .movie #form-movieinfo #add-to-list-btn {
+* body #main-div .movie .container .active.unseen-img, html body #main-div .movie .container .active.unseen-img {
+  width: 3vw;
+  cursor: pointer;
+}
+
+* body #main-div .movie .container #add-to-list-btn, html body #main-div .movie .container #add-to-list-btn {
   background-color: #158bbf;
   color: #ffffff;
   outline: none;
@@ -184,13 +190,13 @@ footer .wrapper li a {
   cursor: pointer;
 }
 
-* body #main-div .movie #form-movieinfo label input, html body #main-div .movie #form-movieinfo label input {
+* body #main-div .movie .container label input, html body #main-div .movie .container label input {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
 }
 
-* body #main-div .movie #form-movieinfo label .submit-img, html body #main-div .movie #form-movieinfo label .submit-img {
+* body #main-div .movie .container label .submit-img, html body #main-div .movie .container label .submit-img {
   width: 1.5vw;
 }
 
