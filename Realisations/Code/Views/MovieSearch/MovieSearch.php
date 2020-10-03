@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location: ../Authentication/Connection.php');
+}
+$_SESSION['id'];
 require_once '../../../bootstrap.php';
 use Code\Controller\MovieSearchController;
 
@@ -32,7 +36,7 @@ $moviesLength = $controller->getMovies();
         </nav>
         <div id="div-logout">
             <!-- ADD PHP HERE -- LOGOUT / SESSION END-DESTROY ? -->
-                <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
+                <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
     <main id="main-div">
@@ -47,7 +51,7 @@ $moviesLength = $controller->getMovies();
                 <div class="container">
                     <h4><b><?= $controller->getTitle($i) ?></b></h4>
                     <div>
-                        <form action="../MovieInfo/MovieInfo.php?id=<?= $controller->getId($i) ?>" method="POST">
+                        <form action="../MovieInfo/MovieInfo.php" method="post">
                             <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden>
                             <button type="submit" id="seemore-btn">Plus</button>
                         </form>

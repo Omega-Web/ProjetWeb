@@ -104,7 +104,7 @@
                 }
                 
 
-                #form-movieinfo{
+                .container{
                     grid-area: buttons;
                     display: flex;
                     justify-content: space-between;
@@ -113,8 +113,16 @@
                     align-items: center;
                     
 
-                    #seen-img{
-                        width: 2.5vw;
+                    .active.seen-img{
+                        width:3vw;
+                        cursor: pointer;
+                        // background-image: url('../../Assets/seen.svg');
+                    }
+
+                    .active.unseen-img{
+                        width: 3vw;
+                        cursor: pointer;
+                        // background-image: url('../../Assets/hide.svg');
                     }
                     #add-to-list-btn{
                         background-color: $cookie-color;
