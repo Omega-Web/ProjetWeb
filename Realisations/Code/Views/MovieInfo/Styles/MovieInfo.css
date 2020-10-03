@@ -114,7 +114,7 @@ footer .wrapper li a {
   display: -ms-grid;
   display: grid;
   justify-items: start;
-      grid-template-areas: "image image title . buttons" "image image plot plot plot" "image image comment comment comment" "image image year . duration" "image image casting . genre";
+      grid-template-areas: "image image title . buttons" "image image plot plot plot" "image image comment comment comment" "image image year . duration" "image image casting . genre";
   grid-gap: 2vh 1vw;
   grid-auto-rows: minmax(10px, auto);
   margin: 3vh 5vw;
@@ -234,8 +234,8 @@ footer .wrapper li a {
 * body #main-div .movie .movie-comment form textarea, html body #main-div .movie .movie-comment form textarea {
   border-radius: 4px;
   background: #010f21;
-  -webkit-box-shadow: inset 14px 14px 28px #010914,  inset -14px -14px 28px #01152e;
-          box-shadow: inset 14px 14px 28px #010914,  inset -14px -14px 28px #01152e;
+  -webkit-box-shadow: inset 14px 14px 28px #010914,  inset -14px -14px 28px #01152e;
+          box-shadow: inset 14px 14px 28px #010914,  inset -14px -14px 28px #01152e;
   height: 13vh;
   width: 60vw;
   border: none;

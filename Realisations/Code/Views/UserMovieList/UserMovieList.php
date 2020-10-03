@@ -5,14 +5,26 @@ if (!isset($_SESSION['id'])) {
 }
 $_SESSION['id'];
 
+require_once '../../../bootstrap.php';
+use PDO;
+use PDOException;
+use Code\Repository\Movie_imageRepository;
+use Code\Infrastructure\Database;
+use Code\Repository\GenreRepository;
+use Code\Repository\Movie_staffRepository;
+use Code\Repository\MovieRepository;
+use Code\Repository\StaffRepository;
+use Code\Service\MovieService;
+
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-require_once '../../../bootstrap.php';
-
-use Code\Controller\UserMovieListController;
-
-$userListController = new UserMovieListController();
+$movieImageRepo = new Movie_imageRepository(Database::get());
+$genreRepo = new GenreRepository(Database::get());
+$movieRepo = new MovieRepository(Database::get());
+$movieStaffRepo = new Movie_staffRepository(Database::get());
+$staffRepo = new StaffRepository(Database::get());
+$service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRepo, $staffRepo);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,7 +56,7 @@ $userListController = new UserMovieListController();
     </header>
     <main id="main-div">
         <?php
-        $movies = $userListController->getMovies();
+        $movies = $service->findAll();
         foreach ($movies as $movie) {
             ?>
             <div class="card">

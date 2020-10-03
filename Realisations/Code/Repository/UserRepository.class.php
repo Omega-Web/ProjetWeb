@@ -37,7 +37,7 @@ class UserRepository implements IUserProvider {
         return new User($data);
 
     }
-    //Créer un utilisateur 
+    //Créer un utilisateur ou met à jour un utilisateur existant
     public function insertUser(User $user): bool
     {
         try{

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Utilities
 @import '../../Styles/variables';
 @import '../../Styles/focusNav';
@@ -240,6 +241,8 @@
         
     }
 =======
+=======
+>>>>>>> parent of 95d5c1c... resolve conflit
 // Utilities
 @import '../../Styles/variables';
 @import '../../Styles/focusNav';
@@ -355,6 +358,7 @@
                     align-items: center;
                     
 
+<<<<<<< HEAD
                     .active.seen-img{
                         width:3vw;
                         cursor: pointer;
@@ -365,6 +369,11 @@
                         width: 3vw;
                         cursor: pointer;
                         // background-image: url('../../Assets/hide.svg');
+=======
+                    .submit-img{
+                        width:3vw;
+                        cursor: pointer;
+>>>>>>> parent of 95d5c1c... resolve conflit
                     }
                     #add-to-list-btn{
                         background-color: $cookie-color;
@@ -372,12 +381,19 @@
                         outline: none;
                         border: none;
                         border-radius: $border-radius;
+<<<<<<< HEAD
                         height: $input-height/2;
                         width: $button-width/2.3;
                         cursor: pointer;
                     }
                     a{
 
+=======
+                        height: $input-height;
+                        width: $button-width;
+                        cursor: pointer;
+                        
+>>>>>>> parent of 95d5c1c... resolve conflit
                     }
                     label{
                         input{
@@ -489,5 +505,8 @@
         }
         
     }
+<<<<<<< HEAD
 >>>>>>> parent of d33acdb... update css
+=======
+>>>>>>> parent of 95d5c1c... resolve conflit
 }
