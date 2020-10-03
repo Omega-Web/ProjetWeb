@@ -88,9 +88,9 @@ class MovieInfoController
     public function isMovieInList(): string
     {
         if ($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0) {
-            return 'Ajouter';
+            return 'Ajouter à ma liste';
         } else {
-            return 'Ajouté';
+            return 'Enlever de ma liste';
         }
     }
 
@@ -102,6 +102,11 @@ class MovieInfoController
 
         return $post;
     }
+
+    // public function deleteFromList()
+    // {
+
+    // }
     public function editUserMovie($post, $idMovie = 0, $idUser = 0)
     {
         // $fp = fopen('log.txt', 'w');
