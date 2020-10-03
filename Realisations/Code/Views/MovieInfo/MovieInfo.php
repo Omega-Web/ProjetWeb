@@ -1,6 +1,10 @@
-<?php 
-// session_start();
-// $_SESSION['id'];
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location: ../Authentication/Connection.php');
+}
+$_SESSION['id'];
+$_SESSION['post-data'] = $_POST;
 
 require_once '../../../bootstrap.php';
 
@@ -9,58 +13,61 @@ ini_set("display_errors", 1);
 
 use Code\Controller\MovieInfoController;
 
-if(!empty($_POST['movie-selected'])){
+if (!empty($_SESSION['post-data']['movie-selected'])) {
     $controller = new MovieInfoController();
-    $controller->getInfoMovie(1,$_POST['movie-selected']);
+    $controller->getInfoMovie($_SESSION['id'], $_SESSION['post-data']['movie-selected']);
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VidéoMega, <?= $controller->getTitle() ?></title>
-    <link rel="stylesheet" href="Styles/MovieInfo.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
-</head>
-<body>
-    <header>
-        <div id="div-logo">
-            <!-- ADD PHP HERE -- If clicked on logo while identified take on Films search page -->
-            <a href="../MovieSearch/MovieSearch.php"><img id="logo" src="../../Assets/logo.png" alt="logo"></a>
-        </div>
-        <nav>
-            <ul>
-                <li><a id="films-a" href="../MovieSearch/MovieSearch.php">Films</a></li>
-                <li><a id="list-a" href="../UserMovieList/UserMovieList.php">Ma liste</a></li>
-                <li><a id="account-a" href="../UserAccount/Informations.php">Mon compte</a></li>
-            </ul>
-        </nav>
-        <div id="div-logout">
-            <!-- ADD PHP HERE -- LOGOUT / SESSION END-DESTROY ? -->
-                <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
-        </div>
-    </header>
-    <main id="main-div">
+    <!DOCTYPE html>
+    <html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VidéoMega, <?= $controller->getTitle() ?></title>
+        <link rel="stylesheet" href="Styles/MovieInfo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="div-logo">
+                <!-- ADD PHP HERE -- If clicked on logo while identified take on Films search page -->
+                <a href="../MovieSearch/MovieSearch.php"><img id="logo" src="../../Assets/logo.png" alt="logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a id="films-a" href="../MovieSearch/MovieSearch.php">Films</a></li>
+                    <li><a id="list-a" href="../UserMovieList/UserMovieList.php">Ma liste</a></li>
+                    <li><a id="account-a" href="../UserAccount/Informations.php">Mon compte</a></li>
+                </ul>
+            </nav>
+            <div id="div-logout">
+                <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
+            </div>
+        </header>
+        <main id="main-div">
             <div class="movie">
                 <div class="div-img">
-                    <img id="card-img" <?= 'src="data:image/jpeg;base64,'.$controller->getImageBase64().'"' ?> alt="imageMovie">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . $controller->getImageBase64() . '"' ?> alt="imageMovie">
                 </div>
                 <div class="div-title">
                     <h2 id="title"><b><?= $controller->getTitle() ?></b></h2>
                 </div>
-                <form id="form-movieinfo" action="updateUserMovie.php?id=<?=$_GET['id']?>" method="post">
-                    <label class="label" for="watch_state" id="labelup">
-                            <input class="seen-img submit-img" type="image" name="watch_state" src="../../Assets/eye.svg" alt="Submit" value="<?= $controller->getId() ?>"/>
-                    </label>
-                    <button id="add-to-list-btn" value="<?= $controller->getId() ?>" name="add-to-list-btn" type="submit">Ajouter</button>
-                </form>
+                <div class="container">
+                    <img class="submit-img active" name="watch_state" src="<?= $controller->getWatchState()?>"/>
+                    <button id="add-to-list-btn" name="add-to-list-btn">
+                        <?= $controller->isMovieInList() ?>
+                    </button>
+                </div>
                 <div class="movie-plot">
                     <p><?= $controller->getPlot() ?></p>
                 </div>
                 <div class="movie-comment">
                     <h3>Commentaire :</h3>
-                    <form action="updateUserMovie.php?id=<?=$_GET['id']?>" method="post">
-                        <textarea rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?= $controller->getComment()?></textarea>
+                    <form action="updateUserMovie.php?id=<?= $_SESSION['movie-selected'] ?>" method="post">
+                        <textarea rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?= $controller->getComment() ?></textarea>
                         <button id="movie-comment-btn" type="submit">Enregistrer le commentaire</button>
                     </form>
                 </div>
@@ -75,26 +82,76 @@ if(!empty($_POST['movie-selected'])){
                 <div class="movie-casting">
                     <h3>Casting : </h3>
                     <p class="movie-p"><?php
-                    $arrayStaff = $controller->getStaffs();
-                    foreach ($arrayStaff as $actor) {
-                        echo $actor->getFirstname() . ' ' .  $actor->getLastname() . ' ';
-                    }
-                    ?></p>
+                                        $arrayStaff = $controller->getStaffs();
+                                        foreach ($arrayStaff as $actor) {
+                                            echo $actor->getFirstname() . ' ' . $actor->getLastname() . ' ';
+                                        }
+                                        ?></p>
                 </div>
                 <div class="movie-genre">
                     <h3>Genre : </h3>
-                    <p class="movie-p"><?php 
-                    $genreArray = $controller->getGenres();
-                    foreach($genreArray as $genre) {
-                        echo $genre->getName() . ' ';
-                    }?>
+                    <p class="movie-p"><?php
+                                        $genreArray = $controller->getGenres();
+                                        foreach ($genreArray as $genre) {
+                                            echo $genre->getName() . ' ';
+                                        } ?>
                     </p>
                 </div>
-            </div> 
+            </div>
         </main>
-</body>
-</html>
+        <script>
+            $(function updateWatchState() {
+                $img = $(".submit-img");
+                $img.on('click', function() {
+                    $.ajax({
+                        type: 'POST',
+                        url: '../../Infrastructure/Route.php',
+                        data: {
+                            action: 'updateWatchState'
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            $img.attr('src', response.image);
+                        }
+                    })
+                })
+            });
+            $(function addToList() {
+                $btn = $("#add-to-list-btn");
+                $btn.on('click', function() {
+                    $.ajax({
+                        type: 'POST',
+                        url: '../../Infrastructure/Route.php',
+                        data: {
+                            action: 'addToList'
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            $btn.html(response.text);
+                        }
+                    })
+                })
+            });
+            // $(function updateComment(){
+            //     $btn = $("#add-to-list-btn");
+            //     $btn.on('click', function(){
+            //         $.ajax({
+            //             type: 'POST',
+            //             url: '../../Controller/MovieInfoController.class.php',
+            //             data: {
+            //                 action: 'updateComment'
+            //             },
+            //             dataType: 'json',
+            //             success: function(response) {
+            //             }
+            //         })
+
+            //     })
+            // });
+        </script>
+    </body>
+
+    </html>
 <?php
 }
 ?>
-
