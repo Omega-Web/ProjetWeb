@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 95d5c1c... resolve conflit
 namespace Code\Infrastructure;
 
 use PDO;
@@ -7,6 +10,7 @@ use PDOException;
 
 
 //classe static permettant de recuperer une connecion avec la base de données
+<<<<<<< HEAD
 class Database
 {
 
@@ -28,6 +32,7 @@ class Database
                 self::$con->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
                 self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 self::$con->exec('SET NAMES "utf8"');
+=======
 class Database {
 
 
@@ -57,5 +62,8 @@ class Database {
         return self::$con;
     }
 <<<<<<< HEAD
+}
+=======
+
 }
 >>>>>>> parent of 95d5c1c... resolve conflit
