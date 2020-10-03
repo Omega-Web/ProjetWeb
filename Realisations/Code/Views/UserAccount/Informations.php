@@ -12,7 +12,7 @@ require_once '../../../bootstrap.php';
 
 use Code\Controller\UserInformationsController;
 
-
+//Déclaration du controller 
 $userInfoController = new UserInformationsController;
 
 $currentID = $_SESSION['id'];
