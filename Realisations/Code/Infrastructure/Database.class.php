@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 namespace Code\Infrastructure;
 
@@ -40,6 +41,8 @@ class Database {
 =======
 =======
 >>>>>>> parent of 95d5c1c... resolve conflit
+=======
+>>>>>>> parent of 95d5c1c... resolve conflit
 <?php
 namespace Code\Infrastructure;
 
@@ -78,6 +81,9 @@ class Database {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 95d5c1c... resolve conflit
+=======
 >>>>>>> parent of 95d5c1c... resolve conflit
 =======
 >>>>>>> parent of 95d5c1c... resolve conflit

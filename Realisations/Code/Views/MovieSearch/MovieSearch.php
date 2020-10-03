@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php 
 session_start();
 if (!isset($_SESSION['id'])) {
@@ -70,6 +71,8 @@ $moviesLength = $controller->getMovies();
 =======
 =======
 >>>>>>> parent of 95d5c1c... resolve conflit
+=======
+>>>>>>> parent of 95d5c1c... resolve conflit
 <?php 
 session_start();
 if (!isset($_SESSION['id'])) {
@@ -136,6 +139,9 @@ $moviesLength = $controller->getMovies();
     </main>
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 95d5c1c... resolve conflit
+=======
 >>>>>>> parent of 95d5c1c... resolve conflit
 =======
 >>>>>>> parent of 95d5c1c... resolve conflit
