@@ -8,14 +8,14 @@ $_SESSION['post-data'] = $_POST;
 
 require_once '../../../bootstrap.php';
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 use Code\Controller\MovieInfoController;
 
 if (!empty($_SESSION['post-data']['movie-selected'])) {
     $controller = new MovieInfoController();
     $controller->getInfoMovie($_SESSION['id'], $_SESSION['post-data']['movie-selected']);
-    // if (!empty($_POST['comment'])) {
-    //     $controller->updateComment($_POST['comment']);
-    // }
 ?>
     <!DOCTYPE html>
     <html lang="fr">
@@ -56,7 +56,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     <h2 id="title"><b><?= $controller->getTitle() ?></b></h2>
                 </div>
                 <div class="container">
-                    <img class="submit-img active" name="watch_state" src="<?= $controller->getWatchState() ?>" />
+                    <img class="submit-img active" name="watch_state" src="<?= $controller->getWatchState()?>"/>
                     <button id="add-to-list-btn" name="add-to-list-btn">
                         <?= $controller->isMovieInList() ?>
                     </button>
@@ -66,8 +66,8 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                 </div>
                 <div class="movie-comment">
                     <h3>Commentaire :</h3>
-                    <form method="post">
-                        <textarea id="comment-textarea" rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?= $controller->getComment() ?></textarea>
+                    <form action="updateUserMovie.php?id=<?= $_SESSION['post-data']['movie-selected'] ?>" method="post">
+                        <textarea rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?= $controller->getComment() ?></textarea>
                         <button id="movie-comment-btn" type="submit">Enregistrer le commentaire</button>
                     </form>
                 </div>
