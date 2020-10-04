@@ -17,7 +17,7 @@ class User {
     private $id_movies = [];
     private $id_usertype;
 
-    public function __construct(array $data)
+    public function __construct($data)
     {
         $this->setId($data['id'] ?? 0);
         $this->setFirstname($data['firstname']);
