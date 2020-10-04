@@ -88,9 +88,9 @@ class MovieInfoController
     public function isMovieInList(): string
     {
         if($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0){
-            return 'Ajouter';
+            return 'Ajouter à ma liste';
         }else{
-            return 'Ajouté';
+            return 'Enlever de ma liste';
         }
     }
 
