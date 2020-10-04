@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION['id'])) {
     header('Location: ../Authentication/Connection.php');
@@ -6,6 +6,7 @@ if (!isset($_SESSION['id'])) {
 $_SESSION['id'];
 
 require_once '../../../bootstrap.php';
+
 use PDO;
 use PDOException;
 use Code\Repository\Movie_imageRepository;
@@ -24,18 +25,20 @@ $genreRepo = new GenreRepository(Database::get());
 $movieRepo = new MovieRepository(Database::get());
 $movieStaffRepo = new Movie_staffRepository(Database::get());
 $staffRepo = new StaffRepository(Database::get());
-$service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRepo, $staffRepo);
+$service = new MovieService($movieRepo, $genreRepo, $movieImageRepo, $movieStaffRepo, $staffRepo);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VidéoMega, Ma liste de films</title>
     <link rel="stylesheet" href="Styles/UserMovieList.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div id="div-logo">
@@ -51,17 +54,17 @@ $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRe
         </nav>
         <div id="div-logout">
             <!-- ADD PHP HERE -- LOGOUT / SESSION END-DESTROY ? -->
-                <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
+            <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
     <main id="main-div">
         <?php
         $movies = $service->findAll();
         foreach ($movies as $movie) {
-            ?>
+        ?>
             <div class="card">
                 <div class="div-img">
-                    <img id="card-img" <?= 'src="data:image/jpeg;base64,'.base64_encode( $movie->getImages()[0]['image']).'"' ?> alt="imageMovie">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . base64_encode($movie->getImages()[0]['image']) . '"' ?> alt="imageMovie">
                 </div>
                 <div class="container">
                     <h4><b><?= $movie->getTitle() ?></b></h4>
@@ -73,10 +76,10 @@ $service = new MovieService($movieRepo,$genreRepo,$movieImageRepo, $movieStaffRe
                         </form>
                     </div>
                 </div>
-            </div> 
-            <?php 
+            </div>
+        <?php
         }
         ?>
     </main>
-<?php
-include '../footer.php';
+    <?php
+    include '../footer.php';

@@ -92,6 +92,12 @@ class MovieInfoController
         }else{
             return 'Ajouté';
         }
+    }
+
+    public function updateComment($post)
+    {
+        $this->usermovie->setComment($post);
+        $this->movieUserService->update($this->usermovie);
 
     }
 
@@ -120,26 +126,11 @@ class MovieInfoController
                 $response = ['text' => $textBtn];
                 echo json_encode($response);
                 break;
-                // case 'addToList':
-
-
-                //     $movie_user = new Movie_userRepository(Database::get());
-
-                //     $this->usermovie->insert(); // Movie_user $movie_user
-                //     $seenImage = '../../Assets/seen.svg';
-                //     $unseenImage = '../../Assets/hide.svg';
-
-                //     echo json_encode(['seen' => $seenImage, 'unseen' => $unseenImage]);
-                //     break;
-                // case 'updateComment':
-                //     $comment = $this->usermovie->getComment();
-                //     $this->usermovie->setWatch_state(!$watch_state);
-
-                //     $seenImage = '../../Assets/seen.svg';
-                //     $unseenImage = '../../Assets/hide.svg';
-
-                //     echo json_encode(['seen' => $seenImage, 'unseen' => $unseenImage]);
-                //     break;
+            case $post:
+                $this->updateComment($post);
+                break;
+            default:
+                break;
         }
     }
 }

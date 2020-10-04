@@ -132,22 +132,24 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     })
                 })
             });
-            // $(function updateComment(){
-            //     $btn = $("#add-to-list-btn");
-            //     $btn.on('click', function(){
-            //         $.ajax({
-            //             type: 'POST',
-            //             url: '../../Controller/MovieInfoController.class.php',
-            //             data: {
-            //                 action: 'updateComment'
-            //             },
-            //             dataType: 'json',
-            //             success: function(response) {
-            //             }
-            //         })
-
-            //     })
-            // });
+            $(function updateComment() {
+                $btn = $("#movie-comment-btn");
+                $btn.on('click', function(e) {
+                    e.preventDefault();
+                    $textarea_value = $("#comment-textarea").val();
+                    $.ajax({
+                        type: 'POST',
+                        url: '../../Infrastructure/Route.php',
+                        data: {
+                            action: $textarea_value,
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            $btn.html(response.text);
+                        }
+                    })
+                })
+            });
         </script>
     </body>
 
