@@ -56,7 +56,7 @@ class GenreRepository implements IGenreProvider{
     //retourne tout les genres d'un film en fonction de son id
     public function findAllByIdMovie(int $id):array
     {
-        $stt = $this->con->prepare('SELECT genre.id,genre.name from Movie join movie_genre on movie.id = movie_genre.fk_movie join genre on movie_genre.fk_genre = genre.id where movie.id=:id');
+        $stt = $this->con->prepare('SELECT genre.id,genre.name from movie join movie_genre on movie.id = movie_genre.fk_movie join genre on movie_genre.fk_genre = genre.id where movie.id=:id');
         $stt-> bindValue('id',$id,PDO::PARAM_INT);
         $stt->execute();
         $Genres = [];
