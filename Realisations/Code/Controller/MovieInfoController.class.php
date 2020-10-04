@@ -87,9 +87,9 @@ class MovieInfoController
 
     public function isMovieInList(): string
     {
-        if ($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0) {
+        if($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0){
             return 'Ajouter';
-        } else {
+        }else{
             return 'Ajouté';
         }
     }
@@ -99,8 +99,10 @@ class MovieInfoController
         $this->usermovie->setComment($post);
         $this->movieUserService->update($this->usermovie);
 
-        return $post;
+        return $this->usermovie->getComment();
+
     }
+
     public function editUserMovie($post, $idMovie = 0, $idUser = 0)
     {
         // $fp = fopen('log.txt', 'w');
@@ -117,6 +119,7 @@ class MovieInfoController
                 echo json_encode($response);
                 break;
             case 'addToList':
+
                 $this->usermovie = new Movie_user([]);
                 $this->usermovie->setId_movie($idMovie);
                 $this->usermovie->setId_user($idUser);
