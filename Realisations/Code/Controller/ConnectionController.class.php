@@ -5,8 +5,6 @@ namespace Code\Controller;
 use Code\Infrastructure\Database;
 use Code\Utils\Authentication;
 use Code\Model\User;
-// use Code\Repository\StaffRepository;
-// use Code\Repository\UserRepository;
 
 class ConnectionController
 {
@@ -27,7 +25,7 @@ class ConnectionController
         if ($id_usertype == 0) {
             return 'Location: ../Authentication/Subscription.php';
         } else if ($id_usertype == 1) {
-            return 'Location: ../Admin/Admin.php';
+            return 'Location: ../Admin/AdminRedirect.php';
         } else if ($id_usertype == 2) {
             return 'Location: ../MovieSearch/MovieSearch.php';
         }
