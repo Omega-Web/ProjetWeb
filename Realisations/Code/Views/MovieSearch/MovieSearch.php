@@ -49,16 +49,15 @@ $moviesLength = $controller->getMovies();
         ?>
             <div class="card">
                 <div class="div-img">
-                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . $controller->getImageBase64($i) . '"' ?> alt="imageMovie">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . $controller->getImageBase64($i) . '"' ?> alt="imageMovie" />
                 </div>
                 <div class="container">
-                    <h4><b><?= $controller->getTitle($i) ?></b></h4>
-                    <div>
-                        <form action="../MovieInfo/MovieInfo.php" method="post">
-                            <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden>
-                            <button type="submit" id="seemore-btn">Plus</button>
-                        </form>
-                    </div>
+                    <h4 class="title"><b><?= $controller->getTitle($i) ?></b></h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis consectetur, error ea ipsa necessitatibus itaque, nihil expedita odio incidunt iure. Eum ex voluptas consequuntur explicabo, perferendis totam unde quod.Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam omnis, veniam, doloribus sit assumenda repudiandae officiis eveniet ipsam culpa enim quae dicta minus repellendus asperiores nam commodi porro animi alias!</p>
+                    <form action="../MovieInfo/MovieInfo.php" method="post">
+                        <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden />
+                        <button type="submit" id="seemore-btn">Plus</button>
+                    </form>
                 </div>
             </div>
         <?php
