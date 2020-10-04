@@ -8,6 +8,12 @@ $_SESSION['post-data'] = $_POST;
 
 require_once '../../../bootstrap.php';
 
+<<<<<<< HEAD
+=======
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+>>>>>>> parent of d33acdb... update css
 use Code\Controller\MovieInfoController;
 
 if (!empty($_SESSION['post-data']['movie-selected'])) {
