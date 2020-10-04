@@ -4,11 +4,6 @@ session_start();
 // Import and use required files
 require_once '../../../bootstrap.php';
 
-use Code\Infrastructure\Database;
-use Code\Utils\Authentication;
-use Code\Repository\StaffRepository;
-use Code\Repository\UserRepository;
-use Code\Model\User;
 use Code\Controller\ConnectionController;
 // Afficher les erreurs
 error_reporting(E_ALL);
