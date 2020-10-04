@@ -44,5 +44,57 @@ class Movie_imageRepository implements IMovie_imageProvider
         }   
         return $images; 
     }
+    public function insert($movie_image): bool
+    {
+        try {
+            $sql = 'INSERT INTO `movie_image`(`image`, `fk_movie`) VALUES (:str_image,:id_movie)';
+            $stt = $this->con->prepare($sql);
+            $stt-> bindValue('id_movie',$movie_image->getId_movie(), PDO::PARAM_INT);
+            $stt-> bindValue('str_image',$movie_image->getImage(), PDO::PARAM_LOB);
+            $stt->execute();
+            $stt->closeCursor();
+
+            return true;
+
+        } catch (PDOException $e) {
+                die($e->getMessage());
+                return false;
+        }
+    }
+
+    public function update($movie_image): bool
+    {
+        try {
+            $sql = 'UPDATE `movie_image` SET  `image`=:image WHERE id=:id_image';
+            $stt = $this->con->prepare($sql);
+            $stt-> bindValue('id_image',$movie_image->getId_image(), PDO::PARAM_INT);
+            $stt-> bindValue('image',$movie_image->getImage(), PDO::PARAM_STR);
+            $stt->execute();
+            $stt->closeCursor();
+
+            return true;
+
+        } catch (PDOException $e) {
+                die($e->getMessage());
+                return false;
+        }
+    }
+
+    public function delete($movie_image): bool
+    {
+        try {
+            $sql = 'DELETE `movie_image` WHERE id=:id_image';
+            $stt = $this->con->prepare($sql);
+            $stt-> bindValue('id_image',$movie_image->getId_image(), PDO::PARAM_INT);
+            $stt->execute();
+            $stt->closeCursor();
+
+            return true;
+
+        } catch (PDOException $e) {
+                die($e->getMessage());
+                return false;
+        }
+    }	    
 }
 ?>
