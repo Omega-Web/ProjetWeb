@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['id'])) {
     header('Location: ../Authentication/Connection.php');
 }
+
 $_SESSION['id'];
 require_once '../../../bootstrap.php';
 
