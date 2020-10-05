@@ -2,7 +2,10 @@
 session_start();
 if (!isset($_SESSION['id'])) {
     header('Location: ../Authentication/Connection.php');
+} else if (isset($_SESSION['id']) && $_SESSION['id_usertype'] == 1) {
+    header('Location: ../Admin/AdminRedirect.php');
 }
+
 $_SESSION['id'];
 
 error_reporting(E_ALL);
@@ -10,56 +13,54 @@ ini_set("display_errors", 1);
 // require_once '../../Infrastructure/Database.class.php';
 require_once '../../../bootstrap.php';
 
-use Code\Controller\UserInformationsController;
+use Code\Model\User;
+use Code\Repository\UserRepository;
+use Code\Infrastructure\Database;
 
-//Déclaration du controller 
-$userInfoController = new UserInformationsController;
 
-$currentID = $_SESSION['id'];
+$repoUser = new UserRepository(Database::get());
+$currentUser = $repoUser->findOne($_SESSION['id']);
 
-$currentUser = $userInfoController->getUserInfo($currentID);
-
-if($currentID > 0 ) {
+if ($_SESSION['id'] > 0) {
     $userInfo = array(
-    'firstname'      => $currentUser->getFirstname(),  
-    'lastname'       => $currentUser->getLastname(),    
-    'username'       => $currentUser->getUsername(),    
-    'email'          => $currentUser->getEmail(), 
-    'password'       => $currentUser->getPassword(),    
-    'dob'            => $currentUser->getBirthday()->format('Y-m-d')
-    ) ;
+        'firstname'      => $currentUser->getFirstname(),
+        'lastname'       => $currentUser->getLastname(),
+        'username'       => $currentUser->getUsername(),
+        'email'          => $currentUser->getEmail(),
+        'password'       => $currentUser->getPassword(),
+        'dob'            => $currentUser->getBirthday()->format('Y-m-d')
+    );
 }
 $passwordError = "";
-if(!empty($_POST)) {
+if (!empty($_POST)) {
 
     $userArray['email'] = $_POST['email'];
-    $userArray['id'] = $currentID;
+    $userArray['id'] = $_SESSION['id'];
 
-    if ($_POST['password'] === $_POST['password2']){
+    if ($_POST['password'] === $_POST['password2']) {
         $userArray['password'] = $_POST['password'];
-        try{
-            $userInfoController->updateUser($userArray);
+        try {
+            $repoUser->updateUser(new User($userArray));
         } catch (Exception $e) {
             die($e->getMessage());
         }
-    }
-    else{
+    } else {
         $passwordError = "Les mots de passe ne correspondent pas";
     }
-    
-
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon compte</title>
     <link rel="stylesheet" href="Styles/Informations.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div id="div-logo">
@@ -74,7 +75,7 @@ if(!empty($_POST)) {
             </ul>
         </nav>
         <div id="div-logout">
-                <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
+            <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
     <main>
@@ -91,18 +92,18 @@ if(!empty($_POST)) {
                 <br>
                 <input id="username" name="username" placeholder="Nom d'utilisateur" value="<?= htmlspecialchars($userInfo['username']); ?>" disabled>
                 <br>
-                <input id="password" name="password" type="password" placeholder="Mot de passe" >
+                <input id="password" name="password" type="password" placeholder="Mot de passe">
                 <br>
                 <label for="password"><?= $passwordError; ?></label>
                 <input id="password2" name="password2" type="password" placeholder="Vérifier le mot de passe">
                 <br>
                 <button id="button-info" type="submit">Enregistrer les modifications</button>
             </form>
-            
+
             <h3>Préférences cookies</h3>
-            
+
             <form id="second-form" action="" method="post">
-            
+
                 <div class="cookie" id="first-cookie">
                     <div>
                         <h5>Cookies indispensables</h5>
@@ -117,7 +118,7 @@ if(!empty($_POST)) {
                 <div class="cookie" id="second-cookie">
                     <div>
                         <h5>Préférences</h5>
-                        <span>Pour enregistrer vos préférences et améliorer votre expérience sur notre site</span>                    
+                        <span>Pour enregistrer vos préférences et améliorer votre expérience sur notre site</span>
                     </div>
                     <!-- Rounded switch -->
                     <label class="switch">
@@ -135,13 +136,13 @@ if(!empty($_POST)) {
                         <input type="checkbox">
                         <span class="slider round"></span>
                     </label>
-                </div> 
+                </div>
                 <button id="button-param" type="submit">Enregistrer les paramètres</button>
 
             </form>
 
         </div>
-        
+
     </main>
-<?php
-include '../footer.php';
+    <?php
+    include '../footer.php';
