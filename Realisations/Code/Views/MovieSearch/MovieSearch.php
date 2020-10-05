@@ -3,10 +3,12 @@ session_start();
 if (!isset($_SESSION['id'])) {
     header('Location: ../Authentication/Connection.php');
 }
+
 $_SESSION['id'];
 require_once '../../../bootstrap.php';
 
 use Code\Controller\MovieSearchController;
+
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -51,16 +53,15 @@ $moviesLength = $controller->getMovies();
         ?>
             <div class="card">
                 <div class="div-img">
-                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . $controller->getImageBase64($i) . '"' ?> alt="imageMovie">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . $controller->getImageBase64($i) . '"' ?> alt="imageMovie" />
                 </div>
                 <div class="container">
-                    <h4><b><?= $controller->getTitle($i) ?></b></h4>
-                    <div>
-                        <form action="../MovieInfo/MovieInfo.php" method="post">
-                            <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden>
-                            <button type="submit" id="seemore-btn">Plus</button>
-                        </form>
-                    </div>
+                    <h4 class="title"><b><?= $controller->getTitle($i) ?></b></h4>
+                    <p><?= $controller->getPlot($i) ?></p>
+                    <form action="../MovieInfo/MovieInfo.php" method="post">
+                        <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden />
+                        <button type="submit" id="seemore-btn">Plus</button>
+                    </form>
                 </div>
             </div>
         <?php

@@ -44,4 +44,9 @@ class MovieSearchController
     {
         return $this->moviesArray[$index]->getId();
     }
+
+    public function getPlot($index): string
+    {
+        return $this->moviesArray[$index]->getPlot();
+    }
 }
