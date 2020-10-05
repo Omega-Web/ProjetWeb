@@ -8,18 +8,15 @@ if (!isset($_SESSION['id'])) {
 
 $_SESSION['id'];
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-// require_once '../../Infrastructure/Database.class.php';
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
 require_once '../../../bootstrap.php';
 
-use Code\Model\User;
-use Code\Repository\UserRepository;
-use Code\Infrastructure\Database;
 
+use Code\Controller\UserInformationsController;
 
-$repoUser = new UserRepository(Database::get());
-$currentUser = $repoUser->findOne($_SESSION['id']);
+$infoController = new UserInformationsController();
+$currentUser = $infoController->getUserInfo($_SESSION['id']);
 
 if ($_SESSION['id'] > 0) {
     $userInfo = array(
@@ -40,7 +37,7 @@ if (!empty($_POST)) {
     if ($_POST['password'] === $_POST['password2']) {
         $userArray['password'] = $_POST['password'];
         try {
-            $repoUser->updateUser(new User($userArray));
+            $infoController->updateUser($userArray);
         } catch (Exception $e) {
             die($e->getMessage());
         }
