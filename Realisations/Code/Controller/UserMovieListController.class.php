@@ -15,10 +15,10 @@ use Code\Repository\StaffRepository;
 
 class UserMovieListController 
 {
-    private $userListService;
+    private $userService;
     private $movieService;
-    private $moviesID;
-    private $moviesByUser;
+    private $user;
+    private $moviesArray = [];
 
     
     public function __construct()
@@ -31,20 +31,25 @@ class UserMovieListController
         $movieStaffRepo = new Movie_staffRepository(Database::get());
         $staffRepo = new StaffRepository(Database::get());
         
-        $this->userListService = new UserService($userRepo,$movieUserRepo);
+        $this->userService = new UserService($userRepo,$movieUserRepo);
         $this->movieService = new MovieService($movieRepo, $genreRepo, $movieImageRepo, $movieStaffRepo, $staffRepo);
     }
-        public function getMoviesUser()
+    
+    public function getUser($userID)
     {
-        $this->moviesID = $this->userListService->findAll();
-        //print_r($this->moviesID);
-        foreach($this->moviesID as $movie){
-            print_r($movie);
-            $this->moviesByUser = $this->movieService->findAll();
-        }
-        return $this->moviesByUser;
+        $this->user = $this->userService->findOne($userID);
     }
+    public function getMovies()
+    {
+        $movieListID = $this->user->getId_movies();
+        //print_r($movieListID);
+        foreach ($movieListID as $movie) {
+            //print_r($movie);
+            $this->moviesArray[] = $this->movieService->findOne($movie->getId_movie());
+        }
 
+        return count($this->moviesArray);
+    }
     public function getTitle($index):string 
     {
         return $this->moviesArray[$index]->getTitle();
