@@ -42,9 +42,7 @@ class UserMovieListController
     public function getMovies()
     {
         $movieListID = $this->user->getId_movies();
-        //print_r($movieListID);
         foreach ($movieListID as $movie) {
-            //print_r($movie);
             $this->moviesArray[] = $this->movieService->findOne($movie->getId_movie());
         }
 
