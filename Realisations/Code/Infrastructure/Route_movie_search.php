@@ -1,23 +1,27 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+
 session_start();
 if (!isset($_SESSION['id'])) {
     header('Location: ../Authentication/Connection.php');
 }
-$_SESSION['action'] = $_POST['action'];
+
 
 require_once '../../bootstrap.php';
-$fp = fopen('log.txt', 'w');
-fwrite($fp,  $_POST['action']. ' || '.  $_POST['text']);
-fclose($fp);
+
 
 use Code\Controller\MovieSearchController;
 
 
-//$controller->getInfoMovie($_SESSION['id'], $_SESSION['post-data']['movie-selected']);
 
-if(!empty($_SESSION['action'])){
+
+if(!empty($_POST['action'])){
     // fwrite($fp, ' c le session action ->' . $_SESSION['action']);
-    //$controller = new MovieSearchController();
+    $controller = new MovieSearchController();
+    $controller->CallAjax($_POST['action'],$_POST['text']);
     //$controller->editUserMovie($_SESSION['action'], $_SESSION['post-data']['movie-selected'], $_SESSION['id']);
     
 }

@@ -20,12 +20,15 @@ $moviesLength = $controller->getMovies();
 <!DOCTYPE html>
 <html lang="fr">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VidéoMega, recherche de films</title>
     <link rel="stylesheet" href="Styles/MovieSearch.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -47,15 +50,15 @@ $moviesLength = $controller->getMovies();
         </div>
     </header>
     <div>
-        <form method="post">
+        <div >
             <input style="color:#000000" type="text" id="movie-search" value=""  />
             <button style="color:#000000" type="submit" id="search-btn">recherche</button>
-        </form>
+        </div>
     </div>
     <main id="main-div">
         <?php
         for ($i = 0; $i < $moviesLength; $i++) {
-            # code...
+           
         ?>
             <div class="card">
                 <div class="div-img">
@@ -78,7 +81,7 @@ $moviesLength = $controller->getMovies();
             $(function SearchMovie() {
                 $btn = $("#search-btn");
                 $btn.on('click', function() {
-                    e.preventDefault();
+                    //e.preventDefault();
                     $textarea_value = $("#movie-search").val();
                     $.ajax({
                         type: 'POST',
@@ -87,13 +90,23 @@ $moviesLength = $controller->getMovies();
                             action: 'search_movie',
                             text: $textarea_value
                         },
+
                         dataType: 'json',
+
                         success: function(response) {
-                            //$img.attr('src', response.image);
+                            //$btn.html(response.text);
+                            $(".card").remove();
+                            $("#main-div").append(response.html);
+                            
+                            
                         }
+
+
                     })
                 })
             });
     </script>
+</body>
+</html>
     <?php
     include '../footer.php';

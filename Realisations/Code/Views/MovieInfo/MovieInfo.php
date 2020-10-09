@@ -105,7 +105,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                 $img.on('click', function() {
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route.php',
+                        url: '../../Infrastructure/Route_movie_search.php',
                         data: {
                             action: 'updateWatchState'
                         },

@@ -49,4 +49,60 @@ class MovieSearchController
     {
         return $this->moviesArray[$index]->getPlot();
     }
+
+    private function getMovieByTitle($title)
+    {
+        $this->moviesArray = $this->MovieService->findAllByTitle($title);
+        return count($this->moviesArray);
+    }
+
+    public function getHtmlCard($text):string
+    {
+        $taille = $this->getMovieByTitle($text);
+        $html ="";
+        for ($i=0; $i < $taille; $i++) { 
+         
+        $html .= '<div class="card">';
+        $html .=    '<div class="div-img">';
+        $html .=        '<img id="card-img" src="data:image/jpeg;base64,' . $this->getImageBase64($i) . '" alt="imageMovie" />';
+        $html .=    "</div>";
+        $html .=    '<div class="container">';
+        $html .=        '<h4 class="title"><b>' . $this->getTitle($i) .' </b></h4>';
+        $html .=        ' <p>'. $this->getPlot($i) .'</p>';
+        $html .=        '<form action="../MovieInfo/MovieInfo.php" method="post">';
+        $html .=            ' <input type="text" name="movie-selected" value="' . $this->getId($i) .'" hidden />';
+        $html .=            '<button type="submit" id="seemore-btn">Plus</button>';
+        $html .=        '</form>';
+        $html .=    '</div>';
+        $html .= '</div>';
+        }
+        
+        
+        
+           /* <h4 class="title"><b><?= $controller->getTitle($i) ?></b></h4>
+            <p><?= $controller->getPlot($i) ?></p>
+            <form action="../MovieInfo/MovieInfo.php" method="post">
+                <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden />
+                <button type="submit" id="seemore-btn">Plus</button>
+            </form>
+        </div>
+    </div>*/
+        return $html;
+    }
+    public function CallAjax($action,$text = "")
+    {
+        switch($action)
+        {
+            case 'search_movie':
+                $fp = fopen("log.txt","w");
+                fwrite($fp,"dans case \n");
+                $html = $this->getHtmlCard($text);
+                fwrite($fp,$html);
+                fclose($fp);
+                $response = ['text' => "ok", 'html' => $html];
+                echo json_encode($response);
+            break;
+
+        }
+    }
 }
