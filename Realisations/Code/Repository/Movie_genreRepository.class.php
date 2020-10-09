@@ -7,7 +7,7 @@ use PDOException;
 use Code\Provider\IMovie_genreProvider;
 use Code\Model\Movie_genre;
 
-class GenreRepository implements IMovie_genreProvider{
+class Movie_genreRepository implements IMovie_genreProvider{
 
 
     public function __construct(PDO $con)

@@ -124,10 +124,10 @@ class MovieInfoController
                     $this->movieUserService->insert($this->usermovie);
                     $textBtn = 'Enlever de ma liste';
                 } else {
-                    $fp = fopen('log.txt', 'w');
-                    fwrite($fp, 'id usermovie '. $idMovie . PHP_EOL);
-                    fwrite($fp, 'id user '. $$idUser .  PHP_EOL);
-                    fclose($fp);
+                    // $fp = fopen('log.txt', 'w');
+                    // fwrite($fp, 'id usermovie '. $idMovie . PHP_EOL);
+                    // fwrite($fp, 'id user '. $$idUser .  PHP_EOL);
+                    // fclose($fp);
 
                     $this->movieUserService->delete($this->usermovie);
                     $textBtn = 'Ajouter à ma liste'; //$idMovie . ' ' . $idUser;

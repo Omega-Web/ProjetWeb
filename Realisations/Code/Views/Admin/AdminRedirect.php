@@ -41,7 +41,7 @@ if (!isset($_SESSION['id']) && ($_SESSION['id_usertype'] == 2 || $_SESSION['id_u
                     </a>
                 </div>
                 <div id="second">
-                    <a class="element" id="logout-a" href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
+                    <a class="element" id="logout-a" href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
                 </div>
             </div>
         </main>

@@ -18,10 +18,8 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
         $id_user = $User->getId(); 
         $id_usertype = $User->getId_usertype();
         if ($id_user > 0){
-            // session_start();
             $_SESSION['id'] = $id_user; 
             $_SESSION['id_usertype'] = $id_usertype;
-            // METTRE METHODE ICI PUR CHOISIR ADMIN OU PAS ?
             header($controller->getPathFromId($id_usertype));
         } else {
             $passwordError = "Le mot de passe ne correspond pas avec l'identifiant";
