@@ -29,6 +29,7 @@ class User {
         } catch (Exception $e) {
             die($e->getMessage());
         }
+        $this->setPassword($data["password"]);
     }
 
 
