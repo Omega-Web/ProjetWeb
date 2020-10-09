@@ -19,12 +19,16 @@ class Authentication {
     public function Compare(string $username ,string $password):User
     {
         
-        $stt = $this->con->prepare('SELECT * FROM user where username=:username and password=:password limit 1');
+        $stt = $this->con->prepare('SELECT * FROM user where username=:username limit 1');
         $stt-> bindValue('username',$username,PDO::PARAM_STR);
-        $stt-> bindValue('password',$password,PDO::PARAM_STR);
         $stt->execute();
         $data = $stt->fetch(PDO::FETCH_ASSOC);
         $stt->closeCursor();
-        return new User($data); 
+        if(password_verify($password,$data['password'])){
+            return new User($data); 
+        } else {
+            return new User([]); 
+
+        }
     }
 }
