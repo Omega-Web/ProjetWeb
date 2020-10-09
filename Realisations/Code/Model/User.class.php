@@ -24,6 +24,7 @@ class User {
         $this->setLastname($data['lastname']);
         $this->setEmail($data['email']);
         $this->setUsername($data['username']);
+        $this->setPassword($data['password']);
         try {
             $date = new DateTime($data['birthday']);
             $this->setBirthday($date);
