@@ -46,6 +46,12 @@ $moviesLength = $controller->getMovies();
             <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
+    <div>
+        <form method="post">
+            <input style="color:#000000" type="text" id="movie-search" value=""  />
+            <button style="color:#000000" type="submit" id="search-btn">recherche</button>
+        </form>
+    </div>
     <main id="main-div">
         <?php
         for ($i = 0; $i < $moviesLength; $i++) {
@@ -68,5 +74,26 @@ $moviesLength = $controller->getMovies();
         }
         ?>
     </main>
+    <script>
+            $(function SearchMovie() {
+                $btn = $("#search-btn");
+                $btn.on('click', function() {
+                    e.preventDefault();
+                    $textarea_value = $("#movie-search").val();
+                    $.ajax({
+                        type: 'POST',
+                        url: '../../Infrastructure/Route_movie_search.php',
+                        data: {
+                            action: 'search_movie',
+                            text: $textarea_value
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            //$img.attr('src', response.image);
+                        }
+                    })
+                })
+            });
+    </script>
     <?php
     include '../footer.php';
