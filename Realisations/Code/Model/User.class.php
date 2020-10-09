@@ -30,6 +30,7 @@ class User {
         } catch (Exception $e) {
             die($e->getMessage());
         }
+        $this->setPassword($data["password"]);
         $this->setId_usertype($data['fk_user_type'] ?? 0);
     }
 
