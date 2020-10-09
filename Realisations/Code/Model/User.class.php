@@ -15,8 +15,9 @@ class User {
     private $password;
     private $birthday;
     private $id_movies = [];
+    private $id_usertype;
 
-    public function __construct(array $data)
+    public function __construct($data)
     {
         $this->setId($data['id'] ?? 0);
         $this->setFirstname($data['firstname']);
@@ -29,6 +30,8 @@ class User {
         } catch (Exception $e) {
             die($e->getMessage());
         }
+        $this->setPassword($data["password"]);
+        $this->setId_usertype($data['fk_user_type'] ?? 0);
     }
 
 
@@ -182,6 +185,25 @@ class User {
     public function setId_movies($id_movies)
     {
         $this->id_movies = $id_movies;
+
+        return $this;
+    }
+        /**
+     * Get the value of id_movies
+     */ 
+    public function getId_usertype()
+    {
+        return $this->id_usertype;
+    }
+
+    /**
+     * Set the value of id_movies
+     *
+     * @return  self
+     */ 
+    public function setId_usertype($id_usertype)
+    {
+        $this->id_usertype = $id_usertype;
 
         return $this;
     }
