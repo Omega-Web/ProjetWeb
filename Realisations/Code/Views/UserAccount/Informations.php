@@ -2,7 +2,10 @@
 session_start();
 if (!isset($_SESSION['id'])) {
     header('Location: ../Authentication/Connection.php');
+} else if (isset($_SESSION['id']) && $_SESSION['id_usertype'] == 1) {
+    header('Location: ../Admin/AdminRedirect.php');
 }
+
 $_SESSION['id'];
 
 error_reporting(E_ALL);
@@ -13,8 +16,6 @@ require_once '../../../bootstrap.php';
 use Code\Model\User;
 use Code\Repository\UserRepository;
 use Code\Infrastructure\Database;
-use PDOException;
-use PDO;
 
 
 $repoUser = new UserRepository(Database::get());
