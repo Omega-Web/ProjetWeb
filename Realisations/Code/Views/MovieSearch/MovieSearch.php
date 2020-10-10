@@ -41,7 +41,19 @@ $moviesLength = $controller->getMovies();
             <ul>
                 <li><a class="focus-nav" id="films-a" href="MovieSearch.php">Films</a></li>
                 <li><a id="list-a" href="../UserMovieList/UserMovieList.php">Ma liste</a></li>
-                <li><a id="account-a" href="../UserAccount/Informations.php">Mon compte</a></li>
+                <?php
+                if (isset($_SESSION['id']) && $_SESSION['id_usertype'] == 2) {
+                ?>
+                    <li><a id="account-a" href="../UserAccount/Informations.php">Mon compte</a></li>
+                <?php
+                } else if (isset($_SESSION['id']) && $_SESSION['id_usertype'] == 1) {
+                ?>
+                    <li><a id="account-a" href="../UserAccount/Informations.php">Admin</a></li>
+                <?php
+                } else {
+                    header('Location: ../Authentication/Connection.php');
+                }
+                ?>
             </ul>
         </nav>
         <div id="div-logout">
@@ -50,15 +62,15 @@ $moviesLength = $controller->getMovies();
         </div>
     </header>
     <div>
-        <div >
-            <input style="color:#000000" type="text" id="movie-search" value=""  />
+        <div>
+            <input style="color:#000000" type="text" id="movie-search" value="" />
             <button style="color:#000000" type="submit" id="search-btn">recherche</button>
         </div>
     </div>
     <main id="main-div">
         <?php
         for ($i = 0; $i < $moviesLength; $i++) {
-           
+
         ?>
             <div class="card">
                 <div class="div-img">
@@ -78,35 +90,36 @@ $moviesLength = $controller->getMovies();
         ?>
     </main>
     <script>
-            $(function SearchMovie() {
-                $btn = $("#search-btn");
-                $btn.on('click', function() {
-                    //e.preventDefault();
-                    $textarea_value = $("#movie-search").val();
-                    $.ajax({
-                        type: 'POST',
-                        url: '../../Infrastructure/Route_movie_search.php',
-                        data: {
-                            action: 'search_movie',
-                            text: $textarea_value
-                        },
+        $(function SearchMovie() {
+            $btn = $("#search-btn");
+            $btn.on('click', function() {
+                //e.preventDefault();
+                $textarea_value = $("#movie-search").val();
+                $.ajax({
+                    type: 'POST',
+                    url: '../../Infrastructure/Route_movie_search.php',
+                    data: {
+                        action: 'search_movie',
+                        text: $textarea_value
+                    },
 
-                        dataType: 'json',
+                    dataType: 'json',
 
-                        success: function(response) {
-                            //$btn.html(response.text);
-                            $(".card").remove();
-                            $("#main-div").append(response.html);
-                            
-                            
-                        }
+                    success: function(response) {
+                        //$btn.html(response.text);
+                        $(".card").remove();
+                        $("#main-div").append(response.html);
 
 
-                    })
+                    }
+
+
                 })
-            });
+            })
+        });
     </script>
 </body>
+
 </html>
-    <?php
-    include '../footer.php';
+<?php
+include '../footer.php';
