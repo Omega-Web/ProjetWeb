@@ -6,12 +6,7 @@ require_once '../../../bootstrap.php';
 if (!isset($_SESSION['id']) && ($_SESSION['id_usertype'] == 2 || $_SESSION['id_usertype'] == 0)) {
     header('Location: ../Authentication/Connection.php');
 } else {
-
-
-
-
 ?>
-
     <!-- Html -->
     <!DOCTYPE html>
     <html lang="en">
@@ -23,7 +18,6 @@ if (!isset($_SESSION['id']) && ($_SESSION['id_usertype'] == 2 || $_SESSION['id_u
         <link rel="stylesheet" href="Styles/AdminRedirect.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
-
     <body>
         <header>
             <div id="div-logo">
