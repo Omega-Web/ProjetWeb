@@ -105,7 +105,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                 $img.on('click', function() {
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route_movie_search.php',
+                        url: '../../Infrastructure/Route_movie_info.php',
                         data: {
                             action: 'updateWatchState'
                         },
@@ -123,7 +123,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     $movieId = $(this).attr("data-movieId");
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route.php',
+                        url: '../../Infrastructure/Route_movie_info.php',
                         data: {
                             action: 'addToList',
                             userId: $userId,
@@ -143,7 +143,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     $textarea_value = $("#comment-textarea").val();
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route.php',
+                        url: '../../Infrastructure/Route_movie_info.php',
                         // data: $data,
                         data: {
                             action: 'updateComment',
