@@ -7,25 +7,16 @@ $_SESSION['id'];
 
 require_once '../../../bootstrap.php';
 
-use PDO;
-use PDOException;
-use Code\Repository\Movie_imageRepository;
-use Code\Infrastructure\Database;
-use Code\Repository\GenreRepository;
-use Code\Repository\Movie_staffRepository;
-use Code\Repository\MovieRepository;
-use Code\Repository\StaffRepository;
-use Code\Service\MovieService;
+use Code\Controller\UserMovieListController;
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-$movieImageRepo = new Movie_imageRepository(Database::get());
-$genreRepo = new GenreRepository(Database::get());
-$movieRepo = new MovieRepository(Database::get());
-$movieStaffRepo = new Movie_staffRepository(Database::get());
-$staffRepo = new StaffRepository(Database::get());
-$service = new MovieService($movieRepo, $genreRepo, $movieImageRepo, $movieStaffRepo, $staffRepo);
+
+$controller = new UserMovieListController();
+
+$controller->getUser($_SESSION['id']);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -54,28 +45,30 @@ $service = new MovieService($movieRepo, $genreRepo, $movieImageRepo, $movieStaff
         </nav>
         <div id="div-logout">
             <!-- ADD PHP HERE -- LOGOUT / SESSION END-DESTROY ? -->
-            <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
+            <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
     <main id="main-div">
         <?php
-        $movies = $service->findAll();
-        foreach ($movies as $movie) {
+        $movieLength = $controller->getMovies();
+        for ($i = 0; $i < $movieLength; $i++) {
         ?>
             <div class="card">
                 <div class="div-img">
-                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . base64_encode($movie->getImages()[0]['image']) . '"' ?> alt="imageMovie">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . $controller->getImageBase64($i) . '"' ?> alt="imageMovie">
                 </div>
                 <div class="container">
-                    <h4><b><?= $movie->getTitle() ?></b></h4>
-                    <div class="form-container">
-                        <form action="../MovieInfo/MovieInfo.php?id=<?= $movie->getId() ?>" method="post">
-                            <input type="text" name="movie-selected" value="<?= $movie->getId() ?>" hidden>
+                    <h4><b><?= $controller->getTitle($i) ?></b></h4>
+                    <div>
+                        <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
+                        <form action="../MovieInfo/MovieInfo.php?id=<?= $controller->getId($i) ?>" method="post">
+                            <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden>
                             <button type="submit" id="seemore-btn">Plus</button>
                         </form>
                     </div>
                 </div>
             </div>
+
         <?php
         }
         ?>

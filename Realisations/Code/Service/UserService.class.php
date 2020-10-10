@@ -25,7 +25,7 @@ class UserService implements IUserProvider
 
         foreach($users as $user)
         {
-            $ids =  $this->Movie_userAccess->findAll($user->getId());
+            $ids =  $this->Movie_userAccess->findAllByIdUser($user->getId());
             $user->setId_movies($ids);
         }
         return $users;
@@ -34,7 +34,7 @@ class UserService implements IUserProvider
     public function findOne(int $id): User
     {
         $user = $this->UserAccess->findOne($id);
-        $ids =  $this->Movie_userAccess->findAll($user->getId());
+        $ids =  $this->Movie_userAccess->findAllByIdUser($user->getId());
         $user->setId_movies($ids);
         return $user;
     }
