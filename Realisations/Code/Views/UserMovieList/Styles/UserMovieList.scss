@@ -94,49 +94,46 @@ html {
         #card-img {
           width: 15vw;
         }
-      }
 
-      /* On mouse-over, add a deeper shadow */
-      .card:hover {
-        box-shadow: 0 2px 16px 0 $button-color;
-      }
-
-      /* Add some padding inside the card container */
-      .container {
-        padding: 2px 16px;
-        display: flex;
-        flex-direction: column;
-        h4 {
-          margin: 0;
-          margin-bottom: 2vh;
-          b {
-            font-size: $font-size / 1.2;
-          }
-        }
-
-        .form-container {
+        /* Add some padding inside the card container */
+        .container {
+          padding: 2px 16px;
           display: flex;
-          justify-content: center;
-          padding-bottom: 1vh;
-          #seen-img {
-            width: 2.5vw;
+          flex-direction: column;
+          h4 {
+            margin: 0;
+            margin-bottom: 2vh;
+            b {
+              font-size: $font-size / 1.2;
+            }
           }
-          #seemore-btn {
-            background-color: $cookie-color;
-            color: $font-color;
-            outline: none;
-            border: none;
-            border-radius: $border-radius;
-            height: $input-height/2;
-            width: $button-width/2.3;
-            margin: $button-margin;
-            cursor: pointer;
-          }
-          a {
-            text-decoration: none;
+
+          form {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 1vh;
+            #seemore-btn {
+              background-color: $cookie-color;
+              color: $font-color;
+              outline: none;
+              border: none;
+              border-radius: $border-radius;
+              height: $input-height/2;
+              width: $button-width/2.3;
+              margin: $button-margin;
+              cursor: pointer;
+            }
+            a {
+              text-decoration: none;
+            }
           }
         }
       }
+    }
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+      box-shadow: 0 2px 16px 0 $button-color;
     }
   }
 }

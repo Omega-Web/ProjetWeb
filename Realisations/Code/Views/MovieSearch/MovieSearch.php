@@ -61,13 +61,11 @@ $moviesLength = $controller->getMovies();
             <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
-    <div>
-        <div>
-            <input style="color:#000000" type="text" id="movie-search" value="" />
-            <button style="color:#000000" type="submit" id="search-btn">recherche</button>
-        </div>
-    </div>
     <main id="main-div">
+        <div id="search-bar-div">
+            <input type="text" id="movie-search-input" value="" />
+            <button type="submit" id="search-btn">Rechercher</button>
+        </div>
         <?php
         for ($i = 0; $i < $moviesLength; $i++) {
 

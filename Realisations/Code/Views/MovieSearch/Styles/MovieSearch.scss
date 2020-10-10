@@ -70,6 +70,31 @@ html {
     // Main section
     #main-div {
       margin: 0;
+      #search-bar-div {
+        margin: auto;
+        text-align: center;
+        #movie-search-input {
+          background-color: $input-bg-color;
+          color: $input-ft-color;
+          height: 5vh;
+          width: 20vw;
+          padding: 1vh 0;
+          margin: $input-margin;
+          border-radius: $border-radius;
+          border: none;
+          outline: none;
+        }
+
+        #search-btn{
+          background-color: $button-color;
+          padding: $button-padding;
+          margin: $button-margin;
+          height: $button-height/1.15;
+          width: $button-width;
+          border-radius: $border-radius;
+          border: none;
+        }
+      }
       .card {
         display: flex;
         transition: 0.3s;

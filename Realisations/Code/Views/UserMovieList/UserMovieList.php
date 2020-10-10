@@ -59,13 +59,10 @@ $controller->getUser($_SESSION['id']);
                 </div>
                 <div class="container">
                     <h4><b><?= $controller->getTitle($i) ?></b></h4>
-                    <div>
-                        <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
-                        <form action="../MovieInfo/MovieInfo.php?id=<?= $controller->getId($i) ?>" method="post">
-                            <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden>
-                            <button type="submit" id="seemore-btn">Plus</button>
-                        </form>
-                    </div>
+                    <form action="../MovieInfo/MovieInfo.php?id=<?= $controller->getId($i) ?>" method="post">
+                        <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden>
+                        <button type="submit" id="seemore-btn">Plus</button>
+                    </form>
                 </div>
             </div>
 
