@@ -68,30 +68,30 @@ $movies = $controller->getMovies();
             <div id="add-update">
                 <div id="add-movie-div">
                     <h1 id="add-movie-title">Ajouter un film</h1>
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <div>
                             <label for="title">Titre :</label>
-                            <input type="text" name="title" placeholder="Titre">
+                            <input type="text" id="add_title" name="title" placeholder="Titre">
                         </div>
                         <div>
                             <label for="plot">Description :</label>
-                            <input type="text" name="plot" placeholder="Description">
+                            <input type="text" id="add_plot" name="plot" placeholder="Description">
                         </div>
                         <div>
                             <label for="duration">Durée :</label>
-                            <input type="text" name="duration" placeholder="Durée">
+                            <input type="text" id="add_duration" name="duration" placeholder="00:00:00">
                         </div>
                         <div>
                             <label for="date">Année :</label>
-                            <input type="text" name="date" placeholder="Année">
+                            <input type="date" id="add_date" name="date" placeholder="Année">
                         </div>
                         <div>
                             <label for="img">Affiche :</label>
-                            <input type="file" name="img" accept="image/png, image/jpeg">
+                            <input type="file" id="add_img" name="img" accept="image/png, image/jpeg">
                         </div>
-                        <div>
+                        <!-- <div>
                             <label for="genre">Genre :</label>
-                            <select name="genre">
+                            <select id="add-genre" name="genre">
                                 <option value="">-- Genre --</option>
                                 <?php
                                 foreach ($genres as $genre) {
@@ -101,9 +101,11 @@ $movies = $controller->getMovies();
                                 }
                                 ?>
                             </select>
-                        </div>
+                        </div> -->
 
-                        <button type="submit">Ajouter</button>
+                        <button type="submit" id="submit_add_movie">Ajouter</button>
+                        <br>
+                        <span id="add_success"></span>
                     </form>
                 </div>
                 <div id="update-movie-div">
@@ -163,30 +165,14 @@ $movies = $controller->getMovies();
             <div id="delete-movie-div">
                 <h1 id="delete-movie-title">Supprimer un film</h1>
                 <form>
-                    <label for="id">Identifiant :</label>
-                    <input type="text" name="id" placeholder="Id Film">
+                    <label for="id_movie">Identifiant :</label>
+                    <input type="text" name="id_movie" id="id_movie" placeholder="Id Film">
                     <button id="submit-delete-movie" type="submit">Supprimer</button>
                 </form>
             </div>
         </div>
     </main>
     <script>
-        $(function deleteMovie() {
-            $btn = $("#submit-delete-movie");
-            $btn.on('click', function() {
-                $.ajax({
-                    type: 'POST',
-                    url: '../../Infrastructure/Route_admin.php',
-                    data: {
-                        action: 'deleteMovie'
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        // $img.attr('src', response.image);
-                    }
-                })
-            })
-        });
         $(function deleteUser() {
             $btn = $('#submit_delete_user');
             $btn.on('click', function(e) {
@@ -202,6 +188,50 @@ $movies = $controller->getMovies();
                     dataType: 'json',
                     success: function(response) {
                         $userId.val(response.text)
+                    }
+                })
+            })
+        });
+        $(function addMovie() {
+            $btn = $('#submit_add_movie');
+            $btn.on('click', function(e) {
+                e.preventDefault();
+                var fd = new FormData();
+                var files = $('#add_img')[0].files[0];
+                fd.append('title', $('#add_title').val());
+                fd.append('plot', $('#add_plot').val());
+                fd.append('duration', $('#add_duration').val());
+                fd.append('date', $('#add_date').val());
+                fd.append('file', files);
+                fd.append('action', 'addMovie');
+                $.ajax({
+                        type: 'post',
+                        url: '../../Infrastructure/Route_admin.php',
+                        data: fd,
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
+                    })
+                    .done(function(response) {
+                        $('#add_success').html(response.text)
+                    })
+            })
+        });
+        $(function deleteMovie() {
+            $btn = $("#submit-delete-movie");
+            $btn.on('click', function(e) {
+                e.preventDefault();
+                $movieId = $('#id_movie');
+                $.ajax({
+                    type: 'POST',
+                    url: '../../Infrastructure/Route_admin.php',
+                    data: {
+                        action: 'deleteMovie',
+                        movieId: $movieId.val(),
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        $movieId.val(response.text)
                     }
                 })
             })
