@@ -72,27 +72,27 @@ $movies = $controller->getMovies();
                     <form method="post" enctype="multipart/form-data">
                         <div>
                             <label for="title">Titre :</label>
-                            <input type="text" id="add_title" name="title" placeholder="Titre">
+                            <input type="text" id="add_title" name="title" placeholder="Titre" required>
                         </div>
                         <div>
                             <label for="plot">Description :</label>
-                            <input type="text" id="add_plot" name="plot" placeholder="Description">
+                            <input type="text" id="add_plot" name="plot" placeholder="Description" required>
                         </div>
                         <div>
                             <label for="duration">Durée :</label>
-                            <input type="text" id="add_duration" name="duration" placeholder="00:00:00">
+                            <input type="text" id="add_duration" name="duration" placeholder="00:00:00" required>
                         </div>
                         <div>
                             <label for="date">Année :</label>
-                            <input type="date" id="add_date" name="date" placeholder="Année">
+                            <input type="date" id="add_date" name="date" placeholder="Année" required>
                         </div>
                         <div>
                             <label for="img">Affiche :</label>
-                            <input type="file" id="add_img" name="img" accept="image/png, image/jpeg">
+                            <input type="file" id="add_img" name="img" accept="image/png, image/jpeg" required>
                         </div>
                         <div>
                             <label for="genre">Genre :</label>
-                            <select id="add_genre" name="genre">
+                            <select id="add_genre" name="genre" multiple="multiple">
                                 <option value="">-- Genre --</option>
                                 <?php
                                 foreach ($genres as $genre) {
@@ -114,7 +114,7 @@ $movies = $controller->getMovies();
                     <form>
                         <div>
                             <label for="genre">Identifiant :</label>
-                            <select id="select-movie-id" name="genre">
+                            <select id="update_idMovie" name="genre">
                                 <option value="">-- Id | Movie--</option>
                                 <?php
                                 foreach ($movies as $movie) {
@@ -127,32 +127,32 @@ $movies = $controller->getMovies();
                         </div>
                         <div>
                             <label for="title">Titre :</label>
-                            <input type="text" name="title" placeholder="Titre">
+                            <input type="text" id="update_title" name="title" placeholder="Titre" required>
                         </div>
                         <div>
                             <label for="plot">Description :</label>
-                            <input type="text" name="plot" placeholder="Description">
+                            <input type="text" id="update_plot" name="plot" placeholder="Description" required>
                         </div>
                         <div>
                             <label for="duration">Durée :</label>
-                            <input type="text" name="duration" placeholder="Durée">
+                            <input type="text" id="update_duration" name="duration" placeholder="Durée" required>
                         </div>
                         <div>
                             <label for="date">Année :</label>
-                            <input type="text" name="date" placeholder="Année">
+                            <input type="text" id="update_date" name="date" placeholder="Année" required>
                         </div>
                         <div>
                             <label for="img">Affiche :</label>
-                            <input type="file" name="img" accept="image/png, image/jpeg">
+                            <input type="file" id="update_img" name="img" accept="image/png, image/jpeg">
                         </div>
                         <div>
                             <label for="genre">Genre :</label>
-                            <select name="genre">
+                            <select name="genre" id="update_idGenre" multiple="multiple">
                                 <option value="">-- Genre --</option>
                                 <?php
                                 foreach ($genres as $genre) {
                                 ?>
-                                    <option value="<?= $genre->getName() ?>"><?= $genre->getName() ?></option>
+                                    <option value="<?= $genre->getId() ?>"><?= $genre->getId() . ' | ' . $genre->getName() ?></option>
                                 <?php
                                 }
                                 ?>
@@ -205,8 +205,7 @@ $movies = $controller->getMovies();
                 fd.append('date', $('#add_date').val());
                 fd.append('file', files);
                 fd.append('action', 'addMovie');
-                fd.append('genre', $('#add_genre option:selected').val())
-                console.log($('#add_genre option:selected').val())
+                fd.append('genre', $('#add_genre').val())
                 $.ajax({
                         type: 'post',
                         url: '../../Infrastructure/Route_admin.php',
@@ -217,6 +216,55 @@ $movies = $controller->getMovies();
                     })
                     .done(function(response) {
                         $('#add_success').html(response.text)
+                    })
+            })
+        });
+        $(document).on("change", "#update_idMovie", function() {
+            // $select = $('#update_idMovie');
+            // $select.on('change', function() {
+            idMovie = $('#update_idMovie option:selected').val()
+            $.ajax({
+                    type: 'post',
+                    url: '../../Infrastructure/Route_admin.php',
+                    data: {
+                        action: 'fillUpdateMovieForm',
+                        movieId: idMovie,
+                    },
+                    dataType: 'json',
+                })
+                .done(function(response) {
+                    $('#update_title').val(response.title)
+                    $('#update_plot').val(response.plot)
+                    $('#update_duration').val(response.duration)
+                    $('#update_date').val(response.date)
+                    $('#update_idGenre').val(response.genre)
+                })
+
+        });
+        $(function updateMovie() {
+            $btn = $('#submit-update-movie');
+            $btn.on('click', function(e) {
+                e.preventDefault();
+                var fd = new FormData();
+                var files = $('#add_img')[0].files[0];
+                fd.append('id', $('#update_idMovie option:selected').val());
+                fd.append('title', $('#update_title').val());
+                fd.append('plot', $('#update_plot').val());
+                fd.append('duration', $('#update_duration').val());
+                fd.append('date', $('#update_date').val());
+                fd.append('file', files);
+                fd.append('action', 'updateMovie');
+                fd.append('genre', $('#update_idGenre').val())
+                $.ajax({
+                        type: 'post',
+                        url: '../../Infrastructure/Route_admin.php',
+                        data: fd,
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
+                    })
+                    .done(function(response) {
+                        $('#update_success').html(response.text)
                     })
             })
         });

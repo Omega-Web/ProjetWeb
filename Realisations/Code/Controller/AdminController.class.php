@@ -12,7 +12,11 @@ use Code\Model\Movie;
 use Code\Model\Movie_genre;
 use Code\Model\Movie_image;
 use Code\Repository\Movie_imageRepository;
+use Code\Repository\Movie_staffRepository;
+use Code\Repository\StaffRepository;
+use Code\Service\MovieService;
 use Exception;
+use Utils;
 
 class AdminController
 {
@@ -21,15 +25,23 @@ class AdminController
     private $movieRepo;
     private $userRepo;
     private $imageRepo;
+    private $movieService;
+    private $movieStaffRepo;
+    private $staffRepo;
 
 
     public function __construct()
     {
+
+
         $this->genreRepo = new GenreRepository(Database::get());
         $this->movieGenreRepo = new Movie_genreRepository(Database::get());
         $this->movieRepo = new MovieRepository(Database::get());
         $this->userRepo = new UserRepository(Database::get());
         $this->imageRepo = new Movie_imageRepository(Database::get());
+        $this->movieStaffRepo = new Movie_staffRepository(Database::get());
+        $this->staffRepo = new StaffRepository(Database::get());
+        $this->movieService = new MovieService($this->movieRepo, $this->genreRepo, $this->imageRepo, $this->movieStaffRepo, $this->staffRepo);
 
 
         // $this->service = new MovieService($movieRepo, $genreRepo, $movieImageRepo, $movieStaffRepo, $staffRepo);
@@ -85,6 +97,15 @@ class AdminController
 
         $this->movieGenreRepo->insert($movieGenre);
     }
+
+
+    public function deleteGenre($idMovie)
+    {
+
+        $this->movieGenreRepo->deleteByIdMovie($idMovie);
+    }
+
+
     public function insertImage($idMovie, $file)
     {
         $movieImage = new Movie_image([]);
@@ -94,6 +115,8 @@ class AdminController
 
         $this->imageRepo->insert($movieImage);
     }
+
+
     public function insertMovie($m)
     {
         $movie = new Movie([]);
@@ -106,20 +129,38 @@ class AdminController
         return $this->movieRepo->getLastInsertedId();
     }
 
+
+    public function updateMovie($m)
+    {
+
+        $movie = new Movie([]);
+        $movie->setId($m['id']);
+        $movie->setTitle($m['title']);
+        $movie->setPlot($m['plot']);
+        $movie->setDuration($m['duration']);
+        $movie->setDate($m['date']);
+        $this->movieRepo->update($movie);
+    }
+
+
     public function actionAdmin($post, $idUser = 0, $idMovie = 0, $movie)
     {
         switch ($post) {
             case 'deleteMovie':
                 $this->deleteMovie($idMovie);
                 $response = [
-                    'text' => 'Film bien supprimé'
+                    'text' => 'Film bien supprimé',
+                    'error' => 'Le film na pas pu être ajouté',
+
                 ];
                 echo json_encode($response);
                 break;
             case 'deleteUser':
                 $this->deleteUser($idUser);
                 $response = [
-                    'text' => 'Utilisateur bien supprimé'
+                    'text' => 'Utilisateur bien supprimé',
+                    'error' => 'Le film na pas pu être ajouté',
+
                 ];
                 echo json_encode($response);
                 break;
@@ -127,17 +168,55 @@ class AdminController
                 $idMovie = $this->insertMovie($movie);
                 $base64 = $this->getFile($_FILES['file']);
                 $this->insertImage($idMovie, $base64);
-                
-                $fp = fopen('log.txt', 'w');
-                fwrite($fp, $idMovie . PHP_EOL);
-                fwrite($fp, $movie['genre']  . PHP_EOL);
-                fclose($fp);
-                
-                
+                $genres = explode(',', $movie['genre']);
+                foreach ($genres as $genre) {
+
+                    $this->insertGenre($genre, $idMovie);
+                }
                 $this->insertGenre($movie['genre'], $idMovie);
                 $response = [
                     'text' => 'Film bien ajouté',
                     'error' => 'Le film na pas pu être ajouté',
+                ];
+                echo json_encode($response);
+                break;
+            case 'fillUpdateMovieForm':
+                $movie = $this->movieService->findOne($idMovie);
+                $idGenres = [];
+                $genres = $movie->getGenres();
+                foreach ($genres as $genre) {
+                    $idGenres[] = $genre->getId();
+                }
+                $response = [
+                    'title' => $movie->getTitle(),
+                    'plot' => $movie->getPlot(),
+                    'duration' => $movie->getDuration(),
+                    'date' => $movie->getDate()->format('Y-m-d'),
+                    'genre' => $idGenres,
+                ];
+                echo json_encode($response);
+                break;
+            case 'updateMovie':
+                $this->updateMovie($movie);
+                if (!empty($_FILES['file'])) {
+                    $base64 = $this->getFile($_FILES['file']);
+                    $this->insertImage($movie['id'], $base64);
+                }
+                $this->deleteGenre($movie['id']);
+
+                // Utils::log('huhuhuhuh');
+
+                $genres = explode(',', $movie['genre']);
+
+                
+                foreach ($genres as $genre) {
+
+                    $this->insertGenre($genre, $movie['id']);
+                }
+
+                $response = [
+                    'text' => 'Film bien modifié',
+                    'error' => 'Le film na pas pu être modifié',
                 ];
                 echo json_encode($response);
                 break;

@@ -233,8 +233,8 @@ html main #movie #update-movie-div form input {
   width: 15vw;
 }
 
-* main #movie #update-movie-div form #select-movie-id,
-html main #movie #update-movie-div form #select-movie-id {
+* main #movie #update-movie-div form #update_idMovie,
+html main #movie #update-movie-div form #update_idMovie {
   width: 15vw;
 }
 

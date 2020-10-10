@@ -109,4 +109,22 @@ class Movie_genreRepository implements IMovie_genreProvider{
                 return false;
         }
     }
+
+
+    public function deleteByIdMovie($idMovie): bool
+    {
+        try {
+            $sql = 'DELETE FROM `movie_genre` WHERE fk_movie=:id_movie';
+            $stt = $this->con->prepare($sql);
+            $stt-> bindValue('id_movie',$idMovie, PDO::PARAM_INT);
+            $stt->execute();
+            $stt->closeCursor();
+
+            return true;
+
+        } catch (PDOException $e) {
+                die($e->getMessage());
+                return false;
+        }
+    }
 }

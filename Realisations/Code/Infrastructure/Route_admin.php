@@ -5,6 +5,7 @@ if (!isset($_SESSION['id'])) {
 }
 $_SESSION['post'] = $_POST;
 $movie = [
+    'id' => $_POST['id'],
     'title' => $_POST['title'],
     'plot' => $_POST['plot'],
     'duration' => $_POST['duration'],

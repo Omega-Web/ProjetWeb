@@ -16,4 +16,5 @@ interface IMovie_genreProvider {
 
     public function delete($Movie_genre):bool;
 
+    public function deleteByIdMovie($idMovie):bool;
 }
