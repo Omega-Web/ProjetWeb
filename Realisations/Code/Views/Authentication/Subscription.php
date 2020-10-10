@@ -6,12 +6,9 @@ session_start();
 $_SESSION['id'];
 require_once '../../../bootstrap.php';
 
-use Code\Model\User;
-use Code\Repository\UserRepository;
-use Code\Infrastructure\Database;
+use Code\Controller\SubscriptionController;
 
-use PDOException;
-use PDO;
+$controller = new SubscriptionController();
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -29,12 +26,10 @@ if (
     $tabUser['password']    = $_POST['password'];
     $tabUser['email']       = $_POST['email'];
     $tabUser['birthday']    = $_POST['dob'];
+    $tabUser['fk_user_type']= 2; //Est un utilisateur
 
-    $UserRepo = new UserRepository(Database::get());
-
-    if($UserRepo->insertUser(new User($tabUser))){
-        header('Location: ../Authentication/Connection.php');
-    }
+    $controller->createUser($tabUser);
+    header('Location: ../Authentication/Connection.php');
 } else {
 ?>
     <!DOCTYPE html>
