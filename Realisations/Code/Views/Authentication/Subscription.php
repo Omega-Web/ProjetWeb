@@ -31,7 +31,10 @@ if (
     $tabUser['birthday']    = $_POST['dob'];
 
     $UserRepo = new UserRepository(Database::get());
-    $UserRepo->createUser(new User($tabUser));
+
+    if($UserRepo->insertUser(new User($tabUser))){
+        header('Location: ../Authentication/Connection.php');
+    }
 } else {
 ?>
     <!DOCTYPE html>

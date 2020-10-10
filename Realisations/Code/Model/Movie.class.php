@@ -26,9 +26,9 @@ class Movie
         $this->setId( $data['id'] ?? 0);
         $this->setTitle($data['title'] ?? '');
         $this->setPlot($data['plot'] ?? '');
-        $this->setDuration($data['duration']);
+        $this->setDuration($data['duration'] ?? '00:00:00');
         try{
-            $date =new DateTime($data['date']);
+            $date =new DateTime($data['date'] ?? '0000-00-00');
             $this->setDate($date);
         }catch(Exception $e)
         {
