@@ -145,10 +145,10 @@ html main #user #delete-user-div {
   padding: 2vh 3vw;
   text-align: center;
   margin: auto;
-  border-radius: 9px;
+  border-radius: 10px;
   background: #010f21;
-  -webkit-box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
-          box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
+  -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+          box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
 }
 
 * main #movie,
@@ -167,10 +167,10 @@ html main #movie #add-update {
   -ms-grid-column: 1;
   -ms-grid-column-span: 4;
   grid-area: add_update;
-  border-radius: 9px;
+  border-radius: 10px;
   background: #010f21;
-  -webkit-box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
-          box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
+  -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+          box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -259,10 +259,10 @@ html main #movie #delete-movie-div {
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: delete;
-  border-radius: 9px;
+  border-radius: 10px;
   background: #010f21;
-  -webkit-box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
-          box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
+  -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+          box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

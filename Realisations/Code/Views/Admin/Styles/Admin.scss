@@ -79,9 +79,9 @@ html {
 
         text-align: center;
         margin: auto;
-        border-radius: 9px;
+        border-radius: 10px;
         background: #010f21;
-        box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
+        box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
       }
     }
     #movie {
@@ -95,9 +95,9 @@ html {
 
       #add-update {
         grid-area: add_update;
-        border-radius: 9px;
+        border-radius: 10px;
         background: #010f21;
-        box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
+        box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
         display: flex;
         justify-content: space-around;
         padding: 4vh 3vw;
@@ -140,9 +140,9 @@ html {
       }
       #delete-movie-div {
         grid-area: delete;
-        border-radius: 9px;
+        border-radius: 10px;
         background: #010f21;
-        box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
+        box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
         display: flex;
         flex-direction: column;
         padding: 2vh 3vw;

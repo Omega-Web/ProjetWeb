@@ -90,19 +90,19 @@ $movies = $controller->getMovies();
                             <label for="img">Affiche :</label>
                             <input type="file" id="add_img" name="img" accept="image/png, image/jpeg">
                         </div>
-                        <!-- <div>
+                        <div>
                             <label for="genre">Genre :</label>
-                            <select id="add-genre" name="genre">
+                            <select id="add_genre" name="genre">
                                 <option value="">-- Genre --</option>
                                 <?php
                                 foreach ($genres as $genre) {
                                 ?>
-                                    <option value="<?= $genre->getName() ?>"><?= $genre->getName() ?></option>
+                                    <option value="<?= $genre->getId() ?>"><?= $genre->getId() . ' | ' . $genre->getName() ?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
-                        </div> -->
+                        </div>
 
                         <button type="submit" id="submit_add_movie">Ajouter</button>
                         <br>
@@ -205,6 +205,8 @@ $movies = $controller->getMovies();
                 fd.append('date', $('#add_date').val());
                 fd.append('file', files);
                 fd.append('action', 'addMovie');
+                fd.append('genre', $('#add_genre option:selected').val())
+                console.log($('#add_genre option:selected').val())
                 $.ajax({
                         type: 'post',
                         url: '../../Infrastructure/Route_admin.php',

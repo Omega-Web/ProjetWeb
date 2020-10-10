@@ -9,6 +9,7 @@ use Code\Repository\MovieRepository;
 use Code\Repository\UserRepository;
 use Code\Model\User;
 use Code\Model\Movie;
+use Code\Model\Movie_genre;
 use Code\Model\Movie_image;
 use Code\Repository\Movie_imageRepository;
 use Exception;
@@ -76,6 +77,14 @@ class AdminController
         }
     }
 
+    public function insertGenre($idGenre, $idMovie)
+    {
+        $movieGenre = new Movie_genre([]);
+        $movieGenre->setId_genre($idGenre);
+        $movieGenre->setId_movie($idMovie);
+
+        $this->movieGenreRepo->insert($movieGenre);
+    }
     public function insertImage($idMovie, $file)
     {
         $movieImage = new Movie_image([]);
@@ -115,11 +124,17 @@ class AdminController
                 echo json_encode($response);
                 break;
             case 'addMovie':
-
-                $id = $this->insertMovie($movie);
+                $idMovie = $this->insertMovie($movie);
                 $base64 = $this->getFile($_FILES['file']);
-                $this->insertImage($id, $base64);
-
+                $this->insertImage($idMovie, $base64);
+                
+                $fp = fopen('log.txt', 'w');
+                fwrite($fp, $idMovie . PHP_EOL);
+                fwrite($fp, $movie['genre']  . PHP_EOL);
+                fclose($fp);
+                
+                
+                $this->insertGenre($movie['genre'], $idMovie);
                 $response = [
                     'text' => 'Film bien ajouté',
                     'error' => 'Le film na pas pu être ajouté',

@@ -64,7 +64,7 @@ class MovieSearchController
 
             $html .= '<div class="card">
             <div class="div-img">
-                <img id="card-img" src="' . $this->getImageBase64($i) . ' alt="imageMovie" />
+                <img id="card-img" src="data:image/jpeg;base64,' . $this->getImageBase64($i) . '" alt="imageMovie" />
             </div>
             <div class="container">
                 <h4 class="title"><b>' . $this->getTitle($i) . '</b></h4>

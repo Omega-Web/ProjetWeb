@@ -92,7 +92,7 @@ $moviesLength = $controller->getMovies();
             $btn = $("#search-btn");
             $btn.on('click', function() {
                 //e.preventDefault();
-                $textarea_value = $("#movie-search").val();
+                $textarea_value = $("#movie-search-input").val();
                 $.ajax({
                     type: 'POST',
                     url: '../../Infrastructure/Route_movie_search.php',

@@ -20,6 +20,7 @@ class Movie_userRepository implements IMovie_userProvider
     {
         $stt = $this->con->prepare('SELECT * FROM user_movie_list');
         $stt->execute();
+        $Movies_user = [];
         while($data = $stt->fetch(PDO::FETCH_ASSOC))
         {
             $Movies_user[]= new Movie_user($data);
@@ -32,6 +33,7 @@ class Movie_userRepository implements IMovie_userProvider
         $stt = $this->con->prepare('SELECT * FROM user_movie_list where fk_movie=:id_movie');
         $stt-> bindValue('id_user',$id_movie,PDO::PARAM_INT);
         $stt->execute();
+        $Movies_user = [];
         while($data = $stt->fetch(PDO::FETCH_ASSOC))
         {
             $Movies_user[]= new Movie_user($data);
@@ -44,6 +46,7 @@ class Movie_userRepository implements IMovie_userProvider
         $stt = $this->con->prepare('SELECT * FROM user_movie_list where fk_user=:id_user');
         $stt-> bindValue('id_user',$id_user,PDO::PARAM_INT);
         $stt->execute();
+        $Movies_user = [];
         while($data = $stt->fetch(PDO::FETCH_ASSOC))
         {
             $Movies_user[]= new Movie_user($data);
