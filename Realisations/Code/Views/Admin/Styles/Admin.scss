@@ -25,6 +25,9 @@ html {
         align-items: center;
         h1 {
           margin: 0 50px;
+          a {
+            text-decoration: none;
+          }
         }
       }
       nav {
@@ -73,12 +76,12 @@ html {
       #delete-user-div {
         width: 40vw;
         padding: 2vh 3vw;
-  
+
         text-align: center;
         margin: auto;
-        border-radius: 20px;
+        border-radius: 9px;
         background: #010f21;
-        box-shadow: 5px 5px 6px #00060d, -5px -5px 6px #021835;
+        box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
       }
     }
     #movie {
@@ -92,9 +95,9 @@ html {
 
       #add-update {
         grid-area: add_update;
-        border-radius: 20px;
+        border-radius: 9px;
         background: #010f21;
-        box-shadow: 5px 5px 6px #00060d, -5px -5px 6px #021835;
+        box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
         display: flex;
         justify-content: space-around;
         padding: 4vh 3vw;
@@ -105,8 +108,8 @@ html {
         align-content: center;
         form {
           width: 30vw;
-          button{
-              margin-top: 3vh;
+          button {
+            margin-top: 3vh;
           }
           div {
             display: flex;
@@ -118,16 +121,16 @@ html {
         display: flex;
         flex-direction: column;
         form {
-            input{
-                width: 15vw;
-            }
-            #select-movie-id{
-                width: 15vw;
-            }
+          input {
+            width: 15vw;
+          }
+          #select-movie-id {
+            width: 15vw;
+          }
           width: 30vw;
-          button{
+          button {
             margin-top: 3vh;
-        }
+          }
 
           div {
             display: flex;
@@ -137,9 +140,9 @@ html {
       }
       #delete-movie-div {
         grid-area: delete;
-        border-radius: 20px;
+        border-radius: 9px;
         background: #010f21;
-        box-shadow: 5px 5px 6px #00060d, -5px -5px 6px #021835;
+        box-shadow: -5px -5px 24px #010914, 5px 5px 24px #01152e;
         display: flex;
         flex-direction: column;
         padding: 2vh 3vw;
@@ -148,7 +151,7 @@ html {
         form {
           margin: auto;
           width: 30vw;
-          
+
           div {
             display: flex;
             justify-content: space-between;

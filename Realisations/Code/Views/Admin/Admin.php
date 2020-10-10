@@ -35,6 +35,7 @@ $movies = $controller->getMovies();
 <body>
     <header>
         <div>
+            <h1><a href="../MovieSearch/MovieSearch.php">Retour vers VidéoMéga</a></h1>
             <h1>Admin</h1>
             <div id="div-logout">
                 <!-- ADD PHP HERE -- LOGOUT / SESSION END-DESTROY ? -->
