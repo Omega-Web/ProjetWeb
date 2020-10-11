@@ -26,5 +26,8 @@ class SubscriptionController
     {
         $this->userService->insertUser(new User($tabUser));
     }
-    
+    public function sendMail($firstname,$email)
+    {
+        $this->userService->sendMailConfirm($firstname,$email);
+    }
 }

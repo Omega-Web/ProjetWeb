@@ -53,6 +53,10 @@ class UserService implements IUserProvider
     {
         return $this->UserAccess->insertUser($user);
     }
+    public function sendMailConfirm($firstname,$email):bool
+    {
+        return $this->UserAccess->sendMailConfirmation($firstname,$email);
+    }
 }
 
 ?>

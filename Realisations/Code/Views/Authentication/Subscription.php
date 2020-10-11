@@ -29,6 +29,7 @@ if (
     $tabUser['fk_user_type'] = 2; //Est un utilisateur
 
     $controller->createUser($tabUser);
+    $controller->sendMail($tabUser['firstname'],$tabUser['email']);
     header('Location: ../Authentication/Connection.php');
 } else {
 ?>

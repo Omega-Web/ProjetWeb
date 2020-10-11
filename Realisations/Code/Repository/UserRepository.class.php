@@ -102,5 +102,17 @@ class UserRepository implements IUserProvider {
         }
         return true;
     }
-  
+    
+    public function sendMailConfirmation(string $firstname,string $email):bool
+    {
+        $subject = "Confirmation d'inscription";
+        $message = "Bonjour ".$firstname.", \n Bienvenue sur Videomega !"; 
+        try {
+            mail($email,$subject,$message);
+        } catch(PDOException $e) {
+            die($e->getMessage());
+            return false;
+        }
+        return true;
+    }
 }
