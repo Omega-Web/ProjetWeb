@@ -15,6 +15,7 @@ use Code\Provider\IMovieProvider;
 class MovieRepository implements IMovieProvider
 {
     private $con;
+    private $lastInsertedId;
 
     public function __construct(PDO $con)
     {
@@ -67,19 +68,19 @@ class MovieRepository implements IMovieProvider
     public function update(Movie $newMovie): bool
     {
         try {
-            $sql = 'UPDATE movie SET title=:title , plot=:plot , duration=:duration , date=:date , fk_age_restriction=:age_restriction_id WHERE id=:id ';
+            $sql = 'UPDATE movie SET title=:title , plot=:plot , duration=:duration , date=:date WHERE id=:id ';
             $stt = $this->con->prepare($sql);
             $stt-> bindValue('id',$newMovie->getId(), PDO::PARAM_INT);
             $stt-> bindValue('title',$newMovie->getTitle(), PDO::PARAM_STR);
             $stt-> bindValue('plot',$newMovie->getPlot(), PDO::PARAM_STR);
             $stt-> bindValue('duration',$newMovie->getDuration(), PDO::PARAM_STR);
             $stt-> bindValue('date',$newMovie->getDate());
-            $stt-> bindValue('age_restriction_id',$newMovie->getAge_restriction_id(), PDO::PARAM_INT);
+            // $stt-> bindValue('age_restriction_id',$newMovie->getAge_restriction_id(), PDO::PARAM_INT);
             $stt->execute();
             $stt->closeCursor();
             return true;
         }
-        catch (PDOException $e) {
+        catch (PDOException $e) {    
             die($e->getMessage());
             return false;
         }        
@@ -87,21 +88,26 @@ class MovieRepository implements IMovieProvider
     public function insert(Movie $newMovie): bool
     {
         try {
-            $sql = 'INSERT INTO movie (title, plot, duration, date, fk_age_restriction) VALUES (:title, :plot, :duration, :date, :age_restriction_id)';
+            $sql = 'INSERT INTO movie (title, plot, duration, date) VALUES (:title, :plot, :duration, :date)';
             $stt = $this->con->prepare($sql);
             // $stt-> bindValue('id',$newMovie->getId(), PDO::PARAM_INT);
             $stt-> bindValue('title',$newMovie->getTitle(), PDO::PARAM_STR);
             $stt-> bindValue('plot',$newMovie->getPlot(), PDO::PARAM_STR);
             $stt-> bindValue('duration',$newMovie->getDuration(), PDO::PARAM_STR);
             $stt-> bindValue('date',$newMovie->getDate());
-            $stt-> bindValue('age_restriction_id',$newMovie->getAge_restriction_id(), PDO::PARAM_INT);
+            // $stt-> bindValue('age_restriction_id',$newMovie->getAge_restriction_id(), PDO::PARAM_INT);
             $stt->execute();
+            $this->lastInsertedId = $this->con->lastInsertId();
             $stt->closeCursor();
             return true;
         }
-        catch (PDOException $e) {
+        catch (PDOException $e) {            
+
             return false;
         }
+    }
+    public function getLastInsertedId(){
+        return $this->lastInsertedId;
     }
     public function delete($movie): bool
     {

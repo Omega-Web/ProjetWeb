@@ -105,7 +105,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                 $img.on('click', function() {
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route.php',
+                        url: '../../Infrastructure/Route_movie_info.php',
                         data: {
                             action: 'updateWatchState'
                         },
@@ -121,14 +121,9 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                 $btn.on('click', function() {
                     $userId = $(this).attr("data-userId");
                     $movieId = $(this).attr("data-movieId");
-                    // $data = {
-                    //     userId: $(this).attr("data-userId"),
-                    //     movieId: $(this).attr("data-movieId"),
-                    //     action: 'addToList'
-                    // }
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route.php',
+                        url: '../../Infrastructure/Route_movie_info.php',
                         data: {
                             action: 'addToList',
                             userId: $userId,
@@ -137,9 +132,6 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                         dataType: 'json',
                         success: function(response) {
                             $("#add-to-list-btn").html(response.text);
-                            // methode qui permet savoir si film dans liste user ou pas, 
-                            //requete avec deux id, si requete renvoi c kil est dans liste et 
-                            //qu'il fatu supprimet si elle renvoi rien il faut le insert
                         }
                     })
                 })
@@ -151,7 +143,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     $textarea_value = $("#comment-textarea").val();
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route.php',
+                        url: '../../Infrastructure/Route_movie_info.php',
                         // data: $data,
                         data: {
                             action: 'updateComment',
@@ -164,21 +156,6 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     })
                 })
             });
-            // $(function removeFromList() {
-            //     $btn = $("#remove-from-list-btn");
-            //     $btn.on('click', function() {
-            //         $.ajax({
-            //             type: 'POST',
-            //             url: '../../Infrastructure/Route.php',
-            //             data: {
-            //                 action: 'removeFromList'
-            //             },
-            //             dataType: 'json',
-            //             success: function(response) {
-            //                 $btn.html(response.text);
-            //             }
-            //         })
-            //     })            });
         </script>
     </body>
 

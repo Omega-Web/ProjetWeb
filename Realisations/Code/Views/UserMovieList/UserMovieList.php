@@ -13,9 +13,10 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 
-$userListController = new UserMovieListController();
+$controller = new UserMovieListController();
 
-$userListController->getUser($_SESSION['id']);
+$controller->getUser($_SESSION['id']);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,30 +45,27 @@ $userListController->getUser($_SESSION['id']);
         </nav>
         <div id="div-logout">
             <!-- ADD PHP HERE -- LOGOUT / SESSION END-DESTROY ? -->
-            <a href="../Authentication/Connection.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
+            <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
         </div>
     </header>
     <main id="main-div">
         <?php
-        $movieLength = $userListController->getMovies();
-        for ($i=0; $i < $movieLength; $i++) { 
-            # code..
+        $movieLength = $controller->getMovies();
+        for ($i = 0; $i < $movieLength; $i++) {
         ?>
             <div class="card">
                 <div class="div-img">
-                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . $userListController->getImageBase64($i) . '"' ?> alt="imageMovie">
+                    <img id="card-img" <?= 'src="data:image/jpeg;base64,' . $controller->getImageBase64($i) . '"' ?> alt="imageMovie">
                 </div>
                 <div class="container">
-                    <h4><b><?= $userListController->getTitle($i) ?></b></h4>
-                    <div>
-                        <a href="#"><img id="seen-img" src="../../Assets/eye.svg" alt="seen"></a>
-                        <form action="../MovieInfo/MovieInfo.php?id=<?= $userListController->getId($i) ?>" method="post">
-                            <input type="text" name="movie-selected" value="<?= $userListController->getId($i) ?>" hidden>
-                            <button type="submit" id="seemore-btn">Plus</button>
-                        </form>
-                    </div>
+                    <h4><b><?= $controller->getTitle($i) ?></b></h4>
+                    <form action="../MovieInfo/MovieInfo.php?id=<?= $controller->getId($i) ?>" method="post">
+                        <input type="text" name="movie-selected" value="<?= $controller->getId($i) ?>" hidden>
+                        <button type="submit" id="seemore-btn">Plus</button>
+                    </form>
                 </div>
             </div>
+
         <?php
         }
         ?>

@@ -8,6 +8,53 @@
   height: 47px;
 }
 
+/* On screens that are 600px or less */
+@media screen and (max-width: 600px) {
+  .focus-nav {
+    color: #2869d1;
+    border-bottom: none;
+    height: 47px;
+  }
+}
+
+/* On screens that are from 600px to 740px wide */
+@media screen and (max-width: 768px) and (min-width: 600px) {
+  .focus-nav {
+    color: #d9b68b;
+    border-bottom: #2869d1 4px solid;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+}
+
+/* On screens that are from 768px to 1024px wide */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .focus-nav {
+    color: #d9b68b;
+    border-bottom: #2869d1 4px solid;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1024px) {
+  .focus-nav {
+    color: #d9b68b;
+    border-bottom: #2869d1 4px solid;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+}
+
 footer .wrapper {
   padding: 0;
   margin: 15vh auto 0 auto;
@@ -40,6 +87,7 @@ html {
 * body,
 html body {
   background-color: #010f21;
+  /* On mouse-over, add a deeper shadow */
 }
 
 * body header,
@@ -133,8 +181,6 @@ html body #main-div {
   grid-auto-rows: minmax(10px, auto);
   margin: 0;
   margin-bottom: 5vh;
-  /* On mouse-over, add a deeper shadow */
-  /* Add some padding inside the card container */
 }
 
 * body #main-div .card,
@@ -157,6 +203,7 @@ html body #main-div .card {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  /* Add some padding inside the card container */
 }
 
 * body #main-div .card .div-img,
@@ -175,14 +222,8 @@ html body #main-div .card #card-img {
   width: 15vw;
 }
 
-* body #main-div .card:hover,
-html body #main-div .card:hover {
-  -webkit-box-shadow: 0 2px 16px 0 #2869d1;
-          box-shadow: 0 2px 16px 0 #2869d1;
-}
-
-* body #main-div .container,
-html body #main-div .container {
+* body #main-div .card .container,
+html body #main-div .card .container {
   padding: 2px 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -193,19 +234,19 @@ html body #main-div .container {
           flex-direction: column;
 }
 
-* body #main-div .container h4,
-html body #main-div .container h4 {
+* body #main-div .card .container h4,
+html body #main-div .card .container h4 {
   margin: 0;
   margin-bottom: 2vh;
 }
 
-* body #main-div .container h4 b,
-html body #main-div .container h4 b {
+* body #main-div .card .container h4 b,
+html body #main-div .card .container h4 b {
   font-size: 0.83333rem;
 }
 
-* body #main-div .container .form-container,
-html body #main-div .container .form-container {
+* body #main-div .card .container form,
+html body #main-div .card .container form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -215,13 +256,8 @@ html body #main-div .container .form-container {
   padding-bottom: 1vh;
 }
 
-* body #main-div .container .form-container #seen-img,
-html body #main-div .container .form-container #seen-img {
-  width: 2.5vw;
-}
-
-* body #main-div .container .form-container #seemore-btn,
-html body #main-div .container .form-container #seemore-btn {
+* body #main-div .card .container form #seemore-btn,
+html body #main-div .card .container form #seemore-btn {
   background-color: #158bbf;
   color: #ffffff;
   outline: none;
@@ -233,8 +269,335 @@ html body #main-div .container .form-container #seemore-btn {
   cursor: pointer;
 }
 
-* body #main-div .container .form-container a,
-html body #main-div .container .form-container a {
+* body #main-div .card .container form a,
+html body #main-div .card .container form a {
   text-decoration: none;
+}
+
+* body .card:hover,
+html body .card:hover {
+  -webkit-box-shadow: 0 2px 16px 0 #2869d1;
+          box-shadow: 0 2px 16px 0 #2869d1;
+}
+
+/* On screens that are 600px or less */
+@media screen and (max-width: 600px) {
+  *,
+  html {
+    font-size: 0.90909rem;
+  }
+  * body,
+  html body {
+    background-color: #010f21;
+    /* On mouse-over, add a deeper shadow */
+  }
+  * body header,
+  html body header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header #div-logo,
+  html body header #div-logo {
+    display: none;
+  }
+  * body header nav,
+  html body header nav {
+    width: 70vw;
+  }
+  * body header nav ul,
+  html body header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header nav ul li,
+  html body header nav ul li {
+    list-style-type: none;
+  }
+  * body header nav ul li a,
+  html body header nav ul li a {
+    text-decoration: none;
+    height: 50px;
+  }
+  * body header nav ul li a:hover,
+  html body header nav ul li a:hover {
+    border-bottom: none;
+  }
+  * body header nav ul li a:active,
+  html body header nav ul li a:active {
+    border-bottom: none;
+  }
+  * body header #div-logout #logout,
+  html body header #div-logout #logout {
+    width: 35px;
+    margin: 0 5vw 0 0;
+  }
+  * body #main-div,
+  html body #main-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  * body #main-div .card,
+  html body #main-div .card {
+    /* Add shadows to create the "card" effect */
+    margin: 2vh auto;
+    width: 65vw;
+    background-color: black;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    /* Add some padding inside the card container */
+  }
+  * body #main-div .card .div-img,
+  html body #main-div .card .div-img {
+    min-height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  * body #main-div .card #card-img,
+  html body #main-div .card #card-img {
+    width: 65vw;
+  }
+  * body #main-div .card .container,
+  html body #main-div .card .container {
+    padding: 2px 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  * body #main-div .card .container h4,
+  html body #main-div .card .container h4 {
+    margin: 0;
+    margin-bottom: 2vh;
+  }
+  * body #main-div .card .container h4 b,
+  html body #main-div .card .container h4 b {
+    font-size: 1.3rem;
+  }
+  * body #main-div .card .container form,
+  html body #main-div .card .container form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-bottom: 1vh;
+  }
+  * body #main-div .card .container form #seemore-btn,
+  html body #main-div .card .container form #seemore-btn {
+    background-color: #158bbf;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 3.25vh;
+    width: 18vw;
+    margin: 1vh 1vw 0 1vw;
+    cursor: pointer;
+  }
+  * body #main-div .card .container form a,
+  html body #main-div .card .container form a {
+    text-decoration: none;
+  }
+  * body .card:hover,
+  html body .card:hover {
+    -webkit-box-shadow: 0 2px 16px 0 #2869d1;
+            box-shadow: 0 2px 16px 0 #2869d1;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px) {
+  *,
+  html {
+    font-size: 0.90909rem;
+  }
+  * body,
+  html body {
+    background-color: #010f21;
+    /* On mouse-over, add a deeper shadow */
+  }
+  * body header,
+  html body header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header #div-logo,
+  html body header #div-logo {
+    display: none;
+  }
+  * body header nav,
+  html body header nav {
+    width: 70vw;
+  }
+  * body header nav ul,
+  html body header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header nav ul li,
+  html body header nav ul li {
+    list-style-type: none;
+  }
+  * body header nav ul li a,
+  html body header nav ul li a {
+    text-decoration: none;
+    height: 50px;
+  }
+  * body header nav ul li a:hover,
+  html body header nav ul li a:hover {
+    border-bottom: none;
+  }
+  * body header nav ul li a:active,
+  html body header nav ul li a:active {
+    border-bottom: none;
+  }
+  * body header #div-logout #logout,
+  html body header #div-logout #logout {
+    width: 35px;
+    margin: 0 5vw 0 0;
+  }
+  * body #main-div,
+  html body #main-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  * body #main-div .card,
+  html body #main-div .card {
+    /* Add shadows to create the "card" effect */
+    margin: 8vh auto 1vh auto;
+    width: 40vw;
+    background-color: black;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    /* Add some padding inside the card container */
+  }
+  * body #main-div .card .div-img,
+  html body #main-div .card .div-img {
+    min-height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  * body #main-div .card #card-img,
+  html body #main-div .card #card-img {
+    width: 40vw;
+  }
+  * body #main-div .card .container,
+  html body #main-div .card .container {
+    padding: 2px 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  * body #main-div .card .container h4,
+  html body #main-div .card .container h4 {
+    margin: 0;
+    margin-bottom: 2vh;
+  }
+  * body #main-div .card .container h4 b,
+  html body #main-div .card .container h4 b {
+    font-size: 1.3rem;
+  }
+  * body #main-div .card .container form,
+  html body #main-div .card .container form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-bottom: 1vh;
+  }
+  * body #main-div .card .container form #seemore-btn,
+  html body #main-div .card .container form #seemore-btn {
+    background-color: #158bbf;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 3.25vh;
+    width: 14.4vw;
+    margin: 1vh 1vw 0 1vw;
+    cursor: pointer;
+  }
+  * body #main-div .card .container form a,
+  html body #main-div .card .container form a {
+    text-decoration: none;
+  }
+  * body .card:hover,
+  html body .card:hover {
+    -webkit-box-shadow: 0 2px 16px 0 #2869d1;
+            box-shadow: 0 2px 16px 0 #2869d1;
+  }
 }
 /*# sourceMappingURL=UserMovieList.css.map */

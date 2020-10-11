@@ -6,7 +6,6 @@ if (!isset($_SESSION['id'])) {
     header('Location: ../Admin/AdminRedirect.php');
 }
 
-$_SESSION['id'];
 
 // error_reporting(E_ALL);
 // ini_set("display_errors", 1);
@@ -94,7 +93,7 @@ if (!empty($_POST)) {
                 <label for="password"><?= $passwordError; ?></label>
                 <input id="password2" name="password2" type="password" placeholder="Vérifier le mot de passe">
                 <br>
-                <button id="button-info" type="submit">Enregistrer les modifications</button>
+                <button id="button-info" type="submit">Enregistrer</button>
             </form>
 
             <h3>Préférences cookies</h3>
@@ -104,7 +103,7 @@ if (!empty($_POST)) {
                 <div class="cookie" id="first-cookie">
                     <div>
                         <h5>Cookies indispensables</h5>
-                        <span>Cookies utilisés pour faire fonctionner le site. Ces cookies ne sont pas désactivables</span>
+                        <span class="cookie-span">Cookies utilisés pour faire fonctionner le site. Ces cookies ne sont pas désactivables</span>
                     </div>
                     <!-- Rounded switch -->
                     <label class="switch">
@@ -115,7 +114,7 @@ if (!empty($_POST)) {
                 <div class="cookie" id="second-cookie">
                     <div>
                         <h5>Préférences</h5>
-                        <span>Pour enregistrer vos préférences et améliorer votre expérience sur notre site</span>
+                        <span class="cookie-span">Pour enregistrer vos préférences et améliorer votre expérience sur notre site</span>
                     </div>
                     <!-- Rounded switch -->
                     <label class="switch">
@@ -126,7 +125,7 @@ if (!empty($_POST)) {
                 <div class="cookie" id="third-cookie">
                     <div>
                         <h5>Performances et annalyse</h5>
-                        <span>Ces cookies sont utilisés pour collecter des informations sur la manière dont vous utilisez notre site mais aussi améliorer ses performances et votre expérience</span>
+                        <span class="cookie-span">Ces cookies sont utilisés pour collecter des informations sur la manière dont vous utilisez notre site mais aussi améliorer ses performances et votre expérience</span>
                     </div>
                     <!-- Rounded switch -->
                     <label class="switch">
@@ -134,7 +133,7 @@ if (!empty($_POST)) {
                         <span class="slider round"></span>
                     </label>
                 </div>
-                <button id="button-param" type="submit">Enregistrer les paramètres</button>
+                <button id="button-param" type="submit">Enregistrer</button>
 
             </form>
 

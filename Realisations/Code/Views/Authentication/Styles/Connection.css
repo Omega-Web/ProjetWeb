@@ -20,28 +20,33 @@ footer .wrapper li a {
   text-decoration: none;
 }
 
-*, html {
+*,
+html {
   color: #ffffff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #010f21;
   font-size: 1rem;
 }
 
-* #div-logo, html #div-logo {
+* #div-logo,
+html #div-logo {
   text-align: center;
 }
 
-* #div-logo #logo, html #div-logo #logo {
+* #div-logo #logo,
+html #div-logo #logo {
   width: 18vw;
   height: auto;
   margin: 3vh auto 5vh auto;
 }
 
-* form, html form {
+* form,
+html form {
   text-align: center;
 }
 
-* form #username, html form #username {
+* form #username,
+html form #username {
   background-color: #ffffff;
   color: #000000;
   outline: none;
@@ -53,7 +58,8 @@ footer .wrapper li a {
   margin: 1vh 0vw;
 }
 
-* form #password, html form #password {
+* form #password,
+html form #password {
   background-color: #ffffff;
   color: #000000;
   outline: none;
@@ -65,7 +71,8 @@ footer .wrapper li a {
   margin: 1vh 0vw;
 }
 
-* form button, html form button {
+* form button,
+html form button {
   background-color: #2869d1;
   color: #ffffff;
   outline: none;
@@ -77,17 +84,309 @@ footer .wrapper li a {
   margin: 1vh 1vw 0 1vw;
 }
 
-* form button:hover, html form button:hover {
+* form button:hover,
+html form button:hover {
   cursor: pointer;
   background-color: #d9b68b;
 }
 
-* .connect-subscribe, html .connect-subscribe {
+* .connect-subscribe,
+html .connect-subscribe {
   text-align: center;
   font-size: 0.83333rem;
 }
 
-* .connect-subscribe a, html .connect-subscribe a {
+* .connect-subscribe a,
+html .connect-subscribe a {
   font-size: 0.83333rem;
+}
+
+/* On screens that are 600px or less */
+@media screen and (max-width: 600px) {
+  *,
+  html {
+    font-size: 0.90909rem;
+  }
+  * #div-logo,
+  html #div-logo {
+    text-align: center;
+  }
+  * #div-logo #logo,
+  html #div-logo #logo {
+    width: 36vw;
+    height: auto;
+    margin: 3vh auto 10vh auto;
+  }
+  * form,
+  html form {
+    text-align: center;
+  }
+  * form #username,
+  html form #username {
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 4.33333vh;
+    width: 50vw;
+    padding: 0.5vh 1vw;
+    margin: 1vh 0vw;
+  }
+  * form #password,
+  html form #password {
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 4.33333vh;
+    width: 50vw;
+    padding: 0.5vh 1vw;
+    margin: 1vh 0vw;
+  }
+  * form button,
+  html form button {
+    background-color: #2869d1;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 4.33333vh;
+    width: 45vw;
+    padding: 0.5vh 1vw;
+    margin: 2vh;
+  }
+  * .connect-subscribe,
+  html .connect-subscribe {
+    width: 60vw;
+    margin: auto;
+    text-align: center;
+  }
+  * .connect-subscribe a,
+  html .connect-subscribe a {
+    font-size: 0.90909rem;
+  }
+  * .wrapper,
+  html .wrapper {
+    display: none;
+  }
+}
+
+/* On screens that are from 600px to 740px wide */
+@media screen and (max-width: 768px) and (min-width: 600px) {
+  *,
+  html {
+    font-size: 0.90909rem;
+  }
+  * #div-logo,
+  html #div-logo {
+    text-align: center;
+  }
+  * #div-logo #logo,
+  html #div-logo #logo {
+    width: 36vw;
+    height: auto;
+    margin: 3vh auto 10vh auto;
+  }
+  * form,
+  html form {
+    text-align: center;
+  }
+  * form #username,
+  html form #username {
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 4.33333vh;
+    width: 37.5vw;
+    padding: 0.5vh 1vw;
+    margin: 1vh 0vw;
+  }
+  * form #password,
+  html form #password {
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 4.33333vh;
+    width: 37.5vw;
+    padding: 0.5vh 1vw;
+    margin: 1vh 0vw;
+  }
+  * form button,
+  html form button {
+    background-color: #2869d1;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 5.33333vh;
+    width: 18vw;
+    padding: 1vh 0vw;
+    margin: 1vh 1vw 0 1vw;
+  }
+  * .connect-subscribe,
+  html .connect-subscribe {
+    width: 30vw;
+    margin: auto;
+    margin-top: 4vh;
+    text-align: center;
+  }
+  * .connect-subscribe a,
+  html .connect-subscribe a {
+    font-size: 0.90909rem;
+  }
+  * .wrapper,
+  html .wrapper {
+    display: none;
+  }
+}
+
+/* On screens that are from 768px to 1024px wide */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  *,
+  html {
+    font-size: 1rem;
+  }
+  * #div-logo,
+  html #div-logo {
+    text-align: center;
+  }
+  * #div-logo #logo,
+  html #div-logo #logo {
+    width: 18vw;
+    height: auto;
+    margin: 3vh auto 5vh auto;
+  }
+  * form,
+  html form {
+    text-align: center;
+  }
+  * form #username,
+  html form #username {
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 4.33333vh;
+    width: 25vw;
+    padding: 0.5vh 1vw;
+    margin: 1vh 0vw;
+  }
+  * form #password,
+  html form #password {
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 4.33333vh;
+    width: 25vw;
+    padding: 0.5vh 1vw;
+    margin: 1vh 0vw;
+  }
+  * form button,
+  html form button {
+    background-color: #2869d1;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 5.33333vh;
+    width: 12vw;
+    padding: 1vh 0vw;
+    margin: 1vh 1vw 0 1vw;
+  }
+  * form button:hover,
+  html form button:hover {
+    cursor: pointer;
+    background-color: #d9b68b;
+  }
+  * .connect-subscribe,
+  html .connect-subscribe {
+    text-align: center;
+    font-size: 0.83333rem;
+  }
+  * .connect-subscribe a,
+  html .connect-subscribe a {
+    font-size: 0.83333rem;
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1024px) {
+  *,
+  html {
+    font-size: 1rem;
+  }
+  * #div-logo,
+  html #div-logo {
+    text-align: center;
+  }
+  * #div-logo #logo,
+  html #div-logo #logo {
+    width: 18vw;
+    height: auto;
+    margin: 3vh auto 5vh auto;
+  }
+  * form,
+  html form {
+    text-align: center;
+  }
+  * form #username,
+  html form #username {
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 4.64286vh;
+    width: 20.83333vw;
+    padding: 0.5vh 1vw;
+    margin: 1vh 0vw;
+  }
+  * form #password,
+  html form #password {
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 4.64286vh;
+    width: 20.83333vw;
+    padding: 0.5vh 1vw;
+    margin: 1vh 0vw;
+  }
+  * form button,
+  html form button {
+    background-color: #2869d1;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 5.71429vh;
+    width: 10vw;
+    padding: 1vh 0vw;
+    margin: 1vh 1vw 0 1vw;
+  }
+  * form button:hover,
+  html form button:hover {
+    cursor: pointer;
+    background-color: #d9b68b;
+  }
+  * .connect-subscribe,
+  html .connect-subscribe {
+    margin-top: 3vh;
+    text-align: center;
+    font-size: 0.83333rem;
+  }
+  * .connect-subscribe a,
+  html .connect-subscribe a {
+    font-size: 0.83333rem;
+  }
 }
 /*# sourceMappingURL=Connection.css.map */

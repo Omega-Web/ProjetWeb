@@ -29,6 +29,6 @@ class ConnectionController
         } else if ($id_usertype == 2) {
             return 'Location: ../MovieSearch/MovieSearch.php';
         }
-        return "uuuuuu";
+        return 'Location: ../MovieSearch/MovieSearch.php';
     }
 }

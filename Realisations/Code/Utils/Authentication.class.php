@@ -24,8 +24,6 @@ class Authentication {
         $stt->execute();
         $data = $stt->fetch(PDO::FETCH_ASSOC);
         $stt->closeCursor();
-        //print $password.' | '.$data['password'];  
-        //var_dump(password_verify($password,$data['password']));
         if(password_verify($password,$data['password'])){
             return new User($data); 
         } else {

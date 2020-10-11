@@ -26,6 +26,7 @@ Class MovieService implements IMovieProvider
      $this->ImageAccess = $i;
      $this->Movie_staffAccess = $ms;
      $this->StaffAccess = $s;
+     
 
     }
 
