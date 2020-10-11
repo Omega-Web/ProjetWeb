@@ -122,4 +122,106 @@ html body main #grid #second #logout-a #logout {
   width: 35px;
   margin: 0;
 }
+
+@media screen and (max-width: 600px) {
+  *,
+  html {
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    background-color: #010f21;
+    font-size: 1rem;
+  }
+  * body,
+  html body {
+    background-color: #010f21;
+  }
+  * body header,
+  html body header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+  }
+  * body header #div-logo,
+  html body header #div-logo {
+    text-align: center;
+  }
+  * body header #div-logo #logo,
+  html body header #div-logo #logo {
+    width: 36vw;
+    height: auto;
+    margin: 3vh auto 20vh auto;
+  }
+  * body main #grid,
+  html body main #grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  * body main #grid .element,
+  html body main #grid .element {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  * body main #grid .element a,
+  html body main #grid .element a {
+    margin: 2vh;
+    text-decoration: none;
+  }
+  * body main #grid .element a h1,
+  html body main #grid .element a h1 {
+    margin: 0 50px;
+  }
+  * body main #grid #first,
+  html body main #grid #first {
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-column: 3/4;
+  }
+  * body main #grid #second,
+  html body main #grid #second {
+    -ms-grid-column: 5;
+    -ms-grid-column-span: 1;
+    grid-column: 5/6;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: right;
+        -ms-flex-pack: right;
+            justify-content: right;
+    margin: 0 5vw;
+  }
+  * body main #grid #second #logout-a,
+  html body main #grid #second #logout-a {
+    margin: 0;
+  }
+  * body main #grid #second #logout-a #logout,
+  html body main #grid #second #logout-a #logout {
+    width: 35px;
+    margin: 0;
+  }
+}
 /*# sourceMappingURL=AdminRedirect.css.map */

@@ -331,12 +331,6 @@ html body #main-div .card:hover {
   html body header #div-logo {
     display: none;
   }
-  * body header #div-logo #logo,
-  html body header #div-logo #logo {
-    width: 6vw;
-    height: auto;
-    margin: 3vh 0 5vh 0;
-  }
   * body header nav,
   html body header nav {
     width: 70vw;
