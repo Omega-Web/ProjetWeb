@@ -42,17 +42,6 @@ $movies = $controller->getMovies();
                 <a href="../Authentication/Logout.php"><img id="logout" src="../../Assets/logout.svg" alt="logout"></a>
             </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#delete-user">Delete user</a></li>
-                <li> |</li>
-                <li><a href="#add-movie">Add Movie</a></li>
-                <li> |</li>
-                <li><a href="#update-movie">Update Movie</a></li>
-                <li> |</li>
-                <li><a href="#delete-movie">Delete Movie</a></li>
-            </ul>
-        </nav>
     </header>
     <main>
         <div id="user">
