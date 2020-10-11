@@ -1,71 +1,340 @@
 // Utilities
-@import '../../Styles/variables';
-@import '../../Styles/footer';
+@import "../../Styles/variables";
+@import "../../Styles/footer";
 
-*, html {
-    color: $font-color;
-    font-family: 'Roboto', sans-serif;
-    background-color: $background-color;
-    font-size: $font-size;
+*,
+html {
+  color: $font-color;
+  font-family: "Roboto", sans-serif;
+  background-color: $background-color;
+  font-size: $font-size;
 
-    #div-logo{
-        text-align: center;
-    
-        #logo{
-            width: $logo-width;
-            height: $logo-height;
-            margin: 3vh auto 5vh auto;
-        }
+  #div-logo {
+    text-align: center;
+
+    #logo {
+      width: $logo-width;
+      height: $logo-height;
+      margin: 3vh auto 5vh auto;
+    }
+  }
+
+  form {
+    text-align: center;
+    #username {
+      background-color: $input-bg-color;
+      color: $input-ft-color;
+      outline: none;
+      border: none;
+      border-radius: $border-radius;
+      height: $input-height;
+      width: $input-width;
+      padding: $input-padding;
+      margin: $input-margin;
+    }
+    #password {
+      background-color: $input-bg-color;
+      color: $input-ft-color;
+      outline: none;
+      border: none;
+      border-radius: $border-radius;
+      height: $input-height;
+      width: $input-width;
+      padding: $input-padding;
+      margin: $input-margin;
     }
 
-    form{
-        text-align: center;
-        #username{
-            background-color: $input-bg-color;
-            color: $input-ft-color;
-            outline: none;
-            border: none;
-            border-radius: $border-radius;
-            height: $input-height;
-            width: $input-width; 
-            padding: $input-padding;
-            margin: $input-margin;
-        }
-        #password{
-            background-color: $input-bg-color;
-            color: $input-ft-color;
-            outline: none;
-            border: none;
-            border-radius: $border-radius;
-            height: $input-height;
-            width: $input-width; 
-            padding: $input-padding;
-            margin: $input-margin;
-        }
-        
-        button{
-            background-color: $button-color;
-            color: $font-color;
-            outline: none;
-            border: none;
-            border-radius: $border-radius;
-            height: $input-height;
-            width: $button-width; 
-            padding: $button-padding;
-            margin: $button-margin;
-        }
-        button:hover{
-            cursor: pointer;
-            background-color: $selected-color;
-
-        }
+    button {
+      background-color: $button-color;
+      color: $font-color;
+      outline: none;
+      border: none;
+      border-radius: $border-radius;
+      height: $input-height;
+      width: $button-width;
+      padding: $button-padding;
+      margin: $button-margin;
     }
-    .connect-subscribe{
-        text-align: center;
-        font-size: $font-size/1.2;
-        a{
-            font-size: $font-size/1.2;
-        }
+    button:hover {
+      cursor: pointer;
+      background-color: $selected-color;
     }
+  }
+  .connect-subscribe {
+    text-align: center;
+    font-size: $font-size/1.2;
+    a {
+      font-size: $font-size/1.2;
+    }
+  }
 }
 
+/* On screens that are 600px or less */
+@media screen and (max-width: 600px) {
+  *,
+  html {
+    font-size: $font-size/1.1;
+
+    #div-logo {
+      text-align: center;
+
+      #logo {
+        width: $logo-width * 2;
+        height: $logo-height;
+        margin: 3vh auto 10vh auto;
+      }
+    }
+
+    form {
+      text-align: center;
+      #username {
+        background-color: $input-bg-color;
+        color: $input-ft-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $input-height/1.5;
+        width: $input-width * 2;
+        padding: $input-padding;
+        margin: $input-margin;
+      }
+      #password {
+        background-color: $input-bg-color;
+        color: $input-ft-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $input-height/1.5;
+        width: $input-width * 2;
+        padding: $input-padding;
+        margin: $input-margin;
+      }
+
+      button {
+        background-color: $button-color;
+        color: $font-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $input-height/1.5;
+        width: $input-width * 1.8;
+        padding: $input-padding;
+        margin: 2vh;
+      }
+    }
+    .connect-subscribe {
+      width: 60vw;
+      margin: auto;
+      text-align: center;
+      a {
+        font-size: $font-size/1.1;
+      }
+    }
+
+    .wrapper {
+      display: none;
+    }
+  }
+}
+
+/* On screens that are from 600px to 740px wide */
+@media screen and (max-width: 768px) and (min-width: 600px) {
+  *,
+  html {
+    font-size: $font-size/1.1;
+
+    #div-logo {
+      text-align: center;
+
+      #logo {
+        width: $logo-width * 2;
+        height: $logo-height;
+        margin: 3vh auto 10vh auto;
+      }
+    }
+
+    form {
+      text-align: center;
+      #username {
+        background-color: $input-bg-color;
+        color: $input-ft-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $input-height/1.5;
+        width: $input-width * 1.5;
+        padding: $input-padding;
+        margin: $input-margin;
+      }
+      #password {
+        background-color: $input-bg-color;
+        color: $input-ft-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $input-height/1.5;
+        width: $input-width * 1.5;
+        padding: $input-padding;
+        margin: $input-margin;
+      }
+
+      button {
+        background-color: $button-color;
+        color: $font-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $button-height/1.5;
+        width: $button-width * 1.5;
+        padding: $button-padding;
+        margin: $button-margin;
+      }
+    }
+    .connect-subscribe {
+      width: 30vw;
+      margin: auto;
+      margin-top: 4vh;
+      text-align: center;
+      a {
+        font-size: $font-size/1.1;
+      }
+    }
+
+    .wrapper {
+      display: none;
+    }
+  }
+}
+/* On screens that are from 768px to 1024px wide */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  *,
+  html {
+    font-size: $font-size;
+
+    #div-logo {
+      text-align: center;
+
+      #logo {
+        width: $logo-width;
+        height: $logo-height;
+        margin: 3vh auto 5vh auto;
+      }
+    }
+
+    form {
+      text-align: center;
+      #username {
+        background-color: $input-bg-color;
+        color: $input-ft-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $input-height/1.5;
+        width: $input-width;
+        padding: $input-padding;
+        margin: $input-margin;
+      }
+      #password {
+        background-color: $input-bg-color;
+        color: $input-ft-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $input-height/1.5;
+        width: $input-width;
+        padding: $input-padding;
+        margin: $input-margin;
+      }
+
+      button {
+        background-color: $button-color;
+        color: $font-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $button-height/1.5;
+        width: $button-width;
+        padding: $button-padding;
+        margin: $button-margin;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: $selected-color;
+      }
+    }
+    .connect-subscribe {
+      text-align: center;
+      font-size: $font-size/1.2;
+      a {
+        font-size: $font-size/1.2;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1024px) {
+  *,
+  html {
+    font-size: $font-size;
+
+    #div-logo {
+      text-align: center;
+
+      #logo {
+        width: $logo-width;
+        height: $logo-height;
+        margin: 3vh auto 5vh auto;
+      }
+    }
+
+    form {
+      text-align: center;
+      #username {
+        background-color: $input-bg-color;
+        color: $input-ft-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $input-height/1.4;
+        width: $input-width/1.2;
+        padding: $input-padding;
+        margin: $input-margin;
+      }
+      #password {
+        background-color: $input-bg-color;
+        color: $input-ft-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $input-height/1.4;
+        width: $input-width/1.2;
+        padding: $input-padding;
+        margin: $input-margin;
+      }
+
+      button {
+        background-color: $button-color;
+        color: $font-color;
+        outline: none;
+        border: none;
+        border-radius: $border-radius;
+        height: $button-height/1.4;
+        width: $button-width/1.2;
+        padding: $button-padding;
+        margin: $button-margin;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: $selected-color;
+      }
+    }
+    .connect-subscribe {
+      margin-top: 3vh;
+      text-align: center;
+      font-size: $font-size/1.2;
+      a {
+        font-size: $font-size/1.2;
+      }
+    }
+  }
+}
