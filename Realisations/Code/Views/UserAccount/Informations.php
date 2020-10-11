@@ -2,23 +2,20 @@
 session_start();
 if (!isset($_SESSION['id'])) {
     header('Location: ../Authentication/Connection.php');
+} else if (isset($_SESSION['id']) && $_SESSION['id_usertype'] == 1) {
+    header('Location: ../Admin/AdminRedirect.php');
 }
-$_SESSION['id'];
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-// require_once '../../Infrastructure/Database.class.php';
+
+// error_reporting(E_ALL);
+// ini_set("display_errors", 1);
 require_once '../../../bootstrap.php';
 
-use Code\Model\User;
-use Code\Repository\UserRepository;
-use Code\Infrastructure\Database;
-use PDOException;
-use PDO;
 
+use Code\Controller\UserInformationsController;
 
-$repoUser = new UserRepository(Database::get());
-$currentUser = $repoUser->findOne($_SESSION['id']);
+$infoController = new UserInformationsController();
+$currentUser = $infoController->getUserInfo($_SESSION['id']);
 
 if ($_SESSION['id'] > 0) {
     $userInfo = array(
@@ -39,7 +36,7 @@ if (!empty($_POST)) {
     if ($_POST['password'] === $_POST['password2']) {
         $userArray['password'] = $_POST['password'];
         try {
-            $repoUser->updateUser(new User($userArray));
+            $infoController->updateUser($userArray);
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -96,7 +93,7 @@ if (!empty($_POST)) {
                 <label for="password"><?= $passwordError; ?></label>
                 <input id="password2" name="password2" type="password" placeholder="Vérifier le mot de passe">
                 <br>
-                <button id="button-info" type="submit">Enregistrer les modifications</button>
+                <button id="button-info" type="submit">Enregistrer</button>
             </form>
 
             <h3>Préférences cookies</h3>
@@ -106,7 +103,7 @@ if (!empty($_POST)) {
                 <div class="cookie" id="first-cookie">
                     <div>
                         <h5>Cookies indispensables</h5>
-                        <span>Cookies utilisés pour faire fonctionner le site. Ces cookies ne sont pas désactivables</span>
+                        <span class="cookie-span">Cookies utilisés pour faire fonctionner le site. Ces cookies ne sont pas désactivables</span>
                     </div>
                     <!-- Rounded switch -->
                     <label class="switch">
@@ -117,7 +114,7 @@ if (!empty($_POST)) {
                 <div class="cookie" id="second-cookie">
                     <div>
                         <h5>Préférences</h5>
-                        <span>Pour enregistrer vos préférences et améliorer votre expérience sur notre site</span>
+                        <span class="cookie-span">Pour enregistrer vos préférences et améliorer votre expérience sur notre site</span>
                     </div>
                     <!-- Rounded switch -->
                     <label class="switch">
@@ -128,7 +125,7 @@ if (!empty($_POST)) {
                 <div class="cookie" id="third-cookie">
                     <div>
                         <h5>Performances et annalyse</h5>
-                        <span>Ces cookies sont utilisés pour collecter des informations sur la manière dont vous utilisez notre site mais aussi améliorer ses performances et votre expérience</span>
+                        <span class="cookie-span">Ces cookies sont utilisés pour collecter des informations sur la manière dont vous utilisez notre site mais aussi améliorer ses performances et votre expérience</span>
                     </div>
                     <!-- Rounded switch -->
                     <label class="switch">
@@ -136,7 +133,7 @@ if (!empty($_POST)) {
                         <span class="slider round"></span>
                     </label>
                 </div>
-                <button id="button-param" type="submit">Enregistrer les paramètres</button>
+                <button id="button-param" type="submit">Enregistrer</button>
 
             </form>
 

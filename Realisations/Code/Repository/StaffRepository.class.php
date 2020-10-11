@@ -56,7 +56,7 @@ class StaffRepository implements IStaffProvider
         return $Staffs;
 
     }
-    public function updateStaff(Staff $newStaff): bool
+    public function update(Staff $newStaff): bool
     {
         try {
             $sql = 'UPDATE movie_staff SET firstname=:firstname, lastname=:lastname, birthday=:birthday WHERE id=:id ';
@@ -74,7 +74,7 @@ class StaffRepository implements IStaffProvider
             return false;
         }        
     }
-    public function insertStaff(Staff $newStaff): bool
+    public function insert(Staff $newStaff): bool
     {
         try {
             $sql = 'INSERT INTO movie_staff (firstname, lastname, birthday) VALUES (:firstname, :lastname, :birthday)';
@@ -92,7 +92,7 @@ class StaffRepository implements IStaffProvider
             return false;
         }
     }
-    public function deleteStaff($staff): bool
+    public function delete($staff): bool
     {
         try {
             $sql = 'DELETE FROM movie_staff WHERE id = :id';

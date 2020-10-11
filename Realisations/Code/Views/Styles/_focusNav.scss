@@ -1,10 +1,53 @@
-@import 'variables';
+@import "variables";
 
-.focus-nav{
-    color:$selected-color;
+.focus-nav {
+  color: $selected-color;
+  border-bottom: $button-color 4px solid;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  height: 47px;
+}
+
+/* On screens that are 600px or less */
+@media screen and (max-width: 600px) {
+  .focus-nav {
+    color: $button-color;
+    border-bottom:none;
+    height: 47px;
+  }
+}
+
+/* On screens that are from 600px to 740px wide */
+@media screen and (max-width: 768px) and (min-width: 600px) {
+  .focus-nav {
+    color: $selected-color;
     border-bottom: $button-color 4px solid;
     border-radius: $border-radius;
     box-sizing: border-box;
     padding-bottom: 10px;
     height: 47px;
+  }
+}
+/* On screens that are from 768px to 1024px wide */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .focus-nav {
+    color: $selected-color;
+    border-bottom: $button-color 4px solid;
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1024px) {
+  .focus-nav {
+    color: $selected-color;
+    border-bottom: $button-color 4px solid;
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
 }

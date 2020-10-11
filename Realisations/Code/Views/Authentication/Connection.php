@@ -5,18 +5,22 @@ session_start();
 require_once '../../../bootstrap.php';
 
 use Code\Controller\ConnectionController;
+// Afficher les erreurs
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
-$conController = new ConnectionController();
 // Instanciation of password error variables
 $passwordError = "";
 if(!empty($_POST['username']) && !empty($_POST['password'])) {
     try{
-        $id_user = $conController->getUserID($_POST['username'],$_POST['password']);
-
+        $controller = new ConnectionController();
+        $User = $controller->getUser($_POST['username'],$_POST['password']);
+        $id_user = $User->getId(); 
+        $id_usertype = $User->getId_usertype();
         if ($id_user > 0){
-            session_start();
             $_SESSION['id'] = $id_user; 
-            header('Location: ../MovieSearch/MovieSearch.php');
+            $_SESSION['id_usertype'] = $id_usertype;
+            header($controller->getPathFromId($id_usertype));
         } else {
             $passwordError = "Le mot de passe ne correspond pas avec l'identifiant";
         }

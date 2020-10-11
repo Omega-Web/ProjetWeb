@@ -37,11 +37,11 @@ class UserRepository implements IUserProvider {
         return new User($data);
 
     }
-    //Créer un utilisateur 
+    //Créer un utilisateur ou met à jour un utilisateur existant
     public function insertUser(User $user): bool
     {
         try{
-        $sql = 'INSERT INTO user (firstname,lastname,email,username,password,birthday) VALUES (:firstname, :lastname, :email, :username, :password, :birthday)';
+        $sql = 'INSERT INTO user (firstname,lastname,email,username,password,birthday, fk_user_type) VALUES (:firstname, :lastname, :email, :username, :password, :birthday, :fk_user_type)';
         
 
         $stt = $this->con->prepare($sql);
@@ -51,7 +51,7 @@ class UserRepository implements IUserProvider {
         $stt-> bindValue('email',$user->getEmail(),PDO::PARAM_STR);
         $stt-> bindValue('password',password_hash($user->getPassword(),PASSWORD_DEFAULT),PDO::PARAM_STR);
         $stt-> bindValue('birthday',$user->getBirthday()->format('Y-m-d'));
-
+        $stt-> bindValue('fk_user_type', 2, PDO::PARAM_INT);
         $stt->execute();
         $stt->closeCursor();
         return true;

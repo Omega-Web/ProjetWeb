@@ -56,8 +56,8 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     <h2 id="title"><b><?= $controller->getTitle() ?></b></h2>
                 </div>
                 <div class="container">
-                    <img class="submit-img active" name="watch_state" src="<?= $controller->getWatchState()?>"/>
-                    <button id="add-to-list-btn" name="add-to-list-btn">
+                    <img class="submit-img active" name="watch_state" src="<?= $controller->getWatchState() ?>" />
+                    <button id="add-to-list-btn" name="add-to-list-btn" data-movieId="<?php $_SESSION['post-data']['movie-selected'] ?>" data-userId="<?php $_SESSION['id'] ?>">
                         <?= $controller->isMovieInList() ?>
                     </button>
                 </div>
@@ -66,8 +66,8 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                 </div>
                 <div class="movie-comment">
                     <h3>Commentaire :</h3>
-                    <form action="updateUserMovie.php?id=<?= $_SESSION['movie-selected'] ?>" method="post">
-                        <textarea rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?= $controller->getComment() ?></textarea>
+                    <form action="updateUserMovie.php?id=<?= $_SESSION['post-data']['movie-selected'] ?>" method="post">
+                        <textarea id="comment-textarea" rows="5" type="textarea" name="comment" placeholder="Entrez un commentaire sur le film"><?= $controller->getComment() ?></textarea>
                         <button id="movie-comment-btn" type="submit">Enregistrer le commentaire</button>
                     </form>
                 </div>
@@ -105,7 +105,7 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                 $img.on('click', function() {
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route.php',
+                        url: '../../Infrastructure/Route_movie_info.php',
                         data: {
                             action: 'updateWatchState'
                         },
@@ -119,15 +119,19 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
             $(function addToList() {
                 $btn = $("#add-to-list-btn");
                 $btn.on('click', function() {
+                    $userId = $(this).attr("data-userId");
+                    $movieId = $(this).attr("data-movieId");
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route.php',
+                        url: '../../Infrastructure/Route_movie_info.php',
                         data: {
-                            action: 'addToList'
+                            action: 'addToList',
+                            userId: $userId,
+                            movieId: $movieId
                         },
                         dataType: 'json',
                         success: function(response) {
-                            $btn.html(response.text);
+                            $("#add-to-list-btn").html(response.text);
                         }
                     })
                 })
@@ -139,9 +143,11 @@ if (!empty($_SESSION['post-data']['movie-selected'])) {
                     $textarea_value = $("#comment-textarea").val();
                     $.ajax({
                         type: 'POST',
-                        url: '../../Infrastructure/Route.php',
+                        url: '../../Infrastructure/Route_movie_info.php',
+                        // data: $data,
                         data: {
-                            action: $textarea_value,
+                            action: 'updateComment',
+                            newComment: $textarea_value
                         },
                         dataType: 'json',
                         success: function(response) {

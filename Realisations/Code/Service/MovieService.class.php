@@ -26,6 +26,7 @@ Class MovieService implements IMovieProvider
      $this->ImageAccess = $i;
      $this->Movie_staffAccess = $ms;
      $this->StaffAccess = $s;
+     
 
     }
 
@@ -36,7 +37,7 @@ Class MovieService implements IMovieProvider
         foreach($movies as $movie)
         {
             $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());         
-            $images = $this->ImageAccess->findAll($movie->getId());
+            $images = $this->ImageAccess->findAllByIdMovie($movie->getId());
             $ids_staffs = $this->Movie_staffAccess->findAllByMovie($movie->getId());
             $movie->setGenres($genres);
             $movie->setImages($images);
@@ -48,9 +49,7 @@ Class MovieService implements IMovieProvider
             }
             $movie->setStaffs($staff);
                     
-        }
-
-       
+        } 
        
         return $movies;
     }
@@ -60,7 +59,7 @@ Class MovieService implements IMovieProvider
         $movie = $this->MovieAccess->findOne($id);
         $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
         $movie->setGenres($genres);
-        $images = $this->ImageAccess->findAll($movie->getId());
+        $images = $this->ImageAccess->findAllByIdMovie($movie->getId());
         $movie->setImages($images);
         $ids_staffs = $this->Movie_staffAccess->findAllByMovie($movie->getId());
         $movie->setStaffsId($ids_staffs);
@@ -82,7 +81,7 @@ Class MovieService implements IMovieProvider
         {
             $genres = $this->GenreAccess->findAllByIdMovie($movie->getId());
             $movie->setGenres($genres);
-            $images = $this->ImageAccess->findAll($movie->getId());
+            $images = $this->ImageAccess->findAllByIdMovie($movie->getId());
             $movie->setImages($images);
             $ids_staffs = $this->Movie_staffAccess->findAllByMovie($movie->getId());
             $movie->setStaffsId($ids_staffs);

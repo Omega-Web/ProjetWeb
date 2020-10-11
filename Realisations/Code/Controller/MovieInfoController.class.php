@@ -36,7 +36,6 @@ class MovieInfoController
     public function getInfoMovie($id_user, $id_movie)
     {
         $this->movie = $this->service->findOne($id_movie);
-        // HAVE TO ADD SESSION ID FOR ->
         $this->usermovie = $this->movieUserService->findOne($id_user, $id_movie);
     }
 
@@ -87,23 +86,21 @@ class MovieInfoController
 
     public function isMovieInList(): string
     {
-        if($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0){
-            return 'Ajouter';
-        }else{
-            return 'Ajouté';
+        if ($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0) {
+            return 'Ajouter à ma liste'; //false;
+        } else {
+            return 'Enlever de ma liste'; //true;
         }
     }
 
-    public function updateComment($post): string
+
+    public function updateComment($post)
     {
         $this->usermovie->setComment($post);
         $this->movieUserService->update($this->usermovie);
-
-        return $this->usermovie->getComment();
-
     }
 
-    public function editUserMovie($post, $idMovie = 0, $idUser = 0)
+    public function editUserMovie($post, $idMovie = 0, $idUser = 0, $comment = "")
     {
         // $fp = fopen('log.txt', 'w');
         // fwrite($fp, $this->usermovie->getId_movie() . ' uugrhuiu'.  $this->usermovie->getId_user());
@@ -119,17 +116,28 @@ class MovieInfoController
                 echo json_encode($response);
                 break;
             case 'addToList':
+                $movieInList = $this->movieUserService->findOne($idMovie, $idUser);
+                if ($this->usermovie->getId_movie() == 0 && $this->usermovie->getId_user() == 0) {
+                    $this->usermovie = new Movie_user([]);
+                    $this->usermovie->setId_movie($idMovie);
+                    $this->usermovie->setId_user($idUser);
+                    $this->movieUserService->insert($this->usermovie);
+                    $textBtn = 'Enlever de ma liste';
+                } else {
+                    // $fp = fopen('log.txt', 'w');
+                    // fwrite($fp, 'id usermovie '. $idMovie . PHP_EOL);
+                    // fwrite($fp, 'id user '. $$idUser .  PHP_EOL);
+                    // fclose($fp);
 
-                $this->usermovie = new Movie_user([]);
-                $this->usermovie->setId_movie($idMovie);
-                $this->usermovie->setId_user($idUser);
-                $this->movieUserService->insert($this->usermovie);
-                $textBtn = $this->isMovieInList();
+                    $this->movieUserService->delete($this->usermovie);
+                    $textBtn = 'Ajouter à ma liste'; //$idMovie . ' ' . $idUser;
+                }
+                $this->getInfoMovie($idUser, $idMovie);
                 $response = ['text' => $textBtn];
                 echo json_encode($response);
                 break;
-            case $post:
-                $this->updateComment($post);
+            case 'updateComment':
+                $this->updateComment($comment);
                 break;
             default:
                 break;

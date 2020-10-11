@@ -8,8 +8,8 @@ use PDOException;
 //classe static permettant de recuperer une connecion avec la base de données
 class Database {
 
-    private static $con;
 
+    private static $con;
     private function __contruct() {
 
     }

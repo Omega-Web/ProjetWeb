@@ -1,0 +1,134 @@
+// Utilities
+@import "../../Styles/variables";
+@import "../../Styles/footer";
+
+*,
+html {
+  color: $font-color;
+  font-family: "Roboto", sans-serif;
+  background-color: $background-color;
+  font-size: $font-size;
+  body {
+    background-color: $background-color;
+    header {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      margin: auto;
+
+      #div-logo {
+        text-align: center;
+
+        #logo {
+          width: $logo-width / 2;
+          height: $logo-height;
+          margin: 3vh auto 20vh auto;
+        }
+      }
+    }
+    main {
+      #grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-content: center;
+        align-items: center;
+        .element {
+          a {
+            text-decoration: none;
+            h1 {
+              margin: 0 50px;
+            }
+          }
+        }
+        #first {
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          grid-column: 3/4;
+        }
+        #second {
+          grid-column: 5/6;
+          display: flex;
+          justify-content: right;
+          margin: 0 5vw;
+
+          #logout-a {
+              margin: 0;
+            #logout {
+              width: $logout-width;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  *,
+html {
+  color: $font-color;
+  font-family: "Roboto", sans-serif;
+  background-color: $background-color;
+  font-size: $font-size;
+  body {
+    background-color: $background-color;
+    header {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      margin: auto;
+
+      #div-logo {
+        text-align: center;
+
+        #logo {
+          width: $logo-width*2;
+          height: $logo-height;
+          margin: 3vh auto 20vh auto;
+        }
+      }
+    }
+    main {
+      #grid {
+        display: flex;
+        flex-direction: column;
+        .element {
+          display: flex;
+          flex-direction: column;
+          a {
+            margin: 2vh;
+            text-decoration: none;
+            h1 {
+              margin: 0 50px;
+            }
+          }
+        }
+        #first {
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          grid-column: 3/4;
+        }
+        #second {
+          grid-column: 5/6;
+          display: flex;
+          justify-content: right;
+          margin: 0 5vw;
+
+          #logout-a {
+              margin: 0;
+            #logout {
+              width: $logout-width;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+}

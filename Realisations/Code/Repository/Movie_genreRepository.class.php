@@ -7,7 +7,7 @@ use PDOException;
 use Code\Provider\IMovie_genreProvider;
 use Code\Model\Movie_genre;
 
-class GenreRepository implements IMovie_genreProvider{
+class Movie_genreRepository implements IMovie_genreProvider{
 
 
     public function __construct(PDO $con)
@@ -41,7 +41,7 @@ class GenreRepository implements IMovie_genreProvider{
         } 
         $stt->closeCursor();
         return $Movie_genre;
-        
+
     }
 
     public function findAllByIdMovie($id_movie): array
@@ -56,7 +56,7 @@ class GenreRepository implements IMovie_genreProvider{
         } 
         $stt->closeCursor();
         return $Movie_genre;
-        
+
     }
 
     public function findOne($id_movie, $id_genre): Movie_genre
@@ -69,12 +69,12 @@ class GenreRepository implements IMovie_genreProvider{
         $Movie_genre= new Movie_genre($data); 
         $stt->closeCursor();
         return $Movie_genre;
-        
+
     }
 
-    
 
-    public function insert(Movie_genre $Movie_genre): bool
+
+    public function insert($Movie_genre): bool
     {
         try {
             $sql = 'INSERT INTO `movie_genre`(`fk_movie`, `fk_genre`) VALUES (:id_movie,:id_genre)';
@@ -92,7 +92,7 @@ class GenreRepository implements IMovie_genreProvider{
         }
     }
 
-    public function delete(Movie_genre $Movie_genre): bool
+    public function delete($Movie_genre): bool
     {
         try {
             $sql = 'DELETE FROM `movie_genre` WHERE fk_movie=:id_movie and fk_genre=:id_genre';
@@ -111,4 +111,20 @@ class GenreRepository implements IMovie_genreProvider{
     }
 
 
+    public function deleteByIdMovie($idMovie): bool
+    {
+        try {
+            $sql = 'DELETE FROM `movie_genre` WHERE fk_movie=:id_movie';
+            $stt = $this->con->prepare($sql);
+            $stt-> bindValue('id_movie',$idMovie, PDO::PARAM_INT);
+            $stt->execute();
+            $stt->closeCursor();
+
+            return true;
+
+        } catch (PDOException $e) {
+                die($e->getMessage());
+                return false;
+        }
+    }
 }

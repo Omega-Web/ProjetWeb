@@ -20,18 +20,21 @@ footer .wrapper li a {
   text-decoration: none;
 }
 
-*, html {
+*,
+html {
   color: #ffffff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #010f21;
   font-size: 1rem;
 }
 
-* body, html body {
+* body,
+html body {
   background-color: #010f21;
 }
 
-* body header, html body header {
+* body header,
+html body header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,7 +52,8 @@ footer .wrapper li a {
   margin: auto;
 }
 
-* body header div, html body header div {
+* body header div,
+html body header div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -61,15 +65,23 @@ footer .wrapper li a {
           align-items: center;
 }
 
-* body header div h1, html body header div h1 {
+* body header div h1,
+html body header div h1 {
   margin: 0 50px;
 }
 
-* body header nav, html body header nav {
+* body header div h1 a,
+html body header div h1 a {
+  text-decoration: none;
+}
+
+* body header nav,
+html body header nav {
   width: 60vw;
 }
 
-* body header nav ul, html body header nav ul {
+* body header nav ul,
+html body header nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,16 +92,19 @@ footer .wrapper li a {
           align-items: center;
 }
 
-* body header nav ul li, html body header nav ul li {
+* body header nav ul li,
+html body header nav ul li {
   list-style-type: none;
 }
 
-* body header nav ul li a, html body header nav ul li a {
+* body header nav ul li a,
+html body header nav ul li a {
   text-decoration: none;
   height: 50px;
 }
 
-* body header nav ul li a:hover, html body header nav ul li a:hover {
+* body header nav ul li a:hover,
+html body header nav ul li a:hover {
   border-bottom: #2869d1 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
@@ -98,7 +113,8 @@ footer .wrapper li a {
   height: 47px;
 }
 
-* body header nav ul li a:active, html body header nav ul li a:active {
+* body header nav ul li a:active,
+html body header nav ul li a:active {
   border-bottom: #d9b68b 4px solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
@@ -107,18 +123,879 @@ footer .wrapper li a {
   height: 47px;
 }
 
-* body #div-logout #logout, html body #div-logout #logout {
+* body #div-logout #logout,
+html body #div-logout #logout {
   width: 35px;
   margin: 0 5vw 0 0;
 }
 
-* main, html main {
+* main,
+html main {
+  padding: 5vh;
+}
+
+* main #user,
+html main #user {
+  margin-bottom: 5vh;
+}
+
+* main #user #delete-user-div,
+html main #user #delete-user-div {
+  width: 40vw;
+  padding: 2vh 3vw;
+  text-align: center;
+  margin: auto;
+  border-radius: 10px;
+  background: #010f21;
+  -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+          box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+}
+
+* main #movie,
+html main #movie {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "add_update add_update add_update add_update " ". delete delete .";
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  text-align: center;
+}
+
+* main #movie #add-update,
+html main #movie #add-update {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: add_update;
+  border-radius: 10px;
+  background: #010f21;
+  -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+          box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 4vh 3vw;
+}
+
+* main #movie #add-movie-div,
+html main #movie #add-movie-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+* main #movie #add-movie-div form,
+html main #movie #add-movie-div form {
+  width: 30vw;
+}
+
+* main #movie #add-movie-div form button,
+html main #movie #add-movie-div form button {
+  margin-top: 3vh;
+}
+
+* main #movie #add-movie-div form div,
+html main #movie #add-movie-div form div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 5vh;
+}
+
+* main #movie #update-movie-div,
+html main #movie #update-movie-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+* main #movie #update-movie-div form,
+html main #movie #update-movie-div form {
+  width: 30vw;
+}
+
+* main #movie #update-movie-div form input,
+html main #movie #update-movie-div form input {
+  width: 15vw;
+}
+
+* main #movie #update-movie-div form #update_idMovie,
+html main #movie #update-movie-div form #update_idMovie {
+  width: 15vw;
+}
+
+* main #movie #update-movie-div form button,
+html main #movie #update-movie-div form button {
+  margin-top: 3vh;
+}
+
+* main #movie #update-movie-div form div,
+html main #movie #update-movie-div form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+* main #movie #delete-movie-div,
+html main #movie #delete-movie-div {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: delete;
+  border-radius: 10px;
+  background: #010f21;
+  -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+          box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2vh 3vw;
+  margin-top: 5vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* main #movie #delete-movie-div form,
+html main #movie #delete-movie-div form {
+  margin: auto;
+  width: 30vw;
+}
+
+* main #movie #delete-movie-div form div,
+html main #movie #delete-movie-div form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+  *,
+  html {
+    font-size: 0.76923rem;
+  }
+  * body,
+  html body {
+    background-color: #010f21;
+  }
+  * body header,
+  html body header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+  }
+  * body header div,
+  html body header div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header div h1,
+  html body header div h1 {
+    margin: 0 50px;
+  }
+  * body header div h1 a,
+  html body header div h1 a {
+    text-decoration: none;
+  }
+  * body header nav,
+  html body header nav {
+    width: 60vw;
+  }
+  * body header nav ul,
+  html body header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header nav ul li,
+  html body header nav ul li {
+    list-style-type: none;
+  }
+  * body header nav ul li a,
+  html body header nav ul li a {
+    text-decoration: none;
+    height: 50px;
+  }
+  * body header nav ul li a:hover,
+  html body header nav ul li a:hover {
+    border-bottom: #2869d1 4px solid;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+  * body header nav ul li a:active,
+  html body header nav ul li a:active {
+    border-bottom: #d9b68b 4px solid;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+  * body #div-logout #logout,
+  html body #div-logout #logout {
+    width: 35px;
+    margin: 0 5vw 0 0;
+  }
+  * main,
+  html main {
+    padding: 5vh;
+  }
+  * main #user,
+  html main #user {
+    margin-bottom: 5vh;
+  }
+  * main #user #delete-user-div,
+  html main #user #delete-user-div {
+    width: 40vw;
+    padding: 2vh 3vw;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+    background: #010f21;
+    -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+            box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+  }
+  * main #movie,
+  html main #movie {
+    text-align: center;
+  }
+  * main #movie #add-update,
+  html main #movie #add-update {
+    border-radius: 10px;
+    background: #010f21;
+    -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+            box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 4vh 3vw;
+  }
+  * main #movie #add-movie-div,
+  html main #movie #add-movie-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  * main #movie #add-movie-div form,
+  html main #movie #add-movie-div form {
+    margin: auto;
+    width: 60vw;
+  }
+  * main #movie #add-movie-div form button,
+  html main #movie #add-movie-div form button {
+    margin-top: 3vh;
+  }
+  * main #movie #add-movie-div form div,
+  html main #movie #add-movie-div form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  * main #movie #update-movie-div,
+  html main #movie #update-movie-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  * main #movie #update-movie-div form,
+  html main #movie #update-movie-div form {
+    margin: auto;
+    width: 60vw;
+  }
+  * main #movie #update-movie-div form input,
+  html main #movie #update-movie-div form input {
+    width: 15vw;
+  }
+  * main #movie #update-movie-div form #update_idMovie,
+  html main #movie #update-movie-div form #update_idMovie {
+    width: 15vw;
+  }
+  * main #movie #update-movie-div form button,
+  html main #movie #update-movie-div form button {
+    margin-top: 3vh;
+  }
+  * main #movie #update-movie-div form div,
+  html main #movie #update-movie-div form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  * main #movie #delete-movie-div,
+  html main #movie #delete-movie-div {
+    border-radius: 10px;
+    background: #010f21;
+    -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+            box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 2vh 3vw;
+    margin-top: 5vh;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * main #movie #delete-movie-div form,
+  html main #movie #delete-movie-div form {
+    margin: auto;
+    width: 30vw;
+  }
+  * main #movie #delete-movie-div form div,
+  html main #movie #delete-movie-div form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px) {
+  *,
+  html {
+    font-size: 0.76923rem;
+  }
+  * body,
+  html body {
+    background-color: #010f21;
+  }
+  * body header,
+  html body header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+  }
+  * body header div,
+  html body header div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header div h1,
+  html body header div h1 {
+    margin: 0 50px;
+  }
+  * body header div h1 a,
+  html body header div h1 a {
+    text-decoration: none;
+  }
+  * body header nav,
+  html body header nav {
+    width: 60vw;
+  }
+  * body header nav ul,
+  html body header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header nav ul li,
+  html body header nav ul li {
+    list-style-type: none;
+  }
+  * body header nav ul li a,
+  html body header nav ul li a {
+    text-decoration: none;
+    height: 50px;
+  }
+  * body header nav ul li a:hover,
+  html body header nav ul li a:hover {
+    border-bottom: #2869d1 4px solid;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+  * body header nav ul li a:active,
+  html body header nav ul li a:active {
+    border-bottom: #d9b68b 4px solid;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+  * body #div-logout #logout,
+  html body #div-logout #logout {
+    width: 35px;
+    margin: 0 5vw 0 0;
+  }
+  * main,
+  html main {
+    padding: 5vh;
+  }
+  * main #user,
+  html main #user {
+    margin-bottom: 5vh;
+  }
+  * main #user #delete-user-div,
+  html main #user #delete-user-div {
+    width: 40vw;
+    padding: 2vh 3vw;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+    background: #010f21;
+    -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+            box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+  }
+  * main #movie,
+  html main #movie {
+    text-align: center;
+  }
+  * main #movie #add-update,
+  html main #movie #add-update {
+    border-radius: 10px;
+    background: #010f21;
+    -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+            box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 4vh 3vw;
+    width: 60vw;
+    margin: auto;
+  }
+  * main #movie #add-movie-div,
+  html main #movie #add-movie-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  * main #movie #add-movie-div form,
+  html main #movie #add-movie-div form {
+    margin: auto;
+    width: 40vw;
+  }
+  * main #movie #add-movie-div form button,
+  html main #movie #add-movie-div form button {
+    margin-top: 3vh;
+  }
+  * main #movie #add-movie-div form div,
+  html main #movie #add-movie-div form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  * main #movie #update-movie-div,
+  html main #movie #update-movie-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  * main #movie #update-movie-div form,
+  html main #movie #update-movie-div form {
+    margin: auto;
+    width: 40vw;
+  }
+  * main #movie #update-movie-div form input,
+  html main #movie #update-movie-div form input {
+    width: 15vw;
+  }
+  * main #movie #update-movie-div form #update_idMovie,
+  html main #movie #update-movie-div form #update_idMovie {
+    width: 15vw;
+  }
+  * main #movie #update-movie-div form button,
+  html main #movie #update-movie-div form button {
+    margin-top: 3vh;
+  }
+  * main #movie #update-movie-div form div,
+  html main #movie #update-movie-div form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  * main #movie #delete-movie-div,
+  html main #movie #delete-movie-div {
+    border-radius: 10px;
+    background: #010f21;
+    -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+            box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 2vh 3vw;
+    margin-top: 5vh;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * main #movie #delete-movie-div form,
+  html main #movie #delete-movie-div form {
+    margin: auto;
+    width: 30vw;
+  }
+  * main #movie #delete-movie-div form div,
+  html main #movie #delete-movie-div form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  *,
+  html {
+    font-size: 1rem;
+  }
+  * body,
+  html body {
+    background-color: #010f21;
+  }
+  * body header,
+  html body header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+  }
+  * body header div,
+  html body header div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header div h1,
+  html body header div h1 {
+    margin: 0 50px;
+  }
+  * body header div h1 a,
+  html body header div h1 a {
+    text-decoration: none;
+  }
+  * body header nav,
+  html body header nav {
+    width: 60vw;
+  }
+  * body header nav ul,
+  html body header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * body header nav ul li,
+  html body header nav ul li {
+    list-style-type: none;
+  }
+  * body header nav ul li a,
+  html body header nav ul li a {
+    text-decoration: none;
+    height: 50px;
+  }
+  * body header nav ul li a:hover,
+  html body header nav ul li a:hover {
+    border-bottom: #2869d1 4px solid;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+  * body header nav ul li a:active,
+  html body header nav ul li a:active {
+    border-bottom: #d9b68b 4px solid;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-bottom: 10px;
+    height: 47px;
+  }
+  * body #div-logout #logout,
+  html body #div-logout #logout {
+    width: 35px;
+    margin: 0 5vw 0 0;
+  }
+  * main,
+  html main {
+    padding: 5vh;
+  }
+  * main #user,
+  html main #user {
+    margin-bottom: 5vh;
+  }
+  * main #user #delete-user-div,
+  html main #user #delete-user-div {
+    width: 40vw;
+    padding: 2vh 3vw;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+    background: #010f21;
+    -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+            box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+  }
+  * main #movie,
+  html main #movie {
+    text-align: center;
+  }
+  * main #movie #add-update,
+  html main #movie #add-update {
+    border-radius: 10px;
+    background: #010f21;
+    -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+            box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 4vh 3vw;
+    width: 80vw;
+    margin: auto;
+  }
+  * main #movie #add-movie-div,
+  html main #movie #add-movie-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  * main #movie #add-movie-div form,
+  html main #movie #add-movie-div form {
+    margin: auto;
+    width: 50vw;
+  }
+  * main #movie #add-movie-div form button,
+  html main #movie #add-movie-div form button {
+    margin-top: 3vh;
+  }
+  * main #movie #add-movie-div form div,
+  html main #movie #add-movie-div form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  * main #movie #update-movie-div,
+  html main #movie #update-movie-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  * main #movie #update-movie-div form,
+  html main #movie #update-movie-div form {
+    margin: auto;
+    width: 50vw;
+  }
+  * main #movie #update-movie-div form input,
+  html main #movie #update-movie-div form input {
+    width: 15vw;
+  }
+  * main #movie #update-movie-div form #update_idMovie,
+  html main #movie #update-movie-div form #update_idMovie {
+    width: 15vw;
+  }
+  * main #movie #update-movie-div form button,
+  html main #movie #update-movie-div form button {
+    margin-top: 3vh;
+  }
+  * main #movie #update-movie-div form div,
+  html main #movie #update-movie-div form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  * main #movie #delete-movie-div,
+  html main #movie #delete-movie-div {
+    border-radius: 10px;
+    background: #010f21;
+    -webkit-box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+            box-shadow: 5px 5px 10px #000710, -5px -5px 10px #021732;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 2vh 3vw;
+    margin-top: 5vh;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  * main #movie #delete-movie-div form,
+  html main #movie #delete-movie-div form {
+    margin: auto;
+    width: 30vw;
+  }
+  * main #movie #delete-movie-div form div,
+  html main #movie #delete-movie-div form div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 /*# sourceMappingURL=Admin.css.map */

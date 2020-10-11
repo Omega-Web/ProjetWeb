@@ -11,9 +11,9 @@ interface IStaffProvider {
 
     public function findAllByName(string $name):array;
     
-    public function updateStaff(Staff $newStaff): bool;
+    public function update(Staff $newStaff): bool;
 
-    public function insertStaff(Staff $newStaff): bool;
+    public function insert(Staff $newStaff): bool;
 
-    public function deleteStaff(Staff $Staff): bool;
+    public function delete(Staff $Staff): bool;
 }
