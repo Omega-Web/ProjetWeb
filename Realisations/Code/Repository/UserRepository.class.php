@@ -106,7 +106,9 @@ class UserRepository implements IUserProvider {
     public function sendMailConfirmation(string $firstname,string $email):bool
     {
         $subject = "Confirmation d'inscription";
-        $message = "Bonjour ".$firstname.", \n Bienvenue sur Videomega !"; 
+        $message = "Bonjour ".$firstname.", \n Bienvenue sur Videomega ! \n\n Toute l'équipe te souhaite la bienvenue sur ta vidéothèque préférée. 
+                    \n Tu as la possibilité de découvrir une multitude de films, de les ajouter à ta liste personnel et de valider ce que tu as déjà vu. \n\n\n
+                    L'equipe Videomega"; 
         try {
             mail($email,$subject,$message);
         } catch(PDOException $e) {

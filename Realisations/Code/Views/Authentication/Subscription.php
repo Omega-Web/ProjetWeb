@@ -30,6 +30,7 @@ if (
 
     $controller->createUser($tabUser);
     $controller->sendMail($tabUser['firstname'],$tabUser['email']);
+
     header('Location: ../Authentication/Connection.php');
 } else {
 ?>
