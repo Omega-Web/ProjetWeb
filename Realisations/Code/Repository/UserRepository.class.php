@@ -103,13 +103,5 @@ class UserRepository implements IUserProvider {
         return true;
     }
     
-    public function sendMailConfirmation(string $firstname,string $email):bool
-    {
-        $headers = 'From : videomega@gmail.com';
-        $subject = "Confirmation d'inscription";
-        $message = "Bonjour ".$firstname.",\n\nBienvenue sur Videomega ! \n\n Toute l'équipe te souhaite la bienvenue sur ta vidéothèque préférée.\n 
-                    Tu as la possibilité de découvrir une multitude de films, de les ajouter à ta liste personnelle et de valider ce que tu as déjà vu.\n\n\n
-                    L'équipe Videomega"; 
-        return mail($email,$subject,$message,$headers);  
-    }
+    
 }

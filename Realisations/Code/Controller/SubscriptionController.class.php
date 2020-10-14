@@ -7,6 +7,7 @@ use Code\Repository\UserRepository;
 use Code\Infrastructure\Database;
 use Code\Repository\Movie_userRepository;
 use Code\Service\UserService;
+use Code\Service\MailService;
 
 
 
@@ -28,6 +29,6 @@ class SubscriptionController
     }
     public function sendMail($firstname,$email)
     {
-        $this->userService->sendMailConfirm($firstname,$email);
+        $this->mailService->mailConfirm($firstname,$email);
     }
 }
