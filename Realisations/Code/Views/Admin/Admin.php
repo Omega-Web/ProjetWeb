@@ -48,8 +48,8 @@ $movies = $controller->getMovies();
             <div id="delete-user-div">
                 <h1 id="delete-user-title">Supprimer un utilisateur</h1>
                 <form method="post">
-                    <label for="id-username">Identifiant / Username :</label>
-                    <input type="text" name="id_username" id="id_username" placeholder="Id/Username">
+                    <label for="id-username">Identifiant :</label>
+                    <input type="text" name="id_username" id="id_username" placeholder="Id Utilisateur">
                     <button type="submit" id="submit_delete_user">Supprimer</button>
                 </form>
             </div>

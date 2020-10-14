@@ -1,6 +1,7 @@
 <?php   
-session_start(); //to ensure you are using same session
-session_destroy(); //destroy the session
-header("Location: Connection.php"); //to redirect back to "index.php" after logging out
+session_start(); //Récupérer la session actuelle
+session_unset(); //Vide les données de la session actuelle
+session_destroy(); //Détruit la session actuelle
+header("Location: Connection.php"); //Redirige vers "index.php" 
 exit();
 ?>
