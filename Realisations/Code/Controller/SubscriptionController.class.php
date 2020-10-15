@@ -14,6 +14,7 @@ use Code\Service\MailService;
 class SubscriptionController
 {
     private $userService;
+    private $mailService;
 
     public function __construct()
     {
@@ -21,6 +22,7 @@ class SubscriptionController
         $userMovieRepo = new Movie_userRepository(Database::get());
 
         $this->userService = new UserService($userRepo,$userMovieRepo);
+        $this->mailService = new MailService();
     }
 
     public function createUser($tabUser)
